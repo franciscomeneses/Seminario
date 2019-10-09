@@ -19,4 +19,13 @@ De formato:
 - habilitar github page para poder ver de una vez en línea con resultados
 - ajuste de carpetas tipo proyecto con path relativos por temas de reproducibilidad
 
+Bibliografia 
+https://press.princeton.edu/books/hardcover/9780691154848/the-unheavenly-chorus cap 7 nancy ber
+
+unequal at  the starting  -> desigualdad politica. 
+
+parrafo1. importanica
+parrafo2. desigualdad politica -> texto recomendado
+parrafo3. justificacion teorica, se ha dicho que. cultural. 
+
 
