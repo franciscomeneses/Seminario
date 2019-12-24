@@ -151,7 +151,7 @@ Hasta este punto, cabe la duda de si todo este efecto de la comprensión lectora
 
 A partir de la tabla número dos podemos decir que el efecto del lenguaje se mantiene independiente del centrado. Además, el centrar las variables no vuelve significativas al 99% las variables de origen socioeconómico que pierden su peso al incorporarse el lenguaje, lo que nos indica que efectivamente el manejo individual del lenguaje es lo que produce el efecto señalado. 
 
-Conclusiones preliminares
+# Conclusiones preliminares
 
 Este trabajo abordo cuales son los mecanismos por los cuales se produce la reproducción intergeneracional de la desigualdad política. Al respecto se manejaban dos hipótesis, la primera alude a que la socialización en familias con recursos implica una mayor proximidad a discusiones y valores democráticos. La segunda, fue que tener una posición económica aventajada se relaciona con acceder a buena educación y ser socializado con un lenguaje complejo y por ello, implica un mejor manejo del lenguaje que facilita la asimilación del conocimiento cívico.
 
