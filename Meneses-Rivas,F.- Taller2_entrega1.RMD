@@ -1,6 +1,6 @@
 ---
-title: "El rendimiento acad?mico, una explicaci?n alternativa a la desigualdad social en el conocimiento c?vico."
-subtitle: "Primer avance: Taller de investigaci?n II"
+title: "El manejo del lenguaje: un elemento fundamental contra la reproduccion social de la desigualdad economica." 
+subtitle: "Segundo avance Taller de investigación II"
 author: "Francisco Meneses-Rivas"
 date: "22 de septiembre de 2019"
 output: 
@@ -11,354 +11,161 @@ output:
      toc_float: true
      toc_depth: 2
      number_sections: False
+     
 ---
 
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-
-#Introduccion 
-
 <div style="text-align: justify">
-El conocimiento c?vico y ciudadano (i.e. habilidades y conocimientos necesarios para la vida ciudadana) es actualmente promovido por diversos agentes a nivel acad?mico, estatal e internacional. Este conocimiento es sumamente relevante si se considera sus efectos positivos sobre la intenci?n de participaci?n, en un contexto de apat?a pol?tica y baja participaci?n de estratos bajos y j?venes (Janmaat, 2013; Contreras & Navia, 2010; Browne & Elming, 2015; Miranda, Castillo & Sandoval-Hern?ndez, 2015). Igualmente, en el contexto de los nuevos movimientos sociales que buscan reivindicar los derechos de distintos grupos tradicionalmente discriminados, el conocimiento c?vico ha demostrado estar relacionado con el respeto a los derechos humanos de estos grupos (Miranda, Castillo & Cumsille, 2018; Caro, Schulz, 2012). Tambi?n, el tener m?s conocimiento c?vico se relaciona con estar en desacuerdo con la corrupci?n y con la valoraci?n positiva de la democracia como sistema representativo, lo cual, seg?n Hastedt (2016), es fundamental en un contexto de resurgimiento de los gobiernos autoritarios. En suma, el conocimiento c?vico puede ayudar a las personas a incorporar los principios democr?ticos de los derechos humanos y, por ello, debe buscarse las maneras de fomentarlo y hacer m?s ?tiles las pol?ticas que buscan incorporarlo como ramo dentro de la educaci?n secundaria.<div/>
+# Introducción.
 
-<div style="text-align: justify">
-Las investigaciones actuales han propuesto que el conocimiento c?vico es especialmente influido por variables de origen socioecon?mico (Agencia de Calidad de la Educacion, 2017; Schulz, 2011; Castillo, Miranda, Bonhmme, Cox & Bascop?, 2015; Diazgranados & Sandoval-Hern?ndez, 2017; Trevi?o, B?jares, Villalobos & Naranjo, 2017), dando cuenta de lo que se denominara desde este punto, la "Desigualdad social del conocimiento c?vico", sin embargo, no han controlado dicho efecto en funci?n de las capacidades acad?micas, lo cual puede generar errores de sobrestimaci?n del efecto. Proponer el origen socioecon?mico como factor fundamental para explicar el conocimiento c?vico, podr?a llevar a pensar en alguna medida, que este es transmisible de manera intergeneracional a trav?s de la socializaci?n familiar. Explicarlo de dicho modo seria ignorar que al igual que otras materias, el conocimiento c?vico es un conjunto de conocimientos y habilidades que se adquieren a partir de procesos cognitivos de aprendizaje escolar, y que dependen por ello, del desarrollo cognitivo anterior del estudiante y de motivaci?n por la asignatura para ser incorporado. Podr?a discutirse a lo anterior, que bien los padres pueden ense?ar conocimientos del sistema pol?tico a sus hijos, pero para probar esta idea, ser?a necesario controlar por el desempe?o acad?mico de los estudiantes, cara no confundir la transmisi?n de conocimientos con transmisi?n de habilidades acad?micas. A?n m?s, en funci?n de esta reflexi?n, puede criticarse que parte de la relaci?n entre conocimiento c?vico y origen socioecon?mico es espuria y se debe m?s bien a la influencia del origen socioecon?mico en el rendimiento acad?mico.  Esta propuesta no niega en ni un sentido que existe la desigualdad social del conocimiento c?vico, sino que m?s bien, propone que esta se explica, por la influencia del nivel socioecon?mico en el rendimiento acad?mico y en el inter?s sobre las materias pol?ticas y sociales.<div/>
+La democracia chilena posee problemas de legitimidad que son claramente visibles en estos días de estallido social. Parte de lesa deslegitimidad se relaciona con la falta de participación de los distintos grupos sociales en la política, lo que deviene en una desigual representaciones de las necesidades y demandas de la población. Más aún, podemos hablar de una transmisión intergeneracional de la desigualdad política, es decir que quienes poseen más recursos poseen además ventajas políticas que transmiten a sus hijos. Esta tesis, que posee como horizonte normativo mejorar la 
+ desigual participación democrática, propone que lo que explica dicha reproducción es, en alguna medida, la distribución desigual del manejo del lenguaje y que este es también una de las soluciones necesarias para mejorar el problema.
 
-<div style="text-align: justify">
-Se hipotetiza que el _rendimiento acad?mico_ explica la relaci?n entre el _origen socieconomico_ y el _conocimiento c?vico_, en consideraci?n de tres argumentos.<div/>
+Al respecto internacionalmente se ha desarrollado una encuesta para producir información sobre las habilidades y conocimientos cívicos y ciudadanos de los estudiantes, con muestras que permiten hablar  de manera representativa de los colegios de cada país.  La información producida a partir de esta encuesta señala la existencia de un sesgo socioeconómico en la distribución del conocimiento cívico, así como una mayor disposición a participar de los grupos acomodados (Miranda, 2018, Agencia de Calidad de la Educación, 2017; Schulz, 2011; Castillo, Miranda, Bonhmme, Cox & Bascopé, 2015; Diazgranados & Sandoval-Hernández, 2017; Treviño, Béjares, Villalobos & Naranjo, 2017). Frente a estas evaluaciones reproduccionistas, algunos autores han destacado el papel que juegan variables del aula como lo son un contexto de valores democráticos,  la apertura a la discusión y participación (Duek, 2010; Schulz, Ainley, Fraillon, Kerr & Losito, 2010). Si bien estos aportes en la línea de la socialización son fundamentales, también es importante reconocer que el poseer padres con mejor educación y mayores recursos, también influye  en términos cognitivos, dado que existe alguna transmisión mediante la socialización primaria. Por ello, no controlar por las habilidades y destrezas académicas de los estudiantes es un error que podría llevar a subestimar el efecto de la transmisión intergeneracional de valores y actitudes hacia la participación. En suma, consideramos fundamental controlar el efecto del estatus socioeconómico de la familia y del ambiente cultural de la escuela en el conocimiento cívico, por las habilidades de comprensión lectora que conllevan la capacidad de entender enunciados y analizar discursos. Así, y siguiendo la importancia de dichas habilidades, planteamos la posibilidad de que personas de escasos recursos con buenas habilidades lectores logren  buenos niveles de conocimiento cívico.  
 
-<div style="text-align: justify">
-En primer lugar, puede suponerse que existe una relaci?n entre el conocimiento c?vico y el rendimiento acad?mico, dado que ambas variables son afectadas por el estatus y el capital cultural de los padres de manera coherente. Desde los planteamientos de la l?nea de la reproducci?n cultural (Bonal, 1998) de Bourdieu, Passeron y de Bernstein, se plantea que los personas que son hijos de sectores m?s acomodados y con m?s recursos educativos, tendr?n m?s ventajas en el sistema educativo, ya sea porque incorporan pautas de lenguaje m?s complejas, como plantea Bernstein (1977), o porque poseer?n mayor inter?s por el aprendizaje, mejores capacidades y mayor concordancia de h?bitos con el colegio (Bourdieu, 1979; Vargas-Salfate, Oyanedel & Torres-Vallejos, 2014; Dukuen, 2015). En coherencia con estos planteamientos y m?s contextualizado al caso chileno, Dante Contreras (2012), investigador principal del proyecto FONIDE N?: FE11139, concluye que el capital cultural de los padres, puntualmente el capital objetivado y el incorporado, poseen un efecto positivo sobre los resultados de los alumnos chilenos en la prueba PISA.  Por su parte, y como ya se ha se?alado, el conocimiento c?vico es influenciado por las mismas variables, como la cantidad de libros que se posee en el hogar. En funci?n de que tanto el conocimiento c?vico como el rendimiento acad?mico son influidos por el capital cultural, es posible hipotetizar que existe una relaci?n entre ambas variables. <div/>
+En suma, las preguntas de investigación  que guían esta tesis son las siguientes: 
 
+	1. ¿En qué medida manejo del lenguaje explica la relación entre conocimiento cívico y nivel socioeconómico?
+	2. ¿Es capaz la comprensión de resolver la desigualdad  social del conocimiento cívicos? 
 
+# Desarrollo
 
+## Los problemas de la democracia y la esperanza en la educación. 
 
-<div style="text-align: justify">
-En segundo lugar, es posible hipotetizar una relaci?n entre rendimiento acad?mico y conocimiento c?vico ya que ambos requieren un conjunto de habilidades y destrezas semejantes (i.e. conocimientos, aplicaci?n y razonamiento). Seg?n el informe de la Agencia de la Calidad de la Educaci?n del MINEDUC (2016) el conocimiento c?vico mide dos dominios cognitivos, los conocimientos y el razonamiento-an?lisis (Schulz, Ainley, Fraillon, Losito y Agrusti, 2016), mientras que los conocimientos requieren primero el acceso a la informaci?n y segundo la capacidad de memorizar. Por su parte la prueba SIMCE eval?a los contenidos relativos a las Bases Curriculares (Mineduc, 2015), seg?n las cuales se establecen tres habilidades a evaluar dentro de la prueba de lenguaje en las pruebas de Lenguaje, Matem?ticas y Ciencias, los cuales son Conocimientos, Aplicaci?n y Razonamiento. Si bien son tres habilidades en ves de dos, como en el caso de la prueba del conocimiento c?vico, si se mira con detalle a que refiere "razonamiento y an?lisis" podemos dar cuenta de que involucra la Aplicaci?n de los conocimientos c?vicos a situaciones m?s amplias, as? como el razonamiento para evaluar propuestas de soluciones, dando cuenta de que se encuentran presentes las dimensiones de aplicaci?n y razonamiento en la prueba de la ICCS. Cabe agregar, que las tres pruebas de SIMCE exigen ser capaz de analizar informaci?n para generar deducciones u opiniones justificadas. Incluso Jos? Valenzuela (2015) en su tesis magistral plantea y genera evidencia en torno a la existencia de una variable latente anterior a estas tres pruebas SIMCE, justificando dicho resultado en base a que las tres requieren habilidades semejantes basadas en el an?lisis de informaci?n. En suma, podemos ver que ambas pruebas, tanto la prueba SIMCE como la ICCS eval?an las habilidades de recordar conocimientos, aplicarlos y reflexionar. <div/>
+La democracia chilena, como muchas otras, posee varios defectos, de los cuales nos concentramos en dos. Primero, es una democracia que posee una baja participación, lo cual socava y pone en riesgo la validez del sistema democrático (Janmaat, 2013; Contreras & Navia, 2010; Browne & Elming, 2015; Miranda, Castillo & Sandoval-Hernández, 2015). Segundo, es una democracia que está sesgada socioeconómicamente, teniendo mayor participación grupos más acomodados, y siendo excluidos grupos desfavorecidos, según informan los resultados dela encuesta longitudinal ELSOC (Bargsted, Somma, Joigted, Campos  & Joignant, 2017).
 
+Esta falta de participación de los estratos bajos, es reforzada por la existencia de una transmisión intergeneracional de la desigualdad política. A nivel internacional, existen múltiples evidencias que señalan la existencia de de dicha transmisión (Miranda, 2017, Amnå et al., 2009; Brady et al., 2015; Quintelier & Hooghe, 2013; Wasburn & Covert, 2017;Castillo, Miranda, Bonhomme, Cox, & Bascopé, 2014; Schlozman et al., 2012; Sidney Verba et al., 2003). Al respecto,  Daniel Miranda (2018) destaca el papel que juega la transmisión del conocimiento cívico a nivel intergeneracional. 
 
-<div style="text-align: justify">
-En tercer lugar, centr?ndonos en la comprensi?n lectora dentro del rendimiento acad?mico, puede argumentarse que esta, como expresi?n del manejo del lenguaje, es fundamental en el proceso de incorporaci?n del mundo pol?tico (Nie, Junn, Stehlik-Barry 1996; ?lvarez, 2003), por lo cual se espera que haya una relaci?n especialmente fuerte entre el resultado de la prueba de lenguaje y la prueba de conocimiento c?vico.<div/>
+En torno a dicha transmisión cabe la pregunta  ¿de qué manera se transmite ese conocimiento cívico? Al respecto la teoría señala, que el mayor tiempo disponible de los hogares acomodados, junto a un mayor conocimiento de temas políticos, les permite socializar a sus hijos en ambientes de discusión, que fomentan el interés y la participación política (Gimpel, Lay, & Schuknecht, 2003; Brady et al., 2015; McDevitt & Chaffee, 2002; Sidney Verba et al., 2003; Wasburn & Covert, 2017). Dicho de este modo, podríamos decir que la transmisión social de la desigualdad política es un tema de intereses, o como planteó Bourdieu, un tema de habitus (1979). Si bien estos son aportes fundamentales, es importante destacar que consideran de manera parcial el efecto de  distribución desigual de habilidades académicas como la lectura.
 
-<div style="text-align: justify">
-Por su parte, es razonable hipotetizar que el inter?s por la pol?tica y las tem?ticas sociales puede explicar la relaci?n entre conocimiento c?vico y capital cultural de los padres, si se considera, primero, que el capital de los padres tiene un efecto sobre el inter?s por la pol?tica y participaci?n (Kriger y Dukuen 2012), y segundo que el inter?s y la motivaci?n son fundamentales en el proceso de aprendizaje en distintas ?reas (Carrillo, Padilla, Rosero y Villag?mez, 2009; Lozano, Garc?a-Cueto y Gallo, 2000; Mateos, Bejarano, Ezquerro y L?pez-Fern?ndez, s.f.). Adem?s, seg?n lo se?alado por Schulz (2016), los espacios para discusiones sobre temas pol?ticos y sociales tienen una capacidad predictiva sobre el conocimiento c?vico de los estudiantes. En relaci?n a lo que plantea el autor y considerando la importancia de la motivaci?n por la materia en el aprendizaje, puede pensarse que parte del efecto de estos espacios de discusi?n es que motivan a los estudiantes sobre la materia, lo cual cobra sentido si se considera que las clases participativas de aprendizaje cooperativo tienen un efecto sobre la motivaci?n de los estudiantes (M?ndez, 2015).
-<div/>
+En consideración de todos estos problemas de participación, el Estado Chileno ha decidido incorporar como una asignatura la materia de Educación Cívica, a la vez que se incorporan objetivos democráticos que deben ser promovidos durante toda la enseñanza escolar (Mineduc, 2016). Así, esta modificación a la ley N° 20.911, que crea el plan de formación ciudadana, tiene como objetivo general: 
 
-En suma, el objetivo de este trabajo puede ser expresado en la siguiente pregunta
-
-* ¿En qu? medida el rendimiento acad?mico y el inter?s pol?tico son capaces de explicar la desigualdad social del conocimiento c?vico seg?n? 
-
-## Conceptos
+>“la preparación necesaria para asumir una vida responsable en una sociedad libre y de orientación hacia el mejoramiento integral de la persona humana, como fundamento del sistema democrático, la justicia social y el progreso” con “formación de ciudadanos, con valores y conocimientos para fomentar el desarrollo del país, con una visión del mundo centrada en el ser humano, como parte de un entorno natural y social”. 
 
 
-<div style="text-align: justify">
-Conocimiento c?vico y ciudadano, es entendido como conjunto de saberes y habilidades que son necesarios para la vida en ciudadan?a (ICCS, 2016). En t?rminos de habilidades el conocimiento c?vico requiere de la habilidad de reflexionar a partir de informaci?n y conceptos, as? como de poder tener una opini?n cr?tica y poder evaluar propuestas. En t?rminos de contenidos, los saberes propios de este constructo se definen en la tabla 1. La bibliograf?a ha se?alado hasta ahora que el conocimiento c?nico es influenciado por variables socioecon?micas. Se ha demostrado igualmente que este efecto es m?s producido por la educaci?n y el n?mero de Libros en el lugar que por la ocupaci?n, dando luces respecto al car?cter cultural del fen?meno (e.g. Castillo, Miranda, Bonhomme, Cox & Bascop?, 2014). Por otro lado, otros autores han explorado el efecto de variables de la escuela sobre el conocimiento cinco a partir de las cuales se puede decir que un clima m?s abierto a la discusi?n y una cultura participativa a nivel escuela son propicios para el conocimiento c?vico (Schulz, 2016). Estas son variables fundamentales que seran invluidas en trabajos posteriores.
-<div/>
+Además de este objetivo fundamental promovido por el Estado, la Educación Cívica posee los siguientes objetivos: 
+
+1. Promover la comprensión y análisis del concepto de ciudadanía y los derechos y deberes asociados a ella en una sociedad democrática.
+
+2. Fomentar en los estudiantes el ejercicio de una ciudadanía crítica, responsable, respetuosa, abierta y creativa.
+
+3. Promover el conocimiento, comprensión y análisis del Estado de Derecho y de la institucionalidad local, regional y nacional.
+
+4. Promover el conocimiento, comprensión y compromiso de los estudiantes con los derechos humanos, con especial énfasis en los derechos del niño.
+
+5. Fomentar en los estudiantes la valoración de la diversidad social y cultural del país.
+
+6. Fomentar la participación de los estudiantes en temas de interés público.
+
+7. Garantizar el desarrollo de una cultura democrática y ética en la escuela.
 
 
-<div style="text-align: justify">
-Por desigualdad social del conocimiento c?vico este art?culo se refiere a la relaci?n positiva que existente entre el conocimiento c?vico reci?n definido y el origen socioecon?mico. Por origen socioecon?mico, se entiende la relaci?n entre el estatus ocupacional, el nivel educativo alcanzado, y la cantidad de libros en el hogar (ICCS, 2016; Mineduc, 2016). Esta variable es bastante semejante al estatus socioecon?mico (SES), solo que la variable origen socioecon?mico de la ICCS, no incorpora los ingresos, como usualmente lo hace el SES (Burgard y Stewart, 2003) e incorpora adem?s la cantidad de libros.  El que no se incorporen los ingresos es sopesado por incorporar ocupaci?n, que es un mejor indicador de ingresos a largo plazo que la informaci?n de ingresos recopilada en cualquier momento dado, porque a corto plazo, los ingresos pueden ser bastante vol?tiles (Williams y Collins 1995).
-<div/>
+8. Fomentar una cultura de la transparencia y la probidad.
 
-<div style="text-align: justify">
-Siguiendo con la desigualdad social del conocimiento c?vico, se podria afirmar, que esta es parte de un proceso m?s amplio de desigualdad sociocultural de la pol?tica, sobre la cual Bryony Hoskinsa, Jan Germen Janmaat, Christine Han y Daniel Muijs (2016) realizan muy buenas observaciones. A partir de datos mixtos, en distintos pa?ses de Europa, los autores dan cuenta como un menor nivel socioecon?mico se relaciona con un peor desempe?o acad?mico, lo que lleva a las personas a tener una autoevaluaci?n general deficientes de si mismos, y por ello, una baja autoeficacia pol?tica, la cual se relaciona igualmente con baja intenci?n de voto. Podr?a decirse que esta investigaci?n sigue una l?gica semejante a la de los autores, agregando a la baja autoeficacia, las dificultades que implica tener una baja capacidad de aprendizaje y mal desarrollo de habilidades en la incorporaci?n de conocimientos y destrezas necesarias para la vida c?vica y ciudadana. 
-<div/>
-
-<div style="text-align: justify">
-El rendimiento acad?mico ser? considerado como medida de las capacidades del alumno, que expresa lo que ?ste ha aprendido a lo largo del proceso formativo"(EcuRed, 2019). Para trabajar con esta variable se utilizar? la prueba SIMCE, la cual, justamente busca medir los logros de aprendizaje de los estudiantes chilenos (Mineduc, 2019). Seg?n Barahona (2014) Existe un consenso en que los factores asociados al desempe?o acad?mico pueden tener su origen en dos grandes ?mbitos: en los determinantes personales y en los determinantes sociales, aunque este consenso puede ser interpelado por Lara,  Mizala & Repetto,  2010, quienes demustran el efecto que pueden tener las practicas docentes, sugiriendo, entre otras cosas, que discutir la materia en clases es positivo para el rendimiento, resultados coherentes con los resultados presentados por Schulz (2016), seg?n quien, en 17 pa?ses un clima abierto a la discusi?n en el aula es un buen predictor de rendimiento en conocimiento c?vico.  Ahora bien, si se reconsidera lo planteado por M?ndez (2015), quien da cuenta de que metodolog?as participativas generan un efecto positivo en la motivaci?n por la asignatura y que el inter?s por la misma es fundamental en el aprendizaje (Carrillo, Padilla, Rosero y Villag?mez, 2009; Lozano, Garc?a-Cueto y Gallo, 2000; Mateos, Bejarano, Ezquerro y L?pez-Fern?ndez, s.f.), podemos pensar que parte del efecto del clima participativo pasa por el inter?s de los estudiantes sobre temas de pol?tica y sociedad. Para este trabajo incluiremos solo el inter?s por la pol?tica.  <div/>
-
-# Datos, variables y metodolog?a. 
-
-<div style="text-align: justify">
-Para trabajar esta propuesta se utiliz? la base de datos internacional ICCS 2016, la cual fue cruzada con los resultados de la prueba SIMCE nacional chilena. Se obtuvo un total de 4371 casos, si se eliminan los perdidos de todas las variables utilizadas. Las variables que se utilizaron fueron el conocimiento c?vico, en su primera estimaci?n (PV1CIV), el origen socioecon?mico nacional estandarizado (S_NISB), el inter?s pol?tico del estudiante y de los padres (S_SINT, S_HINT). Adem?s, se utiliz? el promedio en las pruebas de lenguaje, matem?ticas y ciencia, para representar el rendimiento acad?mico, mientras que la variable de inter?s pol?tico es dicotomizada para ser utilizada en las regresiones.<div/>
-
-* conocimiento c?vico (PV1CIV)
-* el origen socioecon?mico nacional estandarizado (S_NISB) basado en:
-      + cantidad de libros en la casa (S_HOMLIT) 
-      + Mayor nivel educativo entre los padres (S_HISCED)
-      + Mayor estatus ocupacional entre los padres (S_HISEI)
-* Rendimiendimeinto academico, equivalente al promedio de
-     + SIMCE Lenguaje
-     + SIMCE Matematicas
-     + SIMCE Ciencias Naturales
-* interes politico del estudiante (S_SINT) y ademas, 
-    + Mayor interes politico entre los padres (S_HINT)
-    
-
-<div style="text-align: justify">
-En t?rminos metodol?gicos este articulo utiliza primero regresiones lineales m?ltiples con la intenci?n de evaluar todos los supuestos posibles de validez, luego se realiza path an?lisis, para graficar las relaciones, evaluar el ajuste del modelo y calcular el porcentaje del efecto del origen socioecon?mico sobre le conocimiento c?vico que corresponde al rendimiento acad?mico.<div/>
-
-```{r, echo=F}
-pacman::p_load(lme4,psych,
-               semPlot,
-               haven,
-               stargazer,
-               ggplot2, # gr?ficos
-               dplyr, # manipulacion de datos
-               texreg, broom, car, lmtest, multiwayvcov, tidyverse, lavaan)
-
-```
-
-```{r}
-iccssimce <- read_dta( file= "data/iccs_simce.dta")
-#View(iccssimce[1,])
-
-data <- iccssimce %>% select("p.leng"=ptje_lect8b_alu, "p.mat"=ptje_mate8b_alu, "p.nat"=ptje_nat8b_alu, "p.civ"=PV1CIV, "Or.socec"=S_NISB, "int_pol_es"=S_SINT, "ip_padres"=S_HINT) %>% as.data.frame()
-
-data<-na.omit(data)
-
-data$ra<- (data$p.leng + data$p.mat + data$p.nat)/3
-data$IPE_DIC<-ifelse(data$int_pol_es>2,1,0)
+9. Fomentar en los estudiantes la tolerancia y el pluralismo.
 
 
-```
+Así como puede verse la ley posee la esperanza de influir en este problema mediante la educación. Ivica. Se ha decidido que el colegio es un espacio apto para resolver parte del problema y avanzar a una cultura más democrática. No obstante, pese a las advertencias de la evidencia, no se señalan mayores alusiones a la desigualdad de capacidades e intereses políticos que existen a nivel socioeconómico. Esta omisión en la formulación podría derivar en problemas de la implementación de la política. Es por ello que estudiar en las condiciones en las cuales se realizará la política nos permite evaluar qué problemas podría afrontar. Dentro de esas dificultades la denominada reproducción de la desigualdad política debe ser prioritariamente estudiada, para evaluar mediante qué mecanismos opera. 
 
-#Descriptivos y Bivariados 
 
-## tabla 2: Resumen de las variables 
-```{r}
-stargazer(data, type="text")
-```
+# Conceptos fundamentales: El conocimiento cívico, definición y antecedentes 
 
-<div style="text-align: justify">
-Como puede verse todas las variables tienen un n de 4371. Respecto a la variable dependiente conocimiento c?vico y ciudadano (p.civ), esta posee un promedio de 495,226 y una desviaci?n est?ndar de 93,718.  Por su parte, el promedio del rendimiento acad?mico medido a trav?s del promedio de la prueba SIMCE de matem?ticas, lenguaje y ciencias (ra), es de 264,762 puntos, con una desviaci?n est?ndar aproximada de 45 puntos. .<div/>
+El conocimiento cívico y ciudadano (i.e. habilidades y conocimientos necesarios para la vida ciudadana) es actualmente promovido por diversos agentes a nivel académico, estatal e internacional. Este conocimiento es sumamente relevante si se considera sus efectos positivos sobre la intención de participación, en un contexto de apatía política y baja participación de estratos bajos y jóvenes (Janmaat, 2013; Contreras & Navia, 2010; Browne & Elming, 2015; Miranda, Castillo & Sandoval-Hernández, 2015). Igualmente, en el contexto de los nuevos movimientos sociales que buscan reivindicar los derechos de distintos grupos tradicionalmente discriminados, el conocimiento cívico ha demostrado estar relacionado con el respeto a los derechos humanos de estos grupos (Miranda, Castillo & Cumsille, 2018; Caro, Schulz, 2012). También, el tener más conocimiento cívico se relaciona con estar en desacuerdo con la corrupción y con la valoración positiva de la democracia como sistema representativo, lo cual, según Hastedt (2016), es fundamental en un contexto de resurgimiento de los gobiernos autoritarios. En suma, el conocimiento cívico puede ayudar a las personas a incorporar los principios democráticos de los derechos humanos y, por ello, debe buscarse las maneras de fomentar y hacer más útiles las políticas que buscan incorporarlo como ramo dentro de la educación secundaria.
 
-## Grafico de la relacion entre Conocimiento civico y Rendimiento Academico
-```{r, echo=F, error = FALSE}
-F1 <- ggplot(data)+aes(ra,p.civ)+geom_point()
-F1
-```
-<div style="text-align: justify">
-A partir de este grafico de dispersi?n, puede esperarse una relaci?n lineal moderada y positiva, pues, como se observa en el gr?fico, alumnos con mayores puntajes en su rendimiento acad?mico presentan igualmente mayores puntajes en el conocimiento civico. Se procede a probar esta hipotesis a partir de la pruba RLM<div/>
+Las investigaciones actuales han propuesto que el conocimiento cívico es especialmente influido por variables de origen socioeconómico (Agencia de Calidad de la Educación, 2017; Schulz, 2011; Castillo, Miranda, Bonhmme, Cox & Bascopé, 2015; Diazgranados & Sandoval-Hernández, 2017; Treviño, Béjares, Villalobos & Naranjo, 2017), dando cuenta de lo que se denominará desde este punto, la “Desigualdad social del conocimiento cívico”, sin embargo, no han controlado dicho efecto en función de las capacidades académicas, lo cual puede generar errores de sobrestimación del efecto. Proponer el origen socioeconómico como factor fundamental para explicar el conocimiento cívico, podría llevar a pensar en alguna medida, que este es transmisible de manera intergeneracional a través de la socialización familiar. Explicarlo de dicho modo sería ignorar que al igual que otras materias, el conocimiento cívico es un conjunto de conocimientos y habilidades que se adquieren a partir de procesos cognitivos de aprendizaje escolar, y que dependen por ello, del desarrollo cognitivo anterior del estudiante y de motivación por la asignatura para ser incorporado. Podría discutirse a lo anterior, que bien los padres pueden enseñar conocimientos del sistema político a sus hijos, pero para probar esta idea, sería necesario controlar por el desempeño académico de los estudiantes, para no confundir la transmisión de conocimientos con transmisión de habilidades académicas. Aún más, en función de esta reflexión, puede criticarse que parte de la relación entre conocimiento cívico y origen socioeconómico es parcialmente espuria y se debe más bien a la influencia del origen socioeconómico en la comprensión lectora. Esta propuesta no niega en ni un sentido que existe la desigualdad social del conocimiento cívico, sino que más bien, propone que esta se explica, por la influencia del nivel socioeconómico en el rendimiento académico y en el interés sobre las materias políticas y sociales.
 
-# RLM
-```{r results='asis'}
-reg1<- lm(p.civ ~ Or.socec, data=data)
-reg2<- lm(p.civ ~ ra, data=data)
-reg3<- lm(p.civ ~ IPE_DIC, data=data)
-reg5<- lm(p.civ ~ Or.socec + IPE_DIC + ra, data=data)
-stargazer(list(reg1,reg2,reg3,reg5), type= "html")
-```
+Así, se hipotetiza que el el manejo del lenguaje explica la relación entre el origen socioeconómico y el conocimiento cívico, en consideración de tres argumentos.
  
-
-<div style="text-align: justify">
-A partir de esta regresi?n podemos evidenciar varios puntos. Primero, todas las variables predictivas del conocimiento c?vico incorporadas en el modelo poseen un efecto significativo incluso a un 99,9% de confianza. Si se eval?an los R2, la variable rendimiento acad?mico es la que mayor proporci?n de varianza logra explicar, dando cuenta, aproximadamente del 54% de la varianza del conocimiento c?vico y siendo seg?n los par?metros de Cohen una relaci?n fuerte.  Seguidamente, el origen socioecon?mico posee un efecto positivo y significativo, pero de intensidad moderada, que explica aproximadamente el 19% de la dependiente. Por ?ltimo, el inter?s pol?tico, si bien es igual de significativa, posee un efecto bajo sobre la dependiente, solo logrando explicar el 0,2% de la varianza.<div/>
-
-<div style="text-align: justify">
-Respecto al modelo 4, el cual incluye y controla las variables entre s?, debe se?alarse que todas las variables siguen siendo significativas, aunque pierden parte de su efecto. As?, por ejemplo, si un movimiento en la desviaci?n est?ndar en la escala de origen socioecon?mico generaba un aumento de 39 en el conocimiento c?vico, al ser esta controlada por la comprensi?n lectora y por el inter?s pol?tico, solo genera un aumento de 12,3 puntos, disminuyendo su efecto a menos de la mitad. Por su parte, solo un punto del beta del efecto del rendimiento acad?mico disminuye al ser este controlado por el efecto del origen socioecon?mico.<div/>
-
-<div style="text-align: justify">
-En s?ntesis, podemos decir que el inter?s pol?tico y, muy especialmente, el rendimiento acad?mico, son capaces de controlar alrededor de la mitad del efecto del origen socioecon?mico. Dicho de otro modo, la desigualdad en el conocimiento c?vico se explica en buena medida, aunque no completamente, por las diferencias en el rendimiento acad?mico.  Para evaluar la validez de estas conclusiones, se procede a evaluar los supuestos de este modelo. <div/>
-
-## Analisis de supuestos y validez
-
-```{r, echo=FALSE}
-supuestos <- augment_columns(reg5, data)
-```
-
-### Analisis grafico de linealidad
-```{r, echo =FALSE}
-ggplot(supuestos, aes(x=.fitted, y=.resid)) +
-geom_hline(yintercept=0) +
-geom_point() +
-geom_smooth(method='loess', se=TRUE)
-```
-
-Como puede observarse en el gr?fico, existe una relaci?n entre los residuos y los valores predichos. Para evaluar si es que esto se debe a la existencia de una relaci?n lineal no especificada, se procede a realizar el test de especificaci?n de Ramsey. 
-
-<div style="text-align: justify">
-Como puede observarse en el gr?fico, existe una relaci?n entre los residuos y los valores predichos. Para evaluar si es que esto se debe a la existencia de una relaci?n lineal no especificada, se procede a realizar el test de especificaci?n de Ramsey.  <div/>
-
-###Estadistico RESET
-
-```{r}
-reg5.1 <- lm(p.civ ~ Or.socec + IPE_DIC + ra + I(.fitted^2),
-data = supuestos)
-
-# F test of model difference
-anova(reg5, reg5.1)
-```
-
-<div style="text-align: justify">
-A partir del rechazo de la hip?tesis nula de igualdad de los modelos (F=36.685, p= 1.156e-8), podemos decir que si hay un efecto no lineal entre las variables que no se est? considerando en el modelo. Se hipotetiza que la variable que posee un efecto no lineal sobre el conocimiento c?vico es el rendimiento acad?mico, ya que este, si bien puede ser una base para el conocimiento c?vico, en tanto capacidades cognitivas y habilidades, no puede remplazarlo por completo, sino que este depende igualmente del contenido y las reflexiones que se hagan en clases en torno a esta tem?tica. Esta relaci?n descrita corresponde a una cuadr?tica que se procede a evaluar. <div/> 
+En primer lugar, puede suponerse que existe una relación entre el conocimiento cívico y el rendimiento académico, dado que ambas variables son afectadas por el estatus y el capital cultural de los padres de manera coherente. Desde los planteamientos de la línea de la reproducción cultural (Bonal, 1998) de Bourdieu, Passeron y de Bernstein, se plantea que los hijos de sectores más acomodados y con más recursos educativos, tendrán más ventajas en el sistema educativo, ya sea porque incorporan pautas de lenguaje más complejas, como plantea Bernstein (1977), o porque poseerán mayor interés por el aprendizaje, mejores capacidades y mayor concordancia de hábitos con el colegio (Bourdieu, 1979; Vargas-Salfate, Oyanedel & Torres-Vallejos, 2014; Dukuen, 2015), así como por el acceso a mejores establecimientos educativos. En coherencia con estos planteamientos y más contextualizado al caso chileno, Dante Contreras (2012), investigador principal del proyecto FONIDE N°: FE11139, concluye que el capital cultural de los padres, puntualmente el capital objetivado y el incorporado, poseen un efecto positivo sobre los resultados de los alumnos chilenos en la prueba PISA. Por su parte, y como ya se ha señalado, el conocimiento cívico es influenciado por las mismas variables, como la cantidad de libros que se posee en el hogar. En función de que tanto el conocimiento cívico como el rendimiento académico son influidos por el capital cultural, es posible hipotetizar que existe una relación entre ambas variables.
+ 
+En segundo lugar, es posible hipotetizar una relación entre rendimiento académico y conocimiento cívico ya que ambos requieren un conjunto de habilidades y destrezas semejantes (i.e. conocimientos, aplicación y razonamiento). Según el informe de la Agencia de la Calidad de la Educación del MINEDUC (2016) el conocimiento cívico mide dos dominios cognitivos, los conocimientos y el razonamiento-análisis (Schulz, Ainley, Fraillon, Losito y Agrusti, 2016). Por su parte la prueba SIMCE evalúa los contenidos relativos a las Bases Curriculares (Mineduc, 2015), según las cuales se establecen tres habilidades a evaluar dentro de la prueba de lenguaje en las pruebas de Lenguaje, Matemáticas y Ciencias, los cuales son Conocimientos, Aplicación y Razonamiento. Si bien son tres habilidades en vez de dos, como en el caso de la prueba del conocimiento cívico, si se mira con detalle a que refiere “razonamiento y análisis” podemos dar cuenta de que involucra la Aplicación de los conocimientos cívicos a situaciones más amplias, así como el razonamiento para evaluar propuestas de soluciones, dando cuenta de que se encuentran presentes las dimensiones de aplicación y razonamiento en la prueba de la ICCS. Cabe agregar, que las tres pruebas de SIMCE exigen ser capaz de analizar información para generar deducciones u opiniones justificadas. Incluso José Valenzuela (2015) plantea que todas las pruebas SIMCE, requieren de la habilidad de análisis de información, habilidad igualmente necesaria para la prueba de la ICCS. En suma, podemos ver que existen múltiples incongruencias respecto a las habilidades necesarias para responder la prueba de lenguaje en relación a la prueba de conocimiento cívico. 
+ 
+En tercer lugar, centrándonos en la comprensión lectora dentro del rendimiento académico, puede argumentarse que esta, como expresión del manejo del lenguaje, es fundamental en el proceso de incorporación del mundo político (Nie, Junn, Stehlik-Barry 1996; Álvarez, 2003), por lo cual se espera que haya una relación especialmente fuerte entre el resultado de la prueba de lenguaje y la prueba de conocimiento cívico. Esta afirmación es igualmente respaldada por la relación recurrente que existe entre Educación y capacidades para incorporar el mundo político  (Lipset, 1960). 
+ 
+ 
+Por su parte, es razonable hipotetizar que el interés por la política y las temáticas sociales puede explicar la relación entre conocimiento cívico y capital cultural de los padres, si se considera, primero, que el capital de los padres tiene un efecto sobre el interés por la política y participación (Kriger y Dukuen 2012), y segundo que el interés y la motivación son fundamentales en el proceso de aprendizaje en distintas áreas (Carrillo, Padilla, Rosero y Villagómez, 2009; Lozano, García-Cueto y Gallo, 2000; Mateos, Bejarano, Ezquerro y López-Fernández, s.f.). Además, según lo señalado por Schulz (2016), los espacios para discusiones sobre temas políticos y sociales tienen una capacidad predictiva sobre el conocimiento cívico de los estudiantes. En relación a lo que plantea el autor y considerando la importancia de la motivación por la materia en el aprendizaje, puede pensarse que parte del efecto de estos espacios de discusión es que motivan a los estudiantes sobre la materia, lo cual cobra sentido si se considera que las clases participativas de aprendizaje cooperativo tienen un efecto sobre la motivación de los estudiantes (Méndez, 2015).
+ 
+En suma, el objetivo de este trabajo puede ser expresado en la siguiente pregunta
+¿En qué medida el rendimiento académico en lenguaje y el interés político son capaces de explicar la desigualdad social del conocimiento cívico según?
 
 
-#### Evaluando la no linealidad del efecto del rendimiento academico sobre el conocimieto civico.
-```{r, results='asis'}
-data$ra_ra<-data$ra*data$ra
-reg5_1<- lm(p.civ ~ Or.socec + IPE_DIC + ra + ra_ra, data=data)
-stargazer(reg5_1, type= "html")
-```
-<div style="text-align: justify">
-En funci?n de esta regresi?n con efectos no lineales, podemos decir que existe un efecto cuadr?tico negativo, seg?n el cual, en primer lugar, por cada punto que se tiene m?s en el rendimiento acad?mico, se tienen 2,65 puntos mas en la prueba de conocimiento c?vico y ciudadano, siendo este efecto 0,002 puntos menos por cada punto que se avanza.  Esta es un hallazgo sumamente relevante, puesto da cuenta de un punto fundamental. Seg?n esto, para alcanzar los puntos mas altos en el conocimiento c?vico no basta con tener buen rendimiento acad?mico en otras ?reas, sino que pasan a ser importantes otras variables, como, por ejemplo, las pol?ticas del colegio en torno a la educaci?n c?vica. Por ello, podr?a decirse, que no tiene sentido remplazar la educaci?n c?vica por educaci?n tradicional para mejorar el rendimiento, puesto que este, solo es importante como una base en los puntajes iniciales de la escala.  <div/>
+Conocimiento cívico y ciudadano, es entendido como conjunto de saberes y habilidades que son necesarios para la vida en ciudadanía (ICCS, 2016). En términos de habilidades el conocimiento cívico requiere de la habilidad de reflexionar a partir de información y conceptos, así como de poder tener una opinión crítica y poder evaluar propuestas. En términos de contenidos, los saberes propios de este constructo se definen en la tabla 1. La bibliografía ha señalado hasta ahora que el conocimiento cínico es influenciado por variables socioeconómicas. Se ha demostrado igualmente que este efecto es más producido por la educación y el número de Libros en el lugar que por la ocupación, dando luces respecto al carácter cultural del fenómeno (e.g. Castillo, Miranda, Bonhomme, Cox & Bascopé, 2014), a lo cual agregan variables agrupadas a nivel escuela como el nivel socioeconómico promedio de la escuela. Por otro lado, otros autores han explorado el efecto de variables de la escuela sobre el conocimiento cinco a partir de las cuales se puede decir que un clima más abierto a la discusión y una cultura participativa a nivel escuela son propicios para el conocimiento cívico (Schulz, 2016). Estas son variables fundamentales se incluyen como controles para nuestro trabajo.
+
+Por desigualdad social del conocimiento cívico este artículo se refiere a la relación positiva que existente entre el conocimiento cívico recién definido y el origen socioeconómico. Por origen socioeconómico, se entiende la relación entre el estatus ocupacional, el nivel educativo alcanzado, y la cantidad de libros en el hogar (ICCS, 2016; Mineduc, 2016). Esta variable es bastante semejante al estatus socioeconómico (SES), solo que la variable origen socioeconómico de la ICCS, no incorpora los ingresos, como usualmente lo hace el SES (Burgard y Stewart, 2003) e incorpora además la cantidad de libros. El que no se incorporen los ingresos es sopesado por incorporar ocupación, que es un mejor indicador de ingresos a largo plazo que la información de ingresos recopilada en cualquier momento dado, porque a corto plazo, los ingresos pueden ser bastante volátiles (Williams y Collins 1995).
+Siguiendo con la desigualdad social del conocimiento cívico, se podría afirmar, que esta es parte de un proceso más amplio de desigualdad sociocultural de la política, sobre la cual Bryony Hoskinsa, Jan Germen Janmaat, Christine Han y Daniel Muijs (2016) realizan muy buenas observaciones. A partir de datos mixtos, en distintos países de Europa, los autores dan cuenta como un menor nivel socioeconómico se relaciona con un peor desempeño académico, lo que lleva a las personas a tener una auto-evaluación general deficientes de si mismos, y por ello, una baja autoeficacia política, la cual se relaciona igualmente con baja intención de voto. Podría decirse que esta investigación sigue una lógica semejante a la de los autores, agregando a la baja autoeficacia, las dificultades que implica tener una baja capacidad de aprendizaje y mal desarrollo de habilidades en la incorporación de conocimientos y destrezas necesarias para la vida cívica y ciudadana.
+ 
+El rendimiento académico en lenguaje será considerado como medida de las capacidades del alumno, que expresa lo que éste ha aprendido a lo largo del proceso formativo (EcuRed, 2019). Para trabajar con esta variable se utilizará la prueba SIMCE, la cual, justamente busca medir los logros de aprendizaje de los estudiantes chilenos (Mineduc, 2019). Según Barahona (2014) Existe un consenso en que los factores asociados al desempeño académico pueden tener su origen en dos grandes ámbitos: en los determinantes personales y en los determinantes sociales, aunque este consenso puede ser interpelado por Lara, Mizala & Repetto, 2010, quienes demuestran el efecto que pueden tener las prácticas docentes, sugiriendo, entre otras cosas, que discutir la materia en clases es positivo para el rendimiento, resultados coherentes con los resultados presentados por Schulz (2016), según quien, en 17 países un clima abierto a la discusión en el aula es un buen predictor de rendimiento en conocimiento cívico. Ahora bien, si se reconsidera lo planteado por Méndez (2015), quien da cuenta de que metodologías participativas generan un efecto positivo en la motivación por la asignatura y que el interés por la misma es fundamental en el aprendizaje (Carrillo, Padilla, Rosero y Villagómez, 2009; Lozano, García-Cueto y Gallo, 2000; Mateos, Bejarano, Ezquerro y López-Fernández, s.f.), podemos pensar que parte del efecto del clima participativo pasa por el interés de los estudiantes sobre temas de política y sociedad. Para este trabajo incluiremos sólo el interés por la política.
+Datos, variables y metodología.
+
+Para trabajar esta propuesta se utilizó la base de datos internacional ICCS 2016, la cual fue cruzada con los resultados de la prueba SIMCE nacional chilena. Se obtuvo un total de 3140 casos, si se eliminan los perdidos de todas las variables utilizadas. Las variables que se utilizaron fueron el conocimiento cívico, en su primera estimación (PV1CIV), el origen socioeconómico nacional estandarizado (S_NISB)  con el cual se construyó el promedio del nivel socioeconómico de la escuela, la educación y ocupación más alta de los padres, la cantidad de libros en el hogar, el interés político del estudiante y de los padres (S_SINT, S_HINT). También incorporamos una variable que representa la cultura democrática, la cual está construida a partir del promedio de la actitud de los estudiantes respecto a la participación. Además se utilizamos el puntaje en la prueba de comprension lectora Simce. 
+
+# Método
+
+Para abordar la problemática se trabajara con la base de datos de la encuesta internacional de conocimiento cívico (ICCS) en su tercera versión del 2016. Además contamos con los datos de la prueba simce para los mismos estudiantes lo que nos permite evaluar la relación entre comprensión lectora y conocimiento cívico. Se trabajó por ende con una base de 3140 estudiantes representativos a nivel nacional. En consideración de dicho tamaño muestral, se utilizará un 99% de nivel  de confianza. 
+Para poder probar nuestras hipótesis de manera correcta se trabajó con regresiones Multinivel, en las cuales se ha dejado de pendiente aleatoria el efecto del lenguaje y se han producido interacciones con variables de segundo nivel como el promedio del nivel socioeconómico del colegio. 
+
+# Resultados. 
+
+	En la tabla consecutiva se presentan 4 modelos multinivel los cuales son todos significativamente mejores que el anterior. El primer modelo incluye las variables de reproducción social, el segundo, incluye una variable de la escuela, el tercero agrega el interés político social del estudiante. El cuarto incluye la variable puntaje en la prueba simce de lenguaje, y el quinto expone la aleatorización de la pendiente y la interacción  de una variable nivel dos: el promedio del nivel socioeconómico. 
 
 
-##### Corroborando si es el desempe?o academico lo que produce el problema.
-```{r}
-reg5.1 <- lm(p.civ ~ Or.socec + IPE_DIC + ra + I(.fitted^2),
-data = supuestos)
+### Tabla 1 
 
-# F test of model difference
-anova(reg5_1, reg5.1)
-```
-Agregando el efecto cuadratico de rendimiento academico, deja de ser significativa la diferencia entre el modelo y el modelo extendido, por ello, podemos decir que se ha encontrado la variable que producia el problema.
+![](imagenes/reg1.png)
 
 
 
-### Evaluando Multicolinealidad 
-```{r}
-vif<-vif(reg5)
-vif
-```
+El primer modelo incluye aquellas variables que representan la reproducción social de la desigualdad política, y como puede verse, todas estas variables poseen un efecto significativo que implica cambios de puntajes que van aproximadamente 10 a 40 puntos. Así, poseer más de 100 libros en la casa, aumenta 14  puntos el conocimiento cívico, por su parte  la variable ocupación posee un efecto considerable, en un rango de más de 80 valores, por cada unidad que aumenta el índice de estatus ocupacional el estudiante aumentó 0.6 puntos en la prueba de conocimiento cívico, así por ejemplo poseer 50 pts. más  de estatus ocupacional implica aumentar 30 pts. en la prueba de conocimiento cívico. Respecto al efecto de la educación de los padres, este es ambivalente, puesto que si bien es respaldado por la literatura, en vista de los controles aplicados parece solo tener un efecto significativo con un 90% de confianza, criterio demasiado laxo para una muestra de más de 3000 casos. En último lugar, considerando la variable de segundo nivel, promedio del nivel socioeconómico de los padres del colegio, podemos decir que existe un gran peso del contexto socioeconómico del colegio.
+
+El segundo modelo incorpora una variable del contexto educativo, esta variable da cuenta de que tan de acuerdo están los estudiantes en general con que la participación en la escuela y la comunidad son beneficiosos para la comunidad. Como puede verse, por cada punto que aumenta este promedio mejora en 2 puntos el conocimiento cívico, lo cual reafirma la hipótesis de que un contexto de participación es útil para mejorar el conocimiento cívico de los estudiantes. Cabe destacar que el incorporar esta variable no logra controlar las variables de origen familiar, lo que nos da cuenta que las ventajas sociales del conocimiento cívico no pasan por estar en colegios con mejores climas democráticos. 
+
+El Tercer modelo incorpora la variable interés político del estudiante. Como plantea la teoría, un estudiante que posee intereses sobre una materia posee una ventaja respecto a la misma, premisa que es comprobada en este caso. El que un estudiante posea interés en la política y los asuntos sociales se asocia con tener 19 puntos más en la prueba de conocimiento cívico. Resulta interesante que el efecto de poseer padres interesados por la política, es completamente controlado por el efecto de que el estudiante tenga interés, lo que nos da cuenta de que el efecto de los padres pasa a través de los hijos. Este control nos permite decir que el efecto del nivel socioeconómico y las ventajas en términos de capital cultural no se explican completa, ni medianamente por qué las personas de mayores recursos tengan más intereses en la política, lo cual nos permite desde ya poner en duda las  explicaciones que aluden a que el conocimiento cívico es transmitido como valores e intereses de generacion en generacion. Siendo más específicos, el efecto que más es controlados es el de tener libros en la casa. Al parecer, el tener libros en la casa se relaciona con estudiantes interesados en la política, que obtuvieron mejores puntajes en esta prueba. 
+
+El cuarto modelo modelo es el modelo fundamental de este trabajo. En este modelo las demás variables son controladas por el efecto de la comprensión lectora medida en la prueba simce de lenguaje. Como puede verse  cada punto que aumenta alguien en la prueba simce de lenguaje, aumenta 1 punto en la prueba de conocimiento cívico, lo cual es una relación bastante estrecha considerando los rangos de ambas pruebas.  Lo más interesante de incorporar esta variable es lo que ocurre con las demás. Como puede verse el efecto de que existan más de 100 libros en el hogar, prácticamente desaparece, pasando de un efecto de 13 a 6 puntos, y perdiendo la significación al 99%. Por su parte, respecto a la variable de estatus ocupacional de los padres y al nivel socioeconómico promedio del colegio, es bastante sugerente el hecho de que ambos efectos disminuyen casi a la mitad. En vista de estos controles, podemos decir que el efecto de que los padres posean libros en la casa es realmente producido por la influencia que eso ejerce en la comprensión lectora de los estudiantes. Igualmente, podemos decir que casi la mitad del efecto del nivel socioeconómico de los padres en el conocimiento cívico se debe a la influencia de estas posiciones en el buen manejo del lenguaje. 
+
+El quinto modelo es un poco más complejo. Primero incorpora la aleatorización de la pendiente del efecto de la comprensión lectora sobre el conocimiento cívico, permitiendo que esta varíe según contextos. Luego, intentamos explicar dicha variación de la pendiente en función del nivel socioeconómico del colegio, para ver si el efecto del lenguaje sobre el conocimiento cívico difiere en contextos socioeconómicos distintos. Como puede verse en la tabla, el efecto es significativo, y mientras mayor es el nivel socioeconómico menos importante es la comprensión lectora, como puede verse en el gráfico
+
+### Gráfico 1. 
+![](imagenes/interaccionfinal.png)
 
 
 
-### Evaluando la Homosedastisidad de los residuos
 
-```{r}
-car::ncvTest(reg5)
-```
+	Como puede verse en el gráfico, la pendiente de la relación es muy distinta si se posee un alto o un bajo nivel socioeconómico promedio de la escuela. En escuelas con un bajo nivel socioeconómico (línea roja), la pendiente es mucho más pronunciada y el intercepto es mucho menor. Dicho de otra manera, en las escuelas con un nse promedio bajo, la comprensión lectora es más determinante respecto al conocimiento cívico, así, quienes no poseen una buena comprensión lectora siendo establecimientos vulnerables, alcanzan 300 puntos en al prueba de conocimiento cívico, mientras que quienes están en una escuela con padres de alto estatus y poseen una pésima comprensión lectora, alcanzan 450 puntos en dicha prueba. Esto, nos permite afirmar que en contextos vulnerables es aún más importante promover el manejo del lenguaje. 
+	
+	Observando el gráfico anterior, llama la atención que en puntajes muy altos de comprensión lectora, no importa el contexto económico del colegio del estudiante. Este punto del gráfico incita a pensar que si estudiantes de contextos vulnerables alcanzan una buena comprensión lectora podrán desarrollar de buena manera las habilidades y conocimientos que son necesarios para la vida ciudadana. Para evaluar esta posibilidad, invertimos el orden del gráfico, evaluando en qué medida un buen puntaje en el lenguaje puede moderar la relación entre estar en un contexto escolar vulnerable y tener un deficiente conocimiento cívico. En el gráfico 2 se evalúa dicha interacción.  
+	
+	
 
-```{r}
-lmtest::bptest(reg5)
-```
-En funci?n de estos estad?sticos  se rechaza la hip?tesis nula de error constante, por lo tanto podemos decir que tenemos heteroscedasticidad, lo cual hace necesario hacer un an?lisis a partir de la correcci?n de errores est?ndares robustos.
+### Gráfico 2
 
-#### Calculando una regresion robusta
-```{r}
-#no me reconose el comando vcov=vcovHC
-reg5_1rob <- coeftest(reg5, df = Inf, type = "HC0")
-```
+![](imagenes/G2.png)
 
-### Casos influyentes
+En este gráfico podemos evaluar como el efecto del nivel socioeconómico de la escuela es moderado de manera casi perfecta por la comprensión lectora. Como puede verse, si un estudiante posee un excelente puntaje en la prueba de comprension lectora simce, independiente del nivel socioeconómico de su escuela, tendrá un muy alto puntaje en conocimiento cívico. 
 
-```{r}
-influencePlot(reg5_1)
-```
-
-```{r}
-# cutoff point
-round(4/(4371-4-1),3)
-```
-
-```{r}
- #create observation id
-supuestos$id <- as.numeric(row.names(supuestos))
-# identify obs with Cook's D above cutoff
-ggplot(supuestos, aes(id, .cooksd))+
-geom_bar(stat="identity", position="identity")+
-xlab("Obs. Number")+ylab("Cook's distance")+
-geom_hline(yintercept=0.01)+
-geom_text(aes(label=ifelse((.cooksd>0.03),id,"")),
-vjust=-0.2, hjust=0.5)
-```
-En consideracion de este grafico podemos afirmar que no existen observaciones influyentes y que por ello, no es necesario hacer ajustes a los datos.
-
-### Normalidad
-
-```{r}
-car::qqPlot(reg5_1, distribution = "t", simulate = TRUE)
-```
-```{r}
-supuestos1 <- augment_columns(reg5_1, data)
-shapiro.test(supuestos1$.resid)
-```
-En consideracion del estadistico Shapiro-Wilk, y del p de significacion significativo, debemos decir que hay una diferencia entre la distribucion de los residuos y la distribucion de una normal. Por ello, es pertinente considerar que existen variables influyentes que no estan siendo incorporadas en el modelo, lo cual es bastante probable si se considera que este modelamiento no incluye variables de nivel escolar, las cuales seran incorporadas en trabajos futuros. 
-
-```{r results='asis'}
-stargazer(reg5, reg5_1, reg5_1rob, type="html",column.labels = c("OLS","efecto cuadratico","Robusto",single.row=TRUE),
-          model.names = FALSE)
-```
-
-[no analiso este grafico por que no logre utilizar valores robustos, por ello cualquier conclucion de la comparacion de los modelos no seria un aporte para el trabajo]
-
-<div style="text-align: justify">
-A partir del analisis de la regresion y sus supuestos de validez, puede decirse que las concluciones son relativamente validaz, aunque el modelo precentaba problemas de especificacion de relaciones no lineales, de normalidad de los residuos y de inconstancia de los errores. Problemas los cuales se ha solucionado parcialmente, llegando a la conclucion de una relacion cuadratica.<div/>
-
-# PATH analisis
-```{r}
-model1<-
-' ra ~ Or.socec
-  int_pol_es ~ ip_padres 
-  ip_padres ~ Or.socec
-  p.civ ~ ra + int_pol_es + Or.socec
-  ra ~~int_pol_es
+Hasta este punto, cabe la duda de si todo este efecto de la comprensión lectora es efectivamente propio, o es más bien un reflejo de algún efecto del colegio. Para evaluar que esto no esté ocurriendo, replicamos el último modelo centrando la variable comprensión lectora por el promedio de cada grupo, con el objetivo de despejar aquella varianza que corresponde al nivel escuela. Los resultados se exponen en la tabla número 2. 
 
 
-'
+### Tabla número 2.
 
-fit1<- sem(model1, data=data, ordered = c("int_pol"))
+![](imagenes/reg3.png)
 
-summary(fit1, fit.measures=T, standardized=T)
-```
+A partir de la tabla número dos podemos decir que el efecto del lenguaje se mantiene independiente del centrado. Además, el centrar las variables no vuelve significativas al 99% las variables de origen socioeconómico que pierden su peso al incorporarse el lenguaje, lo que nos indica que efectivamente el manejo individual del lenguaje es lo que produce el efecto señalado. 
 
-```{r}
-a<-(8.45/3)
-a
-```
-<div style="text-align: justify">
-A partir del modelo te?rico planteado, se ha estimado la capacidad de las variables de inter?s pol?tico y de rendimiento acad?mico, de mediar la relaci?n entre origen socioecon?mico y conocimiento c?vico. El modelo posee un ajuste bastante optimo, pudiendo decir, utilizando un criterio de 99% de confianza, que no existe una diferencia estad?sticamente significativa entre la matriz de correlaciones observada y reproducida (Chi-square= 8.455, P-value=0,037, Chi/gl=2.816667). Adem?s, los estad?sticos CFI y TLI poseen valores mayores a .99, mientras que el RMSEA es significativo al 95% de confianza (p-value= 0,023). A su vez, todas las relaciones dentro del modelo son significativas con un 99,9% de confianza.
+Conclusiones preliminares
+
+Este trabajo abordo cuales son los mecanismos por los cuales se produce la reproducción intergeneracional de la desigualdad política. Al respecto se manejaban dos hipótesis, la primera alude a que la socialización en familias con recursos implica una mayor proximidad a discusiones y valores democráticos. La segunda, fue que tener una posición económica aventajada se relaciona con acceder a buena educación y ser socializado con un lenguaje complejo y por ello, implica un mejor manejo del lenguaje que facilita la asimilación del conocimiento cívico.
+
+En función de los resultados, podemos decir que aquellas teorías que explicaban la relación entre nse y conocimiento cívico, por la transmisión de valores, si bien son ciertas, poseen una visión parcial de lo que ocurre ya que en buena medida la desigualdad social del conocimiento cívico se relaciona ampliamente con la desigualdad social de la comprensión lectora, la cual se relaciona con el capital cultural objetivado  de los padres (más de 100 libros en el hogar) y el acceder a buena educación, lo cual se relaciona a su vez con acceder a educación de buena calidad. Es decir, no es tanto que los padres adinerados eduquen democráticamente a sus hijos, sino que más bien, ya sea por transmisión directa o por acceso a buena educación, les otorgan un mayor manejo del lenguaje, lo cual les permite igualmente incorporar de manera más compleja la realidad política, teniendo más herramientas para comprender, analizar y criticar políticamente. 
+
+Respecto a cuáles son los caminos que deben tomarse para mejorar la desigualdad en el conocimiento cívico y en la participación ciudadana, resulta evidente después de los resultados, que además de reforzar la educación cívica en los colegios como ya se está haciendo (y debe seguirse haciendo, debe fomentarse la comprensión lectora). Incluso podemos decir que cuando se posee altos niveles de comprensión lectora, las diferencias de estatus socioeconómico no afectan de manera sustancial, existiendo estudiantes de colegios con bajo nivel económico que poseen una buena comprension lectora y civica.
+ Al respecto, tipos de clases que impliquen lectura colectiva y discusión sobre lo leído, para entender en conjunto el sentido de los textos, puede ser una muy buena estrategia, puesto que está demostrado que los profesores que realizan dichas actividades mejoran el puntaje en lenguaje de sus estudiantes (Lorena Ortega)  así como que aulas más participativas poseen un efecto para la el conocimiento cívico. Es en dichos espacios de participación donde puede sacarse el provecho al capital cultural de cada estudiante y fomentar el efecto pares. 
+
+En relación al nuevo plan de formación ciudadana, y considerando estos resultados es sensato esperar un efecto diferencial de la política en cada establecimiento según el nivel de comprensión lectora del colegio, lo cual está relacionado con el nivel socioeconómico. Quizás sea prudente en miras del objetivo de la política, prestar ayuda especializada a colegios que posean bajos niveles de comprensión lectora. También, dentro de los colegios prestar apoyo a los estudiantes con dificultades al respecto también puede ser una buena medida a aplicar en cursos anteriores al último ciclo de tercero cuarto, donde debersn aplicar dichas habilidades en la reflexion ciudadana y en la incorporacion de conocimientos civicos. 
+
+
+
+
+
 <div/>
-
-```{r}
-semPaths(fit1, what="std",layout = "spring",
-label.cex=1.5,
-edge.label.cex=2,
-residuals=F, 
-edge.color = "Black",
-thresholds= F,#Esto saca las lineas dentro de los cuadrados que representan las variables.
-intercepts = F, shapeInt = "Null", structural = F, freeStyle = 1, pastel =F,  layoutSplit = F, rainbowStart = 0, exoCov = F, color = "white", panelGroups = T, subRes = 4, covAtResiduals = F)
-```
-<div style="text-align: justify">
-Si analisamos el grafico, podemos ver que las variables que van desde el origen socieconomico al puntaje en conocimiento civico, por el lado del rendimiento academico poseen relaciones m?s fuertes y constantes que el sendero que va por el camino del interes politico, el cual si bien es constante desde el origensocieconomico, pasando por el interes del padre hasta el interes del hijo, deja de ser un efecto notorio al pasar a explicar el conocimiento civico. Con estos resultados, se refuerza la idea de que el rendimiento academico es mas importante que el interes por los asuntos politicos y sociales para predecir el conocimiento civico. Se procede a calcular la proporcion del efecto del origen socioeconomico que corresponde a cada una de las rutas.
-<div/>
-
-```{r}
-#Calculo del porcentaje de efecto explicado por rendimiento academico
-
-#Efecto indirecto a traves de interes en la politica 0.014
-a<-0.32*0.49*0.09
-
-#Efecto indirecto a traves de rendimiento academico 0.290
-b<-0.44*0.66
-
-#Efecto directo
-c<- 0.13
-
-#Efecto total 0.434
-d<- 0.014 + 0.290 + 0.13
-
-#Porcentaje del efecto que pasa a traves del rendimiento academico 66,8%
-e<- (0.290*100)/0.434
-e
-
-#Porcentaje del efecto que pasa a traves del interes por la politica 3.22% 
-f<- (0.014*100)/0.434
-f
-#Porcentaje del efecto del origen socieconomico que este estudio no ha podido controlar 29.95392%. 
-g<- (0.130*100)/0.434
-g
-
-```
-
-<div style="text-align: justify">
-En consideraci?n de estos c?lculos, y a modo de resumen de los resultados, podemos decir que el rendimiento acad?mico explica el 66,8% del efecto de la desigualdad socioecon?mica y cultural sobre el conocimiento c?vico, mientras que la transmisi?n de inter?s pol?tico y motivaci?n por el ?rea solo logra explicar el 3,2% de dicha desigualdad, lo cual puede interpretarse como una desigualdad de habilidades des equitativamente distribuidas y  no de un menor inter?s sobre la materia pol?tica que dificulte a los estudiantes de menores recursos apropiarse del conocimiento c?vico. 
-
-El aproximadamente 30% del efecto que pasa directamente de la desigualdad socioecon?mica al conocimiento c?vico, se debe probablemente al efecto de poder participar en escuelas donde hay estudiantes con inter?s pol?tico, conocimiento c?vico y buen rendimiento acad?mico, con los cuales enriquecerse a partir del efecto de composici?n y el efecto par. Probar esta hip?tesis requiere de un futuro estudio que utiliza multinivel. 
-
-Es necesario tomar en consideraci?n para analizar estos resultados, que probablemente, parte del efecto del rendimiento acad?mico corresponde a variables que no est?n siendo incluidas, pero se reflejan en ?l, como lo puede ser el tener buenos profesores, preparados para ense?ar. Es necesario en trabajos futuros evaluar la importancia de la formaci?n de los profesores y de su grado de confianza respecto a su propio conocimiento c?vico. 
-<div/>
-
-# Conclusiones preliminares
-<div style="text-align: justify">
-Este estudio ha intentado explicar el efecto de la desigualdad socioecon?mica chilena en la desigualdad en el conocimiento c?vico de los estudiantes de 8vo. Como principal resultado, el rendimiento acad?mico (promedio de las pruebas simpe) explica dos tercios del efecto de la desigualdad socioecon?mica en el conocimiento c?vico, mientras que el inter?s solo el 3% de dicho efecto. Por ello, y volviendo a la discusi?n inicial, podemos decir que el efecto de la desigualdad socioecon?mica estaba sobredimensionado y no es que el vivir y socializar en un contexto familiar con m?s libros o m?s educaci?n genere estudiantes j?venes interesados por la pol?tica y la ciudadan?a, sino que m?s bien, existe una transmisi?n de habilidades, como propone Bernstein (1976), a lo que se suma la posibilidad de acceder a colegios que preparen mejor a sus hijos en termino de conocimientos y habilidades. Adem?s, se observ? una relaci?n no lineal entre el rendimiento acad?mico y el conocimiento c?vico, que indica una disminuci?n del efecto para valores altos, esto sugiere que las habilidades requeridas para las pruebas simpen, son igualmente una base necesaria para el conocimiento c?vico, sin la cual es dif?cil obtener puntajes promedio, pero las cuales no son suficientes para obtener puntajes altos.
-
-Para futuros trabajos es necesario incluir el modelamiento multinivel para poder utilizar variables de la escuela, y evaluar que proporci?n del 30% no explicado del efecto del  origen socieconomico al conocimiento civico se debe tanto  colegios mas caros, mejores profesores y compa?eros y compa?eras de mayor capital cultural
-<div/>
-
-
 
 
