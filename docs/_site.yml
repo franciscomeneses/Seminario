@@ -1,0 +1,16 @@
+name: "meritredist2019"
+output_dir: "." # Esto es para que se compile en el rootdir
+navbar:
+  title: "Seminario de grado, Francisco Meneses"
+  right:
+    - text: "Articulo en linea"
+      href: "paper.html"
+    - text: "Descargar en PDF"
+      icon: fa-file-pdf
+      href: "paper.pdf"  
+
+
+output:
+  html_document:
+    css: "../input/bib/style.css"
+    theme: flatly

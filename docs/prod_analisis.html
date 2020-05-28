@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="francisco meneses" />
+
+
+<title>tesis</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="..\input\bib\style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Seminario de grado, Francisco Meneses</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="paper.html">Articulo en linea</a>
+</li>
+<li>
+  <a href="paper.pdf">
+    <span class="fa fa-file-pdf"></span>
+     
+    Descargar en PDF
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">tesis</h1>
+<h4 class="author">francisco meneses</h4>
+<h4 class="date">24-10-2019</h4>
+
+</div>
+
+
+<div id="cargar-librerías" class="section level1">
+<h1>Cargar librerías</h1>
+<pre class="r"><code>pacman::p_load(lme4,
+               reghelper,
+               haven,
+               descr,
+               stargazer,
+               ggplot2, # gr?ficos
+               dplyr, # manipulacion de datos
+               texreg, # tablas lme4
+               sjPlot #graficos
+)</code></pre>
+<pre class="r"><code>iccssimce &lt;- read_dta(&quot;../input/data/original/iccs_simce.dta&quot;)</code></pre>
+<pre class="r"><code>data &lt;- iccssimce %&gt;% select(&quot;p.leng&quot;=ptje_lect8b_alu, &quot;p.mat&quot;=ptje_mate8b_alu, &quot;p.nat&quot;=ptje_nat8b_alu, &quot;p.civ&quot;=PV1CIV, &quot;nse&quot;=S_NISB, &quot;ip_estudiante&quot;=S_SINT, &quot;ip_padres&quot;=S_HINT,idschool,apert_disc=S_OPDISC, &quot;cult_part&quot;=S_VALPARTS, esp_part=C_ENGAGE , &quot;Libros&quot;=S_HOMLIT, &quot;Ocupacion&quot; = S_HISEI, &quot;Educacion&quot;=S_HISCED, IC3G13A, rel_prof=S_STUTREL, S_ABUSE) %&gt;% as.data.frame()
+data = na.omit(data)
+
+
+data$Libros&lt;-ifelse(data$Libros&gt;=2,1,0)
+data$IC3G13A&lt;-ifelse(data$IC3G13A==2,1,0)
+data$ip_padres&lt;-ifelse(data$ip_padres&gt;=2,1,0)
+data$Educacion&lt;-ifelse(data$Educacion&gt;=3,1,0)
+data$ip_estudiante&lt;-ifelse(data$ip_estudiante&gt;=2,1,0)
+
+
+data &lt;- data %&gt;%
+  group_by(idschool) %&gt;%
+  mutate(m_nse = mean(nse))
+
+data &lt;- data %&gt;%
+  group_by(idschool) %&gt;%
+  mutate(m_apert_disc = mean(apert_disc))
+data &lt;- data %&gt;%
+  group_by(idschool) %&gt;%
+  mutate(clima_prof = mean(rel_prof))
+
+data &lt;- data %&gt;%
+  group_by(idschool) %&gt;%
+  mutate(m_esp_part = mean(esp_part))
+
+data &lt;- data %&gt;%
+  group_by(idschool) %&gt;%
+  mutate(m_ip_estudiante = mean(ip_estudiante))
+
+data &lt;- data %&gt;%
+  group_by(idschool) %&gt;%
+  mutate(sd_nse = sd(nse))
+
+data &lt;- data %&gt;%
+  group_by(idschool) %&gt;%
+  mutate(m_ip_padres = mean(ip_padres))
+
+data &lt;- data %&gt;%
+  group_by(idschool) %&gt;%
+  mutate(m_cult_part = mean(cult_part))
+
+data &lt;- data %&gt;%
+  group_by(idschool) %&gt;%
+  mutate(m_p.leng = mean(p.leng))</code></pre>
+<pre class="r"><code>summary(data)</code></pre>
+<pre><code>##      p.leng          p.mat           p.nat           p.civ            nse          ip_estudiante      ip_padres         idschool   
+##  Min.   :126.0   Min.   :142.0   Min.   :149.0   Min.   :232.1   Min.   :-2.0800   Min.   :0.0000   Min.   :0.0000   Min.   :1001  
+##  1st Qu.:214.5   1st Qu.:235.2   1st Qu.:236.9   1st Qu.:432.1   1st Qu.:-0.6300   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1046  
+##  Median :255.7   Median :275.0   Median :273.9   Median :502.2   Median : 0.0700   Median :0.0000   Median :1.0000   Median :1090  
+##  Mean   :251.7   Mean   :272.6   Mean   :274.7   Mean   :498.4   Mean   : 0.1816   Mean   :0.2296   Mean   :0.6548   Mean   :1092  
+##  3rd Qu.:288.9   3rd Qu.:309.9   3rd Qu.:311.4   3rd Qu.:565.0   3rd Qu.: 1.0000   3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:1138  
+##  Max.   :373.2   Max.   :394.4   Max.   :416.9   Max.   :782.7   Max.   : 2.4900   Max.   :1.0000   Max.   :1.0000   Max.   :1178  
+##                                                                                                                                    
+##    apert_disc      cult_part        esp_part         Libros         Ocupacion       Educacion         IC3G13A          rel_prof    
+##  Min.   :16.67   Min.   :17.22   Min.   :25.41   Min.   :0.0000   Min.   :10.00   Min.   :0.0000   Min.   :0.0000   Min.   :18.78  
+##  1st Qu.:46.53   1st Qu.:45.66   1st Qu.:41.21   1st Qu.:0.0000   1st Qu.:33.00   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:45.48  
+##  Median :53.15   Median :53.75   Median :48.22   Median :1.0000   Median :42.00   Median :0.0000   Median :1.0000   Median :53.24  
+##  Mean   :53.12   Mean   :55.25   Mean   :49.33   Mean   :0.5041   Mean   :45.86   Mean   :0.4994   Mean   :0.5013   Mean   :54.55  
+##  3rd Qu.:58.96   3rd Qu.:68.37   3rd Qu.:52.28   3rd Qu.:1.0000   3rd Qu.:59.00   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:64.54  
+##  Max.   :78.16   Max.   :68.37   Max.   :70.79   Max.   :1.0000   Max.   :89.00   Max.   :1.0000   Max.   :1.0000   Max.   :71.68  
+##                                                                                                                                    
+##     S_ABUSE          m_nse          m_apert_disc     clima_prof      m_esp_part    m_ip_estudiante      sd_nse        m_ip_padres    
+##  Min.   :37.04   Min.   :-1.5500   Min.   :35.49   Min.   :34.53   Min.   :25.87   Min.   :0.0000   Min.   :0.2894   Min.   :0.0000  
+##  1st Qu.:37.04   1st Qu.:-0.4104   1st Qu.:50.28   1st Qu.:52.08   1st Qu.:41.76   1st Qu.:0.1364   1st Qu.:0.6125   1st Qu.:0.5385  
+##  Median :50.42   Median : 0.1079   Median :53.07   Median :54.45   Median :48.22   Median :0.2083   Median :0.7231   Median :0.6486  
+##  Mean   :49.47   Mean   : 0.1816   Mean   :53.12   Mean   :54.55   Mean   :49.33   Mean   :0.2296   Mean   :0.7175   Mean   :0.6548  
+##  3rd Qu.:56.17   3rd Qu.: 0.5552   3rd Qu.:56.08   3rd Qu.:57.19   3rd Qu.:53.25   3rd Qu.:0.2941   3rd Qu.:0.8101   3rd Qu.:0.7568  
+##  Max.   :87.38   Max.   : 2.2300   Max.   :78.16   Max.   :66.72   Max.   :70.79   Max.   :1.0000   Max.   :1.8455   Max.   :1.0000  
+##                                                                                                     NA&#39;s   :10                       
+##   m_cult_part       m_p.leng    
+##  Min.   :22.35   Min.   :168.5  
+##  1st Qu.:52.86   1st Qu.:234.0  
+##  Median :54.88   Median :250.2  
+##  Mean   :55.25   Mean   :251.7  
+##  3rd Qu.:58.26   3rd Qu.:269.9  
+##  Max.   :68.37   Max.   :335.9  
+## </code></pre>
+<pre class="r"><code>#table(data$p.leng)
+sd(data$p.civ)</code></pre>
+<pre><code>## [1] 92.71807</code></pre>
+<pre class="r"><code>results_1 = lmer(p.civ ~ 1 + (1 | idschool), data = data, REML=F)
+screenreg(results_1)</code></pre>
+<pre><code>## 
+## ========================================
+##                            Model 1      
+## ----------------------------------------
+## (Intercept)                   492.50 ***
+##                                (4.72)   
+## ----------------------------------------
+## AIC                         36467.28    
+## BIC                         36485.43    
+## Log Likelihood             -18230.64    
+## Num. obs.                    3140       
+## Num. groups: idschool         152       
+## Var: idschool (Intercept)    2917.17    
+## Var: Residual                5789.35    
+## ========================================
+## *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05</code></pre>
+<pre class="r"><code>data$p.leng_centrado &lt;- (data$p.leng - data$m_p.leng)
+
+
+
+results_1 = lmer(p.civ ~ 1 + Libros  + Ocupacion + Educacion + ip_padres + m_nse +  (1 | idschool), data = data, REML=F)
+
+results_2 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion  +  ip_padres  + m_nse  +  m_cult_part  + (1 | idschool), data = data, REML=F)
+
+results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion  +  ip_padres + m_cult_part   + m_nse  + ip_estudiante +  (1 | idschool), data = data, REML=F)
+
+
+
+results_4 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion +  +  ip_padres  + m_nse + ip_estudiante  +  m_cult_part   + p.leng + (1 + p.leng | idschool), data = data, REML=F)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 34.4135 (tol =
+## 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?;Model is nearly unidentifiable: large eigenvalue ratio
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>results_5 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  +  m_cult_part  + p.leng*m_nse + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : unable to evaluate scaled gradient</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge: degenerate Hessian with 1
+## negative eigenvalues</code></pre>
+<pre class="r"><code>save(results_1, file = &quot;../output/images/results_1.Rdata&quot;)
+save(results_2, file = &quot;../output/images/results_2.Rdata&quot;)
+save(results_3, file = &quot;../output/images/results_3.Rdata&quot;)
+save(results_4, file = &quot;../output/images/results_4.Rdata&quot;)
+save(results_5, file = &quot;../output/images/results_5.Rdata&quot;)
+
+
+regresion_tex &lt;-texreg(list(results_1,results_2,results_3, results_4, results_5 ))
+regresion_html &lt;-htmlreg(list(results_1,results_2,results_3, results_4, results_5 ))
+
+
+save(regresion_tex, file = &quot;../output/images/regtex.Rdata&quot;)
+save(regresion_tex, file = &quot;../output/images/reghtml.Rdata&quot;)
+
+load(file = &quot;../output/images/reghtml.Rdata&quot;)</code></pre>
+<pre class="r"><code>inta&lt;-plot_model(results_5, type = &quot;int&quot;)
+inta</code></pre>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>results_7 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + m_nse*p.leng + (1 + p.leng| idschool), data = data, REML=F)</code></pre>
+<pre><code>## Warning: Some predictor variables are on very different scales: consider rescaling</code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>results_8 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + m_nse*p.leng_centrado + (1 + p.leng_centrado| idschool), data = data, REML=F)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 2.50219 (tol =
+## 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>screenreg(list(results_7,results_8), type=&quot;text&quot;)</code></pre>
+<pre><code>## 
+## =======================================================================
+##                                            Model 1        Model 2      
+## -----------------------------------------------------------------------
+## (Intercept)                                   208.42 ***     463.17 ***
+##                                               (14.05)        (17.28)   
+## Libros                                          6.30 **        6.21 *  
+##                                                (2.41)         (2.41)   
+## Ocupacion                                       0.36 ***       0.36 ***
+##                                                (0.09)         (0.09)   
+## Educacion                                       7.68 **        7.67 ** 
+##                                                (2.87)         (2.87)   
+## ip_padres                                       2.93           3.03    
+##                                                (2.52)         (2.52)   
+## ip_estudiante                                  13.86 ***      13.86 ***
+##                                                (2.81)         (2.82)   
+## m_ip_padres                                    -3.42          -7.84    
+##                                               (18.50)        (26.34)   
+## m_nse                                          64.23 ***      46.98 ***
+##                                                (9.99)         (5.60)   
+## p.leng                                          1.03 ***               
+##                                                (0.03)                  
+## m_nse:p.leng                                   -0.15 ***               
+##                                                (0.03)                  
+## p.leng_centrado                                                1.03 ***
+##                                                               (0.03)   
+## m_nse:p.leng_centrado                                         -0.15 ***
+##                                                               (0.04)   
+## -----------------------------------------------------------------------
+## AIC                                         34884.64       34978.97    
+## BIC                                         34969.37       35063.69    
+## Log Likelihood                             -17428.32      -17475.48    
+## Num. obs.                                    3140           3140       
+## Num. groups: idschool                         152            152       
+## Var: idschool (Intercept)                    1647.22        1169.86    
+## Var: idschool p.leng                            0.01                   
+## Cov: idschool (Intercept) p.leng               -3.34                   
+## Var: Residual                                3670.63        3622.40    
+## Var: idschool p.leng_centrado                                  0.01    
+## Cov: idschool (Intercept) p.leng_centrado                     -1.46    
+## =======================================================================
+## *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05</code></pre>
+<pre class="r"><code>save(results_7, file = &quot;../output/images/results_7.Rdata&quot;)
+save(results_8, file = &quot;../output/images/results_8.Rdata&quot;)</code></pre>
+<pre class="r"><code>int2&lt;-plot_model(results_7, type = &quot;int&quot;)
+int2</code></pre>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>results_7 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + Ocupacion*p.leng_centrado + (1 + p.leng_centrado| idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning: Some predictor variables are on very different scales: consider rescaling</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 1.54494 (tol =
+## 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>int1&lt;-plot_model(results_5, type = &quot;int&quot;)
+#int2&lt;-plot_model(results_6, type = &quot;int&quot;)
+intcentrada&lt;-plot_model(results_7, type = &quot;int&quot;)
+
+save(int1, file= &quot;../output/images/int1.png&quot;)
+save(int2, file= &quot;../output/images/int2.png&quot;)
+save(intcentrada, file= &quot;../output/images/int3.png&quot;)
+int1</code></pre>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code>int2</code></pre>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
+<pre class="r"><code>intcentrada</code></pre>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-10-3.png" width="672" /></p>
+<pre class="r"><code>results_2 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + p.leng  + m_nse + m_ip_padres +  (1 | idschool), data = data, REML=F)
+screenreg(results_2)</code></pre>
+<pre><code>## 
+## ========================================
+##                            Model 1      
+## ----------------------------------------
+## (Intercept)                   217.74 ***
+##                               (13.84)   
+## Libros                          6.56 ** 
+##                                (2.42)   
+## Ocupacion                       0.35 ***
+##                                (0.09)   
+## ip_estudiante                  13.08 ***
+##                                (2.82)   
+## ip_padres                       2.92    
+##                                (2.54)   
+## Educacion                       8.25 ** 
+##                                (2.89)   
+## p.leng                          1.00 ***
+##                                (0.03)   
+## m_nse                          25.40 ***
+##                                (4.05)   
+## m_ip_padres                    -8.52    
+##                               (18.86)   
+## ----------------------------------------
+## AIC                         34909.18    
+## BIC                         34975.76    
+## Log Likelihood             -17443.59    
+## Num. obs.                    3140       
+## Num. groups: idschool         152       
+## Var: idschool (Intercept)     407.85    
+## Var: Residual                3709.68    
+## ========================================
+## *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05</code></pre>
+<pre class="r"><code>results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : unable to evaluate scaled gradient</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge: degenerate Hessian with 1
+## negative eigenvalues</code></pre>
+<pre class="r"><code>screenreg(results_3)</code></pre>
+<pre><code>## 
+## ===============================================
+##                                   Model 1      
+## -----------------------------------------------
+## (Intercept)                          214.91 ***
+##                                      (14.21)   
+## Libros                                 6.31 ** 
+##                                       (2.42)   
+## Ocupacion                              0.35 ***
+##                                       (0.09)   
+## ip_estudiante                         13.40 ***
+##                                       (2.81)   
+## ip_padres                              2.97    
+##                                       (2.53)   
+## Educacion                              8.00 ** 
+##                                       (2.87)   
+## p.leng                                 1.01 ***
+##                                       (0.03)   
+## m_nse                                 21.60 ***
+##                                       (3.98)   
+## m_ip_padres                           -4.49    
+##                                      (18.68)   
+## -----------------------------------------------
+## AIC                                34902.93    
+## BIC                                34981.60    
+## Log Likelihood                    -17438.46    
+## Num. obs.                           3140       
+## Num. groups: idschool                152       
+## Var: idschool (Intercept)           2164.36    
+## Var: idschool p.leng                   0.01    
+## Cov: idschool (Intercept) p.leng      -4.81    
+## Var: Residual                       3685.42    
+## ===============================================
+## *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05</code></pre>
+<pre class="r"><code>anova(results_2,results_3)</code></pre>
+<pre><code>## Data: data
+## Models:
+## results_2: p.civ ~ 1 + Libros + Ocupacion + ip_estudiante + ip_padres + 
+## results_2:     Educacion + p.leng + m_nse + m_ip_padres + (1 | idschool)
+## results_3: p.civ ~ 1 + Libros + Ocupacion + ip_estudiante + ip_padres + 
+## results_3:     Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng | 
+## results_3:     idschool)
+##           npar   AIC   BIC logLik deviance  Chisq Df Pr(&gt;Chisq)   
+## results_2   11 34909 34976 -17444    34887                        
+## results_3   13 34903 34982 -17439    34877 10.256  2   0.005929 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>results_6 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_padres + ip_estudiante + Educacion + p.leng*m_nse + m_ip_padres + m_ip_estudiante + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning: Some predictor variables are on very different scales: consider rescaling</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 0.697013 (tol =
+## 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?;Model is nearly unidentifiable: large eigenvalue ratio
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>results_6</code></pre>
+<pre><code>## Linear mixed model fit by maximum likelihood  [&#39;lmerMod&#39;]
+## Formula: p.civ ~ 1 + Libros + Ocupacion + ip_padres + ip_estudiante +  
+##     Educacion + p.leng * m_nse + m_ip_padres + m_ip_estudiante +      (1 + p.leng | idschool)
+##    Data: data
+##       AIC       BIC    logLik  deviance  df.resid 
+##  34886.51  34977.29 -17428.25  34856.51      3125 
+## Random effects:
+##  Groups   Name        Std.Dev. Corr 
+##  idschool (Intercept) 42.37260      
+##           p.leng       0.09227 -0.99
+##  Residual             60.56889      
+## Number of obs: 3140, groups:  idschool, 152
+## Fixed Effects:
+##     (Intercept)           Libros        Ocupacion        ip_padres    ip_estudiante        Educacion           p.leng            m_nse  
+##        208.0377           6.2763           0.3642           2.9930          13.6904           7.6851           1.0342          64.1589  
+##     m_ip_padres  m_ip_estudiante     p.leng:m_nse  
+##         -4.9197           5.9598          -0.1541  
+## fit warnings:
+## Some predictor variables are on very different scales: consider rescaling
+## convergence code 0; 0 optimizer warnings; 3 lme4 warnings</code></pre>
+<pre class="r"><code>anova(results_2,results_3)</code></pre>
+<pre><code>## Data: data
+## Models:
+## results_2: p.civ ~ 1 + Libros + Ocupacion + ip_estudiante + ip_padres + 
+## results_2:     Educacion + p.leng + m_nse + m_ip_padres + (1 | idschool)
+## results_3: p.civ ~ 1 + Libros + Ocupacion + ip_estudiante + ip_padres + 
+## results_3:     Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng | 
+## results_3:     idschool)
+##           npar   AIC   BIC logLik deviance  Chisq Df Pr(&gt;Chisq)   
+## results_2   11 34909 34976 -17444    34887                        
+## results_3   13 34903 34982 -17439    34877 10.256  2   0.005929 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>anova(results_3,results_4)</code></pre>
+<pre><code>## Data: data
+## Models:
+## results_3: p.civ ~ 1 + Libros + Ocupacion + ip_estudiante + ip_padres + 
+## results_3:     Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng | 
+## results_3:     idschool)
+## results_4: p.civ ~ 1 + Libros + Ocupacion + Educacion + +ip_padres + m_nse + 
+## results_4:     ip_estudiante + m_cult_part + p.leng + (1 + p.leng | idschool)
+##           npar   AIC   BIC logLik deviance  Chisq Df Pr(&gt;Chisq)    
+## results_3   13 34903 34982 -17439    34877                         
+## results_4   13 34894 34973 -17434    34868 8.5617  0  &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>anova(results_2,results_4)</code></pre>
+<pre><code>## Data: data
+## Models:
+## results_2: p.civ ~ 1 + Libros + Ocupacion + ip_estudiante + ip_padres + 
+## results_2:     Educacion + p.leng + m_nse + m_ip_padres + (1 | idschool)
+## results_4: p.civ ~ 1 + Libros + Ocupacion + Educacion + +ip_padres + m_nse + 
+## results_4:     ip_estudiante + m_cult_part + p.leng + (1 + p.leng | idschool)
+##           npar   AIC   BIC logLik deviance  Chisq Df Pr(&gt;Chisq)    
+## results_2   11 34909 34976 -17444    34887                         
+## results_4   13 34894 34973 -17434    34868 18.817  2    8.2e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>hacer un indicador que solo tome a los que tienen mas del 80%.</p>
+<pre class="r"><code>screenreg(list(results_1,results_2,results_3, results_6), type=&quot;text&quot;)</code></pre>
+<pre><code>## 
+## ============================================================================================
+##                                   Model 1        Model 2        Model 3        Model 4      
+## --------------------------------------------------------------------------------------------
+## (Intercept)                          442.75 ***     217.74 ***     214.91 ***     208.04 ***
+##                                       (5.44)        (13.84)        (14.21)        (14.09)   
+## Libros                                14.78 ***       6.56 **        6.31 **        6.28 ** 
+##                                       (2.96)         (2.42)         (2.42)         (2.41)   
+## Ocupacion                              0.60 ***       0.35 ***       0.35 ***       0.36 ***
+##                                       (0.11)         (0.09)         (0.09)         (0.09)   
+## Educacion                              8.71 *         8.25 **        8.00 **        7.69 ** 
+##                                       (3.55)         (2.89)         (2.87)         (2.87)   
+## ip_padres                              9.66 **        2.92           2.97           2.99    
+##                                       (2.97)         (2.54)         (2.53)         (2.53)   
+## m_nse                                 40.75 ***      25.40 ***      21.60 ***      64.16 ***
+##                                       (3.96)         (4.05)         (3.98)        (10.09)   
+## ip_estudiante                                        13.08 ***      13.40 ***      13.69 ***
+##                                                      (2.82)         (2.81)         (2.85)   
+## p.leng                                                1.00 ***       1.01 ***       1.03 ***
+##                                                      (0.03)         (0.03)         (0.03)   
+## m_ip_padres                                          -8.52          -4.49          -4.92    
+##                                                     (18.86)        (18.68)        (18.96)   
+## m_ip_estudiante                                                                     5.96    
+##                                                                                   (15.95)   
+## p.leng:m_nse                                                                       -0.15 ***
+##                                                                                    (0.03)   
+## --------------------------------------------------------------------------------------------
+## AIC                                36221.01       34909.18       34902.93       34886.51    
+## BIC                                36269.43       34975.76       34981.60       34977.29    
+## Log Likelihood                    -18102.51      -17443.59      -17438.46      -17428.25    
+## Num. obs.                           3140           3140           3140           3140       
+## Num. groups: idschool                152            152            152            152       
+## Var: idschool (Intercept)            824.00         407.85        2164.36        1795.44    
+## Var: Residual                       5591.04        3709.68        3685.42        3668.59    
+## Var: idschool p.leng                                                 0.01           0.01    
+## Cov: idschool (Intercept) p.leng                                    -4.81          -3.86    
+## ============================================================================================
+## *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05</code></pre>
+<p>los padres con interes por la politica eligen colegios que probablemente tengan ciertas practicas politicas y de buena calidad.</p>
+<p>#grafico de la interaccion. el efecto del lenguaje</p>
+<pre class="r"><code>#plot_model(results_5, type = &quot;int&quot;)
+plot_model(results_6, type = &quot;int&quot;)</code></pre>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>correlacion entre interes de de los padres y cualidades democraticas del colegio.</p>
+<pre class="r"><code>library(corrplot)
+basecor&lt;-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ)</code></pre>
+<pre><code>## Adding missing grouping variables: `idschool`</code></pre>
+<pre class="r"><code>cor &lt;- cor(basecor)
+Correlaciones  &lt;-corrplot.mixed(cor)</code></pre>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<pre class="r"><code>save(Correlaciones, file = &quot;../output/images/correlaciones.html&quot;)  </code></pre>
+</div>
+<div id="comprobamos-que-todo-sigue-funcionando-despues-del-centrado-por-el-grupo." class="section level1">
+<h1>Comprobamos que todo sigue funcionando despues del centrado por el grupo.</h1>
+<pre class="r"><code>data$p.leng_centrado &lt;- (data$p.leng - data$m_p.leng)
+
+results_sincentrado = lmer(p.civ ~ 1 + ip_padres + p.leng + nse + m_ip_padres + m_ip_estudiante + cult_part + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 6.37026 (tol =
+## 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?;Model is nearly unidentifiable: large eigenvalue ratio
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>results_concentrado = lmer(p.civ ~ 1 + ip_padres + p.leng_centrado + nse + m_ip_padres + m_ip_estudiante + cult_part + (1 + p.leng_centrado| idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 1.23098 (tol =
+## 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>results_concentrado_interaccion = lmer(p.civ ~ 1 + ip_padres + p.leng_centrado*nse + m_ip_padres + m_ip_estudiante  + (1 + p.leng_centrado| idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 12.4011 (tol = 0.002, component 1)
+
+## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>screenreg(list(results_sincentrado, results_concentrado,results_concentrado_interaccion ), type=&quot;text&quot;)</code></pre>
+<pre><code>## 
+## ======================================================================================
+##                                            Model 1        Model 2        Model 3      
+## --------------------------------------------------------------------------------------
+## (Intercept)                                   160.12 ***     364.05 ***     401.92 ***
+##                                               (12.91)        (14.61)        (18.50)   
+## ip_padres                                       5.11 *         5.07 *         5.83 *  
+##                                                (2.42)         (2.42)         (2.41)   
+## p.leng                                          1.01 ***                              
+##                                                (0.03)                                 
+## nse                                            12.39 ***      12.62 ***      12.17 ***
+##                                                (1.44)         (1.49)         (1.51)   
+## m_ip_padres                                    49.43 **      108.84 ***     110.60 ***
+##                                               (16.02)        (22.16)        (29.78)   
+## m_ip_estudiante                                26.69          51.99 *        56.45    
+##                                               (16.10)        (22.74)        (30.08)   
+## cult_part                                       0.73 ***       0.74 ***               
+##                                                (0.10)         (0.10)                  
+## p.leng_centrado                                                0.99 ***       1.03 ***
+##                                                               (0.03)         (0.03)   
+## p.leng_centrado:nse                                                          -0.09 ** 
+##                                                                              (0.03)   
+## --------------------------------------------------------------------------------------
+## AIC                                         34893.31       35013.16       35082.46    
+## BIC                                         34959.88       35079.73       35149.04    
+## Log Likelihood                             -17435.65      -17495.58      -17530.23    
+## Num. obs.                                    3140           3140           3140       
+## Num. groups: idschool                         152            152            152       
+## Var: idschool (Intercept)                    3615.85        1427.59        3216.49    
+## Var: idschool p.leng                            0.02                                  
+## Cov: idschool (Intercept) p.leng               -8.75                                  
+## Var: Residual                                3640.35        3648.32        3596.15    
+## Var: idschool p.leng_centrado                                  0.02           0.02    
+## Cov: idschool (Intercept) p.leng_centrado                     -3.73          -5.41    
+## ======================================================================================
+## *** p &lt; 0.001, ** p &lt; 0.01, * p &lt; 0.05</code></pre>
+<p>#Evaluamos el efecto de intarccion que posee el lenguaje en la relacion entre el nse y el cc. Anula dicha relacion.</p>
+<pre class="r"><code>results_5 = lmer(p.civ ~ 1 + ip_padres + nse*p.leng_centrado  + m_p.leng + m_ip_padres + m_ip_estudiante + (1 + nse| idschool), data = data, REML=F) 
+regresion&lt;-stargazer(results_5, type=&quot;text&quot;)</code></pre>
+<pre><code>## 
+## ===============================================
+##                         Dependent variable:    
+##                     ---------------------------
+##                                p.civ           
+## -----------------------------------------------
+## ip_padres                     5.206**          
+##                               (2.436)          
+##                                                
+## nse                          13.505***         
+##                               (1.666)          
+##                                                
+## p.leng_centrado              1.024***          
+##                               (0.027)          
+##                                                
+## m_p.leng                     1.216***          
+##                               (0.091)          
+##                                                
+## m_ip_padres                  44.719**          
+##                              (17.445)          
+##                                                
+## m_ip_estudiante               22.046           
+##                              (17.206)          
+##                                                
+## nse:p.leng_centrado          -0.106***         
+##                               (0.025)          
+##                                                
+## Constant                    152.049***         
+##                              (21.008)          
+##                                                
+## -----------------------------------------------
+## Observations                   3,140           
+## Log Likelihood              -17,456.150        
+## Akaike Inf. Crit.           34,936.300         
+## Bayesian Inf. Crit.         35,008.930         
+## ===============================================
+## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<pre class="r"><code>plot_model(results_5, type = &quot;int&quot;)</code></pre>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<pre class="r"><code>hist(data$Ocupacion) </code></pre>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-20-2.png" width="672" /></p>
+<pre class="r"><code>save(results_5, file = &quot;../output/images/results_5.Rdata&quot;)</code></pre>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

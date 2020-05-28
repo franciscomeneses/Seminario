@@ -1,6 +1,5 @@
-# Seminario
+# Perceptions and Preferences for Meritocracy Scale (PPM-S)
 
-Se expone la sintaxis para mi proyecto de tesis, referido al conocimiento cívico.
 
-[Sitio web](https://franciscomeneses.github.io/taller_2/)
-
+[Website for the PPM-S](https://juancarloscastillo.github.io/merit-scale/)
+  

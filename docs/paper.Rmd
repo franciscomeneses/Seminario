@@ -1,0 +1,183 @@
+---
+title: "Explorando la desigualdad politica: el rol de la comprension lectora"
+author:
+ - Francisco Javier Meneses Rivas
+css: "../input/css/custom.css"
+linestretch: '1.5'
+link-citations: yes
+output:
+  pdf_document:
+    keep_tex: false
+    template: null
+    number_sections: true
+  html_document:
+    theme: flatly
+    number_sections: true
+    always_allow_html: yes
+linkcolor: blue
+bibliography:
+  - ../input/bib/EconomiaMoral.bib
+  - ../input/bib/meritocracy.bib
+editor_options:
+  chunk_output_type: console
+geometry: margin=0.78in
+---
+
+```{r include=FALSE}
+# for render in pdf run rmarkdown::render_site("docs/paper.Rmd", output_format = "all")
+# clean #in the yml
+```
+
+```{r include=FALSE}
+library(knitr)
+#install.packages("KableExtra")
+library(kableExtra)
+library(dplyr)
+#install.packages("captioner")
+library(captioner)
+#install.packages("estimatr")
+library(estimatr)
+library(texreg)
+
+```
+
+```{r}
+
+load(file = "../output/images/results_1.Rdata")
+load(file = "../output/images/results_2.Rdata")
+load(file = "../output/images/results_3.Rdata")
+load(file = "../output/images/results_4.Rdata")
+load(file = "../output/images/results_5.Rdata")
+load(file = "../output/images/results_7.Rdata")
+load(file = "../output/images/results_8.Rdata")
+```
+
+
+```{r}
+regresion_miltinivel = if(is_html_output()) {
+  regresion_html <-htmlreg(list(results_1,results_2,results_3, results_4, results_5 ))
+} else if(is_latex_output()) {
+  regresion_tex <-texreg(list(results_1,results_2,results_3, results_4, results_5 ))
+}
+
+```
+
+
+<div style="text-align: justify">
+
+#  Justificación y relevancia
+
+Las democracias se enfrentan actualmente a problemas de legitimidad que se relacionan, entre otras cosas, con la baja y desigual participación política entre grupos sociales (Bargsted, Somma, Joigted, Campos y Joignant, 2017; Janmaat, 2013; Contreras y Navia, 2010; Browne y Elming, 2015; Miranda, Castillo y Sandoval-Hernández, 2015), subrepresentando principalmente a los jóvenes y grupos de bajo nivel socioeconómico. Más aún, existe un ampliamente registrado efecto intergeneracional de reproducción de la desigualdad politica, debido al cual jóvenes de sectores vulnerables poseen menores puntajes en los indicadores de actitudes, conocimientos y habilidades necesarias para la vida ciudadana(Miranda, 2017, Amnå et al., 2009; Brady et al., 2015; Quintelier y Hooghe, 2013; Wasburn y Covert, 2017;Castillo, Miranda, Bonhomme, Cox, y Bascopé, 2014; Schlozman et al., 2012; Sidney Verba et al., 2003).. En vista de este problema, reflejado en la baja participación electoral, el Estado de Chile vuelve a generar una materia escolar dedicada exclusivamente formación cívica y ciudadana de los jóvenes. Esta asignatura, a partido con el pie izquierdo, no solo por las desigualdades de los contextos educativos en los que se aplica, sino también por la crisis sanitaria que amenaza con ensanchar estas desigualdades. En miras del futuro desarrollo de esta asignatura, y considerando el contexto de reproducción intergeneracional de la desigualdad política, este trabajo busca ayudar a explicar desde una perspectiva sociológica a qué se debe esta reproducción.
+
+Para estudiar las variables mediadoras que explican la reproducción intergeneracional en el contexto chileno, se ha recurrido a la literatura internacional y nacional en torno a la Educación ciudadana, y más específicamente, en torno a la encuesta  Estudio Internacional de Educación Cívica y Formación Ciudadana (ICCS). Investigaciones  que utilizan  la ICCS evidencian la existencia de un sesgo socioeconómico en la distribución del conocimiento cívico, así como una mayor disposición a participar de los grupos acomodados (Miranda, 2018, Agencia de Calidad de la Educación, 2017; Schulz, 2011; Castillo, Miranda, Bonhmme, Cox y Bascopé, 2015; Diazgranados y Sandoval-Hernández, 2017; Treviño, Béjares, Villalobos y Naranjo, 2017) sesgo el cual es interpretado como el efecto de una socialización en un ambiente con mayor capital cultural y la consecuente transmisión de valores como el interés político (Gimpel, Lay, y Schuknecht, 2003; Brady et al., 2015; McDevitt y Chaffee, 2002; Sidney Verba et al., 2003; Wasburn y Covert, 2017). Frente a la explicación valórica de la transmisión social del conocimiento cívico, este artículo propone que dicha causalidad se debe más a la desigualdad social de las habilidades lectoras que a la transmisión de intergeneracional del interés en la política, como se muestra en el la figura 1. 
+
+[imagen] y descripción. 
+
+Además de repensar las variables mediadoras del mecanismo causal, incluir la comprensión lectora como predictor del conocimiento cívico posee por lo menos tres consecuencias. En primer lugar, propone que las habilidades de comprensión, análisis e interpretación propias de la comprensión lectora, poseen un correlato con las habilidades necesarias para el ejercicio de la ciudadanía  y que por ende, la comprensión lectora podría ayudar a disminuir la desigualdad social del conocimiento cívico. En segundo lugar, al incluirse una nueva variable relevante se hace necesario revisar si las conclusiones  de otras investigaciones se mantienen pese al control por comprension lectora. En tercer lugar, plantear que el conocimiento cívico está relacionado con la comprensión lectora, levanta dudas sobre la validez del instrumento y su capacidad de comparar países y distintos grupos  socioeconómicos. En consideración de estos puntos, los objetivos de este trabajo son los siguientes:
+
+* Objetivo general: Comprender el rol que cumple la desigualdad social de la comprensión lectora en la influencia del origen socioeconómico sobre el conocimiento cívico y ciudadano.
+
+* Objetivos específicos: 
+
+    + Evaluar la relación entre comprensión lectora y conocimiento cívico incorporando factores influyentes señalados por la literatura.
+
+    + Contrastar si la desigualdad social del conocimiento cívico se explica por las diferencias de comprensión lectoras o por la transmisión de interés políticos.
+
+    + Evaluar la capacidad que posee la comprensión lectora para resolver la desigualdad social del conocimiento cívico.
+
+
+La relación entre el conocimiento cívico y la comprensión lectora se sustenta por lo menos en dosargumentos. En primer lugar, como señala (10.1080/00933104.2012.649467), es frecuente un patrón de respuestas en el cual los estudiantes logran buenos resultados en las preguntas de habilidades analiticas,  sin tener conocimientos conceptuales básicos de la ciudadanía, lo cual sugiere, según el autor, que han desarrollado estas habilidades de manera lejana probablemente mediante la lectura. Dicho análisis es coherente con el hecho de que las habilidades requeridas para la prueba involucran el uso del lenguaje para la comprensión, el análisis,  la interpretación y la evaluación (Schulz, 2016) habilidades que son igualmente requeridas según el MINEDUC (2015) para alcanzar un nivel de comprensión lectora adecuado para Octavo Básico. En suma, en base a las definiciones de los conceptos medidos en las pruebas Simce y ICCS, junto a la evidencia proporcionada por (10.1080/00933104.2012.649467), podemos suponer que el conocimiento cívico requiere de las habilidades básicas y avanzadas de comprensión lectora.  
+
+Junto con esta relación en las definiciones de los conceptos, algunos estudios han evidenciado que la dificultad de la lectura presente en las pruebas de conocimiento cívico y ciudadano son demasiado altas. Según (10.1386/ctl.11.1.9_1), e un estudo de entrevistas donde solicitaban a los estudiantes responder las preguntas en voz alta, buena parte de los problemas con las preguntas se relacionaban, además de los temas conceptuales, con temas de comprensión lectora, siendo reiterada la situación en la que un estudiante declaró no comprender la pregunta. Más lejos aún (10.1386/ctl.11.1.29_1) ha generado evidencia sobre la relación entre la abstracción y dificultad de los términos presentes en una pregunta y los resultados negativos de los estudiantes, comprobando que estos obtienen mejores resultados en versiones más simples de la prueba. En suma, podemos decir que una mayor capacidad lectora permitirá comprender de mejor manera las preguntas y consecuentemente obtener un  mayor puntaje. Este punto, pone en tela de juicio la validez del instrumento, en tanto las diferencias en comprensión lectora podrían estar inflando las diferencias sociales en el conocimiento cívico. 
+
+En conclusión, podemos decir que las habilidades propias del lenguaje son igualmente necesarias para la forma en que está medido el conocimiento cívico y que además, estas  habilidades poseen un rol exacerbado debido a la dificultad y abstracción de las preguntas y enunciados de la prueba, de lo cual deriva la relación entre ambas variables. 
+
+# Antecedentes y marco conceptual.
+
+## El conocimiento civico
+
+El conocimiento cívico y ciudadano (i.e. habilidades y conocimientos necesarios para la vida ciudadana) es actualmente promovido por diversos agentes a nivel académico, estatal e internacional. Este conocimiento es sumamente relevante si se considera sus efectos positivos sobre la intención de participación, en un contexto de apatía política y baja participación de estratos bajos y jóvenes (Janmaat, 2013; Contreras y Navia, 2010; Browne y Elming, 2015; Miranda, Castillo y Sandoval-Hernández, 2015). Igualmente, en el contexto de los nuevos movimientos sociales que buscan reivindicar los derechos de distintos grupos tradicionalmente discriminados, el conocimiento cívico ha demostrado estar relacionado con el respeto a los derechos humanos de estos grupos (Miranda, Castillo y Cumsille, 2018; Caro, Schulz, 2012). También, el tener más conocimiento cívico se relaciona con estar en desacuerdo con la corrupción y con la valoración positiva de la democracia como sistema representativo, lo cual, según Hastedt (2016), es fundamental en un contexto de resurgimiento de los gobiernos autoritarios. En suma, el conocimiento cívico puede ayudar a las personas a incorporar los principios democráticos de los derechos humanos y, por ello, debe buscarse las maneras de fomentar y hacer más útiles las políticas que buscan incorporarlo como ramo dentro de la educación secundaria.
+
+Las investigaciones actuales han propuesto que el conocimiento cívico es especialmente influido por variables de origen socioeconómico (Agencia de Calidad de la Educación, 2017; Schulz, 2011; Castillo, Miranda, Bonhmme, Cox y Bascopé, 2015; Diazgranados y Sandoval-Hernández, 2017; Treviño, Béjares, Villalobos y Naranjo, 2017), dando cuenta de lo que se denominará desde este punto, la “Desigualdad social del conocimiento cívico”. Este efecto del nivel socioeconómico, según la literatura, se debe menos al efecto de la ocupación de los padres que al efecto de variables culturales como la educación de los padres y el número de Libros, dando luces respecto al carácter cultural del fenómeno (e.g. Castillo, Miranda, Bonhomme, Cox y Bascopé, 2014). Además de los factores socioeconómicos y de transmisión cultural, otras investigaciones han enfatizado en el efecto producido por variables a nivel escuela como el nivel socioeconómico promedio de la escuela clima más abierto a la discusión y una cultura participativa a nivel escuela son propicios para el conocimiento cívico (Schulz, 2016). En suma, podemos ver que el conocimiento cívico es influido por distintas variables que se relacionan tanto con la socialización primaria como con la secundaria. 
+
+##  Desigualdad social del conocimiento cívico
+
+Por desigualdad social del conocimiento cívico este artículo se refiere a la relación positiva que existente entre el conocimiento cívico recién definido y el origen socioeconómico. Por origen socioeconómico, se entiende la relación entre el estatus ocupacional, el nivel educativo alcanzado, y la cantidad de libros en el hogar (ICCS, 2016; Mineduc, 2016). Esta variable es bastante semejante al estatus socioeconómico (SES), solo que la variable origen socioeconómico de la ICCS, no incorpora los ingresos, como usualmente lo hace el SES (Burgard y Stewart, 2003) e incorpora además la cantidad de libros. El que no se incorporen los ingresos es sopesado por incorporar ocupación, que es un mejor indicador de ingresos a largo plazo que la información de ingresos recopilada en cualquier momento dado, porque a corto plazo, los ingresos pueden ser bastante volátiles (Williams y Collins 1995). 
+
+Siguiendo con la desigualdad social del conocimiento cívico, se podría afirmar, que esta es parte de un proceso más amplio de desigualdad sociocultural de la política, sobre la cual Bryony Hoskinsa, Jan Germen Janmaat, Christine Han y Daniel Muijs (2016) realizan muy buenas observaciones. A partir de datos mixtos, en distintos países de Europa, los autores dan cuenta como un menor nivel socioeconómico se relaciona con un peor desempeño académico, lo que lleva a las personas a tener una auto-evaluación general deficientes de sí mismos, y por ello, una baja autoeficacia política, la cual se relaciona igualmente con baja intención de voto. Podría decirse que esta investigación sigue una lógica semejante a la de los autores, agregando a la baja autoeficacia, las dificultades que implica tener una baja capacidad de aprendizaje y mal desarrollo de habilidades en la incorporación de conocimientos y destrezas necesarias para la vida cívica y ciudadana.
+
+## Comprensión lectora
+
+El rendimiento académico en lenguaje será considerado como medida de las capacidades del alumno, que expresa lo que éste ha aprendido a lo largo del proceso formativo (EcuRed, 2019). Para trabajar con esta variable se utilizará la prueba SIMCE, la cual, justamente busca medir los logros de aprendizaje de los estudiantes chilenos (Mineduc, 2019). Según Barahona (2014) Existe un consenso en que los factores asociados al desempeño académico pueden tener su origen en dos grandes ámbitos: en los determinantes personales y en los determinantes sociales, aunque este consenso puede ser interpelado por Lara, Mizala y Repetto, 2010, quienes demuestran el efecto que pueden tener las prácticas docentes, sugiriendo, entre otras cosas, que discutir la materia en clases es positivo para el rendimiento, resultados coherentes con los resultados presentados por Schulz (2016), según quien, en 17 países un clima abierto a la discusión en el aula es un buen predictor de rendimiento en conocimiento cívico. Ahora bien, si se reconsidera lo planteado por Méndez (2015), quien da cuenta de que metodologías participativas generan un efecto positivo en la motivación por la asignatura y que el interés por la misma es fundamental en el aprendizaje (Carrillo, Padilla, Rosero y Villagómez, 2009; Lozano, García-Cueto y Gallo, 2000; Mateos, Bejarano, Ezquerro y López-Fernández, s.f.), podemos pensar que parte del efecto del clima participativo pasa por el interés de los estudiantes sobre temas de política y sociedad. Para este trabajo incluiremos sólo el interés por la política. Datos, variables y metodología.
+
+
+# Método
+
+Para abordar la problemática se trabajara con la base de datos de la encuesta internacional de conocimiento cívico (ICCS) en su tercera versión del 2016. Además contamos con los datos de la prueba simce para los mismos estudiantes lo que nos permite evaluar la relación entre comprensión lectora y conocimiento cívico. Se trabajó por ende con una base de 3140 estudiantes representativos a nivel nacional. En consideración de dicho tamaño muestral, se utilizará un 99% de nivel de confianza. Para poder probar nuestras hipótesis de manera correcta se trabajó con regresiones Multinivel, en las cuales se ha dejado de pendiente aleatoria el efecto del lenguaje y se han producido interacciones con variables de segundo nivel como el promedio del nivel socioeconómico del colegio.
+ 
+ 
+# Resultados.
+
+##  Analisis descriptivo y bibariado
+
+diferencias y diferencias parcializadas. 
+diferencias en actitudes y en conocimiento cívico. 
+
+
+##  Resultados del Modelo y analisis de interacciones. 
+
+En la tabla consecutiva se presentan 4 modelos multinivel los cuales son todos significativamente mejores que el anterior. El primer modelo incluye las variables de reproducción social, el segundo, incluye una variable de la escuela, el tercero agrega el interés político social del estudiante. El cuarto incluye la variable puntaje en la prueba simce de lenguaje, y el quinto expone la aleatorización de la pendiente y la interacción  de una variable nivel dos: el promedio del nivel socioeconómico.
+
+```{r results='asis'}
+regresion_miltinivel
+```
+
+
+El primer modelo incluye aquellas variables que representan la reproducción social de la desigualdad política, y como puede verse, todas estas variables poseen un efecto significativo que implica cambios de puntajes que van aproximadamente 10 a 40 puntos. Así, poseer más de 100 libros en la casa, aumenta 14 puntos el conocimiento cívico, por su parte la variable ocupación posee un efecto considerable, en un rango de más de 80 valores, por cada unidad que aumenta el índice de estatus ocupacional el estudiante aumentó 0.6 puntos en la prueba de conocimiento cívico, así por ejemplo poseer 50 pts. más de estatus ocupacional implica aumentar 30 pts. en la prueba de conocimiento cívico. Respecto al efecto de la educación de los padres, este es ambivalente, puesto que si bien es respaldado por la literatura, en vista de los controles aplicados parece solo tener un efecto significativo con un 90% de confianza, criterio demasiado laxo para una muestra de más de 3000 casos. En último lugar, considerando la variable de segundo nivel, promedio del nivel socioeconómico de los padres del colegio, podemos decir que existe un gran peso del contexto socioeconómico del colegio.
+El segundo modelo incorpora una variable del contexto educativo, esta variable da cuenta de que tan de acuerdo están los estudiantes en general con que la participación en la escuela y la comunidad son beneficiosos para la comunidad. Como puede verse, por cada punto que aumenta este promedio mejora en 2 puntos el conocimiento cívico, lo cual reafirma la hipótesis de que un contexto de participación es útil para mejorar el conocimiento cívico de los estudiantes. Cabe destacar que el incorporar esta variable no logra controlar las variables de origen familiar, lo que nos da cuenta que las ventajas sociales del conocimiento cívico no pasan por estar en colegios con mejores climas democráticos.
+
+El Tercer modelo incorpora la variable interés político del estudiante. Como plantea la teoría, un estudiante que posee intereses sobre una materia posee una ventaja respecto a la misma, premisa que es comprobada en este caso. El que un estudiante posea interés en la política y los asuntos sociales se asocia con tener 19 puntos más en la prueba de conocimiento cívico. Resulta interesante que el efecto de poseer padres interesados por la política, es completamente controlado por el efecto de que el estudiante tenga interés, lo que nos da cuenta de que el efecto de los padres pasa a través de los hijos. Este control nos permite decir que el efecto del nivel socioeconómico y las ventajas en términos de capital cultural no se explican completa, ni medianamente por qué las personas de mayores recursos tengan más intereses en la política, lo cual nos permite desde ya poner en duda las explicaciones que aluden a que el conocimiento cívico es transmitido como valores e intereses de generacion en generacion. Siendo más específicos, el efecto que más es controlados es el de tener libros en la casa. Al parecer, el tener libros en la casa se relaciona con estudiantes interesados en la política, que obtuvieron mejores puntajes en esta prueba.
+
+El cuarto modelo modelo es el modelo fundamental de este trabajo. En este modelo las demás variables son controladas por el efecto de la comprensión lectora medida en la prueba simce de lenguaje. Como puede verse cada punto que aumenta alguien en la prueba simce de lenguaje, aumenta 1 punto en la prueba de conocimiento cívico, lo cual es una relación bastante estrecha considerando los rangos de ambas pruebas. Lo más interesante de incorporar esta variable es lo que ocurre con las demás. Como puede verse el efecto de que existan más de 100 libros en el hogar, prácticamente desaparece, pasando de un efecto de 13 a 6 puntos, y perdiendo la significación al 99%. Por su parte, respecto a la variable de estatus ocupacional de los padres y al nivel socioeconómico promedio del colegio, es bastante sugerente el hecho de que ambos efectos disminuyen casi a la mitad. En vista de estos controles, podemos decir que el efecto de que los padres posean libros en la casa es realmente producido por la influencia que eso ejerce en la comprensión lectora de los estudiantes. Igualmente, podemos decir que casi la mitad del efecto del nivel socioeconómico de los padres en el conocimiento cívico se debe a la influencia de estas posiciones en el buen manejo del lenguaje.
+El quinto modelo es un poco más complejo. Primero incorpora la aleatorización de la pendiente del efecto de la comprensión lectora sobre el conocimiento cívico, permitiendo que esta varíe según contextos. Luego, intentamos explicar dicha variación de la pendiente en función del nivel socioeconómico del colegio, para ver si el efecto del lenguaje sobre el conocimiento cívico difiere en contextos socioeconómicos distintos. Como puede verse en la tabla, el efecto es significativo, y mientras mayor es el nivel socioeconómico menos importante es la comprensión lectora, como puede verse en el gráfico
+
+![La moderacion de la desigualdad por el lenguaje](../output/images/interaccionfinal.png)
+
+Como puede verse en el gráfico, la pendiente de la relación es muy distinta si se posee un alto o un bajo nivel socioeconómico promedio de la escuela. En escuelas con un bajo nivel socioeconómico (línea roja), la pendiente es mucho más pronunciada y el intercepto es mucho menor. Dicho de otra manera, en las escuelas con un nse promedio bajo, la comprensión lectora es más determinante respecto al conocimiento cívico, así, quienes no poseen una buena comprensión lectora siendo establecimientos vulnerables, alcanzan 300 puntos en al prueba de conocimiento cívico, mientras que quienes están en una escuela con padres de alto estatus y poseen una pésima comprensión lectora, alcanzan 450 puntos en dicha prueba. Esto, nos permite afirmar que en contextos vulnerables es aún más importante promover el manejo del lenguaje. 
+
+Observando el gráfico anterior, llama la atención que en puntajes muy altos de comprensión lectora, no importa el contexto económico del colegio del estudiante. Este punto del gráfico incita a pensar que si estudiantes de contextos vulnerables alcanzan una buena comprensión lectora podrán desarrollar de buena manera las habilidades y conocimientos que son necesarios para la vida ciudadana. Para evaluar esta posibilidad, invertimos el orden del gráfico, evaluando en qué medida un buen puntaje en el lenguaje puede moderar la relación entre estar en un contexto escolar vulnerable y tener un deficiente conocimiento cívico. En el gráfico 2 se evalúa dicha interacción. 
+
+
+
+En este gráfico podemos evaluar como el efecto del nivel socioeconómico de la escuela es moderado de manera casi perfecta por la comprensión lectora. Como puede verse, si un estudiante posee un excelente puntaje en la prueba de comprension lectora simce, independiente del nivel socioeconómico de su escuela, tendrá un muy alto puntaje en conocimiento cívico.
+Hasta este punto, cabe la duda de si todo este efecto de la comprensión lectora es efectivamente propio, o es más bien un reflejo de algún efecto del colegio. Para evaluar que esto no esté ocurriendo, replicamos el último modelo centrando la variable comprensión lectora por el promedio de cada grupo, con el objetivo de despejar aquella varianza que corresponde al nivel escuela. Los resultados se exponen en la tabla número 2.
+
+![Evaluando el centrado](../output/images/G2.png)
+
+#  Conclusiones: respondiendo las incognitasa
+
+En consideracion de los resultados, podemos entregar algunas respuestas parciales a nuestros objetivos de investigacion.
+
+En primer lugar podemos decir que exite una relacion moderadamente alta entre el conocimiento civico y la comprension lectora, relacion la cual no solo se mantiene al incluir otras variables fundamentales en el modelo, sino que es capas de controlar buena parte del efecto de las variables de origen social. El evidencia el efecto de la comprension lectora, no niega el efecto positivo sobre el conocimiento civico que pueden tener variables como la cultura democratica del establecimiento, lo cual se evidencia con la mantencion de este efecto al controlar por comprension lectora.
+
+En segundo lugar,en función de los resultados, podemos decir que aquellas teorías que explicaban la relación entre nse y conocimiento cívico, por la transmisión de valores, si bien son ciertas, poseen una visión parcial de lo que ocurre ya que en buena medida la desigualdad social del conocimiento cívico se relaciona ampliamente con la desigualdad social de la comprensión lectora, la cual se relaciona con el capital cultural objetivado de los padres (más de 100 libros en el hogar) y el acceder a buena educación, lo cual se relaciona a su vez con acceder a educación de buena calidad. Es decir, no es tanto que los padres adinerados eduquen democráticamente a sus hijos, sino que más bien, ya sea por transmisión directa o por acceso a buena educación, les otorgan un mayor manejo del lenguaje, lo cual les permite igualmente incorporar de manera más compleja la realidad política, teniendo más herramientas para comprender, analizar y criticar políticamente.
+
+En tercer lugar, gracias a la evidencia, podemos señalar que la comprension lectora puede ser una forma de mejorar el conocimiento civico en sectores vulnerables, puesto que estudiantes de dichos sectores que si poseen un buen manejo del lenguaje poseen igualmente altas capacidades y conocimientos para la vida ciudadana. En funcion de lo anterior, se hace nesario estudiar experimentalmente el efecto que podria tener un reforzamiento en lenguaje para la prueba de la iccs.
+
+#  Discución: las implicancia de la evidencia
+
+Dados los resultados, y el rol prominente de la compension lectora en el conocimiento civico, se hace necesario revisar algunas propuestas que intentan explicar el conocimiento civico, puesto que pueden caer en resultados espureos al no considerar una variable relevante dentro de sus modelos. 
+
+Igualmente, se hace necesario profundizar hasta que punto la comprension lectora es necesaria para vida politica o más bien es un problema de error de medida, en el cual se incorpora varianza no deseada a las escala. En consideracion de lo anterior, es posible que al generar instrumentos con menores niveles de abstraccion en la redaccion de las situaciones y preguntas, se generen menodes diferencias de conocimiento civico entre distintos grupos sociales. 
+
+Respecto a cuáles son los caminos que deben tomarse para mejorar la desigualdad en el conocimiento cívico y en la participación ciudadana, resulta evidente después de los resultados, que además de reforzar la educación cívica en los colegios como ya se está haciendo (y debe seguirse haciendo, debe fomentarse la comprensión lectora). Incluso podemos decir que cuando se posee altos niveles de comprensión lectora, las diferencias de estatus socioeconómico no afectan de manera sustancial, existiendo estudiantes de colegios con bajo nivel económico que poseen una buena comprension lectora y civica. Al respecto, tipos de clases que impliquen lectura colectiva y discusión sobre lo leído, para entender en conjunto el sentido de los textos, puede ser una muy buena estrategia, puesto que está demostrado que los profesores que realizan dichas actividades mejoran el puntaje en lenguaje de sus estudiantes (Lorena Ortega) así como que aulas más participativas poseen un efecto para la el conocimiento cívico. Es en dichos espacios de participación donde puede sacarse el provecho al capital cultural de cada estudiante y fomentar el efecto pares.
+
+En relación al nuevo plan de formación ciudadana, y considerando estos resultados es sensato esperar un efecto diferencial de la política en cada establecimiento según el nivel de comprensión lectora del colegio, lo cual está relacionado con el nivel socioeconómico. Quizás sea prudente en miras del objetivo de la política, prestar ayuda especializada a colegios que posean bajos niveles de comprensión lectora. También, dentro de los colegios prestar apoyo a los estudiantes con dificultades al respecto también puede ser una buena medida a aplicar en cursos anteriores al último ciclo de tercero cuarto, donde debersn aplicar dichas habilidades en la reflexion ciudadana y en la incorporacion de conocimientos civicos.
+ 
+
+
+
+
+
+
+
