@@ -303,18 +303,6 @@ $(document).ready(function () {
 </div>
 
 
-<pre class="r"><code>load(file = &quot;../output/images/results_1.Rdata&quot;)
-load(file = &quot;../output/images/results_2.Rdata&quot;)
-load(file = &quot;../output/images/results_3.Rdata&quot;)
-load(file = &quot;../output/images/results_4.Rdata&quot;)
-load(file = &quot;../output/images/results_5.Rdata&quot;)
-load(file = &quot;../output/images/results_7.Rdata&quot;)
-load(file = &quot;../output/images/results_8.Rdata&quot;)</code></pre>
-<pre class="r"><code>regresion_miltinivel = if(is_html_output()) {
-  regresion_html &lt;-htmlreg(list(results_1,results_2,results_3, results_4, results_5 ))
-} else if(is_latex_output()) {
-  regresion_tex &lt;-texreg(list(results_1,results_2,results_3, results_4, results_5 ))
-}</code></pre>
 <div style="text-align: justify">
 
 <div id="justificación-y-relevancia" class="section level1">

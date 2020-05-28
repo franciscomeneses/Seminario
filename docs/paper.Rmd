@@ -41,7 +41,7 @@ library(texreg)
 
 ```
 
-```{r}
+```{r include=FALSE}
 
 load(file = "../output/images/results_1.Rdata")
 load(file = "../output/images/results_2.Rdata")
@@ -53,7 +53,7 @@ load(file = "../output/images/results_8.Rdata")
 ```
 
 
-```{r}
+```{r include=FALSE}
 regresion_miltinivel = if(is_html_output()) {
   regresion_html <-htmlreg(list(results_1,results_2,results_3, results_4, results_5 ))
 } else if(is_latex_output()) {

@@ -729,8 +729,9 @@ screenreg(results_2)</code></pre>
 plot_model(results_6, type = &quot;int&quot;)</code></pre>
 <p><img src="prod_analisis_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>correlacion entre interes de de los padres y cualidades democraticas del colegio.</p>
-<pre class="r"><code>library(corrplot)
-basecor&lt;-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ)</code></pre>
+<pre class="r"><code>library(corrplot)</code></pre>
+<pre><code>## corrplot 0.84 loaded</code></pre>
+<pre class="r"><code>basecor&lt;-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ)</code></pre>
 <pre><code>## Adding missing grouping variables: `idschool`</code></pre>
 <pre class="r"><code>cor &lt;- cor(basecor)
 Correlaciones  &lt;-corrplot.mixed(cor)</code></pre>
