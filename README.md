@@ -1,4 +1,4 @@
-# taller_2
+# Seminario
 
 Se expone la sintaxis para mi proyecto de tesis, referido al conocimiento cívico.
 
