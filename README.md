@@ -1,5 +1,5 @@
 # seminario 
 
 
-[link](docs/index.html)
+[link](https://franciscomeneses.github.io/Seminario/)
   
