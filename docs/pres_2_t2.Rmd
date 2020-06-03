@@ -1,0 +1,194 @@
+---
+title: "presentacion taller 2"
+subtitle: " "
+author: ".small[Francisco Meneses Rivas <br><br> Departamento de Sociología - UCH / COES <br><br>]"
+date: " "
+output:
+  xaringan::moon_reader:
+    css:
+        - default
+        - default-fonts
+        - custom.css
+    lib_dir: libs
+    nature:
+      slideNumberFormat:   |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>`
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "xaringan_custom/macros.js"
+    seal: false # esto omite title slide automática
+---
+class: inverse, bottom, right
+
+
+```{r setup, include=FALSE, cache = FALSE}
+require("knitr")
+library(xaringan)
+library(texreg)
+options(htmltools.dir.version = FALSE)
+pacman::p_load(RefManageR)
+```
+
+```{r eval=FALSE, echo=FALSE}
+# Correr esta linea para ejecutar
+rmarkdown::render('pres_2_t2.Rmd', 'xaringan::moon_reader')
+
+```
+
+```{r include=FALSE}
+
+load(file = "../output/images/results_1.Rdata")
+load(file = "../output/images/results_2.Rdata")
+load(file = "../output/images/results_3.Rdata")
+load(file = "../output/images/results_4.Rdata")
+load(file = "../output/images/results_5.Rdata")
+load(file = "../output/images/results_7.Rdata")
+load(file = "../output/images/results_8.Rdata")
+```
+
+<!---
+About macros.js: permite escalar las imágenes como [:scale 50%](path to image), hay si que grabar ese archivo js en el directorio.
+--->
+# ¿Como resolver la reproduccion de la desigualdad politica?
+## * Un trabajo multinevel sobre la importancia del manejo del lenguaje *
+<br>
+<hr>
+### Francisco Meneses Rivas, Estudiante de Sociologia de la universidad de Chile.
+
+<br>
+
+.small[Seminario de grado - Profesor Guía Juan Carlos Castillo]
+---
+class: center, middle
+
+#Presentacion del problema social
+---
+
+  #La problematica de la desigualdad politica
+  
+![](../input/images/Diapositiva1.png)
+
+---
+
+class: center, middle
+
+#Antecedentes teoricos. 
+
+---
+
+## Escuela de la reproduccion cultural 
+  * Bourdieu y Berstein
+    
+    + Habilidades: incorporacion de pautas complejas de lenguaje (Bernstein, 1977)
+    
+    +  Gustos: influencia social sobre los intereses personales  (Bourdieu,1979)
+  
+## Investigaciones actuales
+
+ * Estudio Internacional de Educación Cívica y Formación Ciudadana
+    
+    + Desigualdad social en el conocimiento civico (Schulz,2010)
+    
+    + Papel fundamental del capital cultural (Castillo, Miranda, Bonhomme, Cox & Bascopé, 2014)
+   
+    + Dificultad de los estudiantes para comprender la prueba  (Zhang,Torney-Purta & Mislevy, 2015)
+---
+class: middle, center
+
+## Concepto principal: _EL CONOCOCIMIENTO CIVICO_ 
+
+---
+## Discutiendo los antecedentes
+  
+  1. Falta de claridad del papel que poseen los intereses y las habilidades
+  
+  2. Sobre-estimacion del efecto del nivel socioeconomico por ausencia de mediadores.
+    * la importancia del manejo del lenguaje.
+    * la importancia de la capacidades analiticas.
+    * la importancia de las capacididades de memeoria.
+    
+  3. falta de propuestas focalizadas a sectores vulnerables
+---
+<div style="text-align: justify">
+
+## Preguntas e hipotesis de investigación:
+  
+  * Objetivo general: Comprender el rol que cumple la comprensión lectora en la influencia del origen socioeconómico sobre el conocimiento cívico.
+
+* Objetivos específicos: 
+
+    + Evaluar la relación entre comprensión lectora y conocimiento cívico incorporando factores influyentes señalados por la literatura.
+
+    + Contrastar si la desigualdad social del conocimiento cívico se explica en mayor medida por las diferencias de comprensión lectoras o por la transmisión de interés políticos.
+
+    + Evaluar la capacidad que posee la comprensión lectora para resolver la desigualdad social del conocimiento cívico.
+
+<div/>
+---
+ # Metodo
+
+  ## Variables 
+    - Prueba internacional de conocimiento civico (ISSC)
+    - Prueba de comprension lectora de lenguaje (SIMCE)
+    - National index of socioeconomic background (ISSC)
+  ## Estadisticos
+    - path uni-nivel y multi-nivel(en progreso)
+    - interacciones entre niveles de regresiones multinivel 
+
+
+---
+class: center, middle
+# Resultados: 
+---
+
+class: middle, center
+
+# H1: La evidencia señala que la desigualdad del conocimiento civico es mediada en buena medida por el manejo del lenguaje. 
+
+---
+
+class: middle, center
+
+# Analisis multinivel
+
+---
+class: center
+
+![](../input/images/tabla_regmultinivel.png){width=90%}
+
+
+
+---
+![](../input/images/Diapositiva5.png)
+
+---
+class: middle, center
+
+# ¿Como podemos disminuir la desigualdad del conocimiento civico?
+
+---
+![La moderacion de la desigualdad por el lenguaje](../output/images/interaccionfinal.png)
+---
+ # Conclusion:
+ 
+ 1. La comprension lectora posee una alta y robusta relacion con el conocimiento civico
+ 
+ 2. La comprension lectora posee mayor capacidad que el interes politico para explicar  la desigualdad del conocimeinto civico
+ 
+ 3. La comprension lectora puede mejorar el conocimiento civico en contextos de vulnerabilidad socioeconomica, por ende, la eficacia de la ley F.C. depende de mejorar el uso del lenguaje.
+ 
+---
+
+ # Discusión 
+
+  1. Ha existido una exageracion de la transmicion intergeneracional de valores e interes politico. 
+ 
+  2. Es necesario revisar relaciones anteriormente señaladas controlando por el efecto de la comprension lectora
+
+  3. Es necesario generar una prueba que este menos influida por la dificultad del lenguaje para una comparacion más valida
+ 
+ 
