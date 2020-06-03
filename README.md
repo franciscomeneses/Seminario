@@ -1,5 +1,5 @@
-# Perceptions and Preferences for Meritocracy Scale (PPM-S)
+# seminario 
 
 
-[Website for the PPM-S](https://juancarloscastillo.github.io/merit-scale/)
+[link](docs/index.html)
   
