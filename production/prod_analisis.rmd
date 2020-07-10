@@ -193,7 +193,12 @@ screenreg(results_2)
 ```{r}
 results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng| idschool), data = data, REML=F) 
 screenreg(results_3)
+
+
+results_3_lm = lm(p.civ ~ Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + p.leng,  data = data) 
 ```
+
+
 ```{r}
 anova(results_2,results_3)
 ```
