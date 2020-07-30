@@ -285,13 +285,6 @@ $(document).ready(function () {
   <a href="paper.html">Articulo en linea</a>
 </li>
 <li>
-  <a href="paper.pdf">
-    <span class="fa fa-file-pdf"></span>
-     
-    Descargar en PDF
-  </a>
-</li>
-<li>
   <a href="pres_2_t2.html">Presentacion</a>
 </li>
 <li>
@@ -375,54 +368,78 @@ data &lt;- data %&gt;%
 data &lt;- data %&gt;%
   group_by(idschool) %&gt;%
   mutate(m_p.leng = mean(p.leng))</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(ggplot2)
+library(hrbrthemes)</code></pre>
+<pre><code>## Warning: package &#39;hrbrthemes&#39; was built under R version 4.0.2</code></pre>
+<pre><code>## Registering Windows fonts with R</code></pre>
+<pre><code>## NOTE: Either Arial Narrow or Roboto Condensed fonts are required to use these themes.</code></pre>
+<pre><code>##       Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed and</code></pre>
+<pre><code>##       if Arial Narrow is not on your system, please see https://bit.ly/arialnarrow</code></pre>
+<pre class="r"><code>#install.packages(&quot;hrbrthemes&quot;)
+data$alto_nse&lt;-as.character(ifelse(data$nse&gt;=0,1,0))
+
+
+
+scatter &lt;-ggplot(data, aes(x=p.civ, y=p.leng, color=alto_nse)) + 
+    geom_point(size=2) +
+    theme_classic()</code></pre>
 <pre class="r"><code>summary(data)</code></pre>
-<pre><code>##      p.leng          p.mat           p.nat           p.civ            nse         
-##  Min.   :126.0   Min.   :142.0   Min.   :149.0   Min.   :232.1   Min.   :-2.0800  
-##  1st Qu.:214.5   1st Qu.:235.2   1st Qu.:236.9   1st Qu.:432.1   1st Qu.:-0.6300  
-##  Median :255.7   Median :275.0   Median :273.9   Median :502.2   Median : 0.0700  
-##  Mean   :251.7   Mean   :272.6   Mean   :274.7   Mean   :498.4   Mean   : 0.1816  
-##  3rd Qu.:288.9   3rd Qu.:309.9   3rd Qu.:311.4   3rd Qu.:565.0   3rd Qu.: 1.0000  
-##  Max.   :373.2   Max.   :394.4   Max.   :416.9   Max.   :782.7   Max.   : 2.4900  
-##                                                                                   
-##  ip_estudiante      ip_padres         idschool      apert_disc      cult_part    
-##  Min.   :0.0000   Min.   :0.0000   Min.   :1001   Min.   :16.67   Min.   :17.22  
-##  1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1046   1st Qu.:46.53   1st Qu.:45.66  
-##  Median :0.0000   Median :1.0000   Median :1090   Median :53.15   Median :53.75  
-##  Mean   :0.2296   Mean   :0.6548   Mean   :1092   Mean   :53.12   Mean   :55.25  
-##  3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:1138   3rd Qu.:58.96   3rd Qu.:68.37  
-##  Max.   :1.0000   Max.   :1.0000   Max.   :1178   Max.   :78.16   Max.   :68.37  
-##                                                                                  
-##     esp_part         Libros         Ocupacion       Educacion         IC3G13A      
-##  Min.   :25.41   Min.   :0.0000   Min.   :10.00   Min.   :0.0000   Min.   :0.0000  
-##  1st Qu.:41.21   1st Qu.:0.0000   1st Qu.:33.00   1st Qu.:0.0000   1st Qu.:0.0000  
-##  Median :48.22   Median :1.0000   Median :42.00   Median :0.0000   Median :1.0000  
-##  Mean   :49.33   Mean   :0.5041   Mean   :45.86   Mean   :0.4994   Mean   :0.5013  
-##  3rd Qu.:52.28   3rd Qu.:1.0000   3rd Qu.:59.00   3rd Qu.:1.0000   3rd Qu.:1.0000  
-##  Max.   :70.79   Max.   :1.0000   Max.   :89.00   Max.   :1.0000   Max.   :1.0000  
-##                                                                                    
-##     rel_prof        S_ABUSE          m_nse          m_apert_disc     clima_prof   
-##  Min.   :18.78   Min.   :37.04   Min.   :-1.5500   Min.   :35.49   Min.   :34.53  
-##  1st Qu.:45.48   1st Qu.:37.04   1st Qu.:-0.4104   1st Qu.:50.28   1st Qu.:52.08  
-##  Median :53.24   Median :50.42   Median : 0.1079   Median :53.07   Median :54.45  
-##  Mean   :54.55   Mean   :49.47   Mean   : 0.1816   Mean   :53.12   Mean   :54.55  
-##  3rd Qu.:64.54   3rd Qu.:56.17   3rd Qu.: 0.5552   3rd Qu.:56.08   3rd Qu.:57.19  
-##  Max.   :71.68   Max.   :87.38   Max.   : 2.2300   Max.   :78.16   Max.   :66.72  
-##                                                                                   
-##    m_esp_part    m_ip_estudiante      sd_nse        m_ip_padres      m_cult_part   
-##  Min.   :25.87   Min.   :0.0000   Min.   :0.2894   Min.   :0.0000   Min.   :22.35  
-##  1st Qu.:41.76   1st Qu.:0.1364   1st Qu.:0.6125   1st Qu.:0.5385   1st Qu.:52.86  
-##  Median :48.22   Median :0.2083   Median :0.7231   Median :0.6486   Median :54.88  
-##  Mean   :49.33   Mean   :0.2296   Mean   :0.7175   Mean   :0.6548   Mean   :55.25  
-##  3rd Qu.:53.25   3rd Qu.:0.2941   3rd Qu.:0.8101   3rd Qu.:0.7568   3rd Qu.:58.26  
-##  Max.   :70.79   Max.   :1.0000   Max.   :1.8455   Max.   :1.0000   Max.   :68.37  
-##                                   NA&#39;s   :10                                       
-##     m_p.leng    
-##  Min.   :168.5  
-##  1st Qu.:234.0  
-##  Median :250.2  
-##  Mean   :251.7  
-##  3rd Qu.:269.9  
-##  Max.   :335.9  
+<pre><code>##      p.leng          p.mat           p.nat           p.civ      
+##  Min.   :126.0   Min.   :142.0   Min.   :149.0   Min.   :232.1  
+##  1st Qu.:214.5   1st Qu.:235.2   1st Qu.:236.9   1st Qu.:432.1  
+##  Median :255.7   Median :275.0   Median :273.9   Median :502.2  
+##  Mean   :251.7   Mean   :272.6   Mean   :274.7   Mean   :498.4  
+##  3rd Qu.:288.9   3rd Qu.:309.9   3rd Qu.:311.4   3rd Qu.:565.0  
+##  Max.   :373.2   Max.   :394.4   Max.   :416.9   Max.   :782.7  
+##                                                                 
+##       nse          ip_estudiante      ip_padres         idschool   
+##  Min.   :-2.0800   Min.   :0.0000   Min.   :0.0000   Min.   :1001  
+##  1st Qu.:-0.6300   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1046  
+##  Median : 0.0700   Median :0.0000   Median :1.0000   Median :1090  
+##  Mean   : 0.1816   Mean   :0.2296   Mean   :0.6548   Mean   :1092  
+##  3rd Qu.: 1.0000   3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:1138  
+##  Max.   : 2.4900   Max.   :1.0000   Max.   :1.0000   Max.   :1178  
+##                                                                    
+##    apert_disc      cult_part        esp_part         Libros      
+##  Min.   :16.67   Min.   :17.22   Min.   :25.41   Min.   :0.0000  
+##  1st Qu.:46.53   1st Qu.:45.66   1st Qu.:41.21   1st Qu.:0.0000  
+##  Median :53.15   Median :53.75   Median :48.22   Median :1.0000  
+##  Mean   :53.12   Mean   :55.25   Mean   :49.33   Mean   :0.5041  
+##  3rd Qu.:58.96   3rd Qu.:68.37   3rd Qu.:52.28   3rd Qu.:1.0000  
+##  Max.   :78.16   Max.   :68.37   Max.   :70.79   Max.   :1.0000  
+##                                                                  
+##    Ocupacion       Educacion         IC3G13A          rel_prof    
+##  Min.   :10.00   Min.   :0.0000   Min.   :0.0000   Min.   :18.78  
+##  1st Qu.:33.00   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:45.48  
+##  Median :42.00   Median :0.0000   Median :1.0000   Median :53.24  
+##  Mean   :45.86   Mean   :0.4994   Mean   :0.5013   Mean   :54.55  
+##  3rd Qu.:59.00   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:64.54  
+##  Max.   :89.00   Max.   :1.0000   Max.   :1.0000   Max.   :71.68  
+##                                                                   
+##     S_ABUSE          m_nse          m_apert_disc     clima_prof   
+##  Min.   :37.04   Min.   :-1.5500   Min.   :35.49   Min.   :34.53  
+##  1st Qu.:37.04   1st Qu.:-0.4104   1st Qu.:50.28   1st Qu.:52.08  
+##  Median :50.42   Median : 0.1079   Median :53.07   Median :54.45  
+##  Mean   :49.47   Mean   : 0.1816   Mean   :53.12   Mean   :54.55  
+##  3rd Qu.:56.17   3rd Qu.: 0.5552   3rd Qu.:56.08   3rd Qu.:57.19  
+##  Max.   :87.38   Max.   : 2.2300   Max.   :78.16   Max.   :66.72  
+##                                                                   
+##    m_esp_part    m_ip_estudiante      sd_nse        m_ip_padres    
+##  Min.   :25.87   Min.   :0.0000   Min.   :0.2894   Min.   :0.0000  
+##  1st Qu.:41.76   1st Qu.:0.1364   1st Qu.:0.6125   1st Qu.:0.5385  
+##  Median :48.22   Median :0.2083   Median :0.7231   Median :0.6486  
+##  Mean   :49.33   Mean   :0.2296   Mean   :0.7175   Mean   :0.6548  
+##  3rd Qu.:53.25   3rd Qu.:0.2941   3rd Qu.:0.8101   3rd Qu.:0.7568  
+##  Max.   :70.79   Max.   :1.0000   Max.   :1.8455   Max.   :1.0000  
+##                                   NA&#39;s   :10                       
+##   m_cult_part       m_p.leng       alto_nse        
+##  Min.   :22.35   Min.   :168.5   Length:3140       
+##  1st Qu.:52.86   1st Qu.:234.0   Class :character  
+##  Median :54.88   Median :250.2   Mode  :character  
+##  Mean   :55.25   Mean   :251.7                     
+##  3rd Qu.:58.26   3rd Qu.:269.9                     
+##  Max.   :68.37   Max.   :335.9                     
 ## </code></pre>
 <pre class="r"><code>#table(data$p.leng)
 sd(data$p.civ)</code></pre>
@@ -458,16 +475,18 @@ results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion  +  ip_padres + m_c
 
 
 results_4 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion +  +  ip_padres  + m_nse + ip_estudiante  +  m_cult_part   + p.leng + (1 + p.leng | idschool), data = data, REML=F)</code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model
-## failed to converge with max|grad| = 34.4135 (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
+## control$checkConv, : Model failed to converge with max|grad| = 34.4135
+## (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?;Model is nearly unidentifiable: large eigenvalue ratio
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>results_5 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  +  m_cult_part  + p.leng*m_nse + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : unable to
-## evaluate scaled gradient</code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model
-## failed to converge: degenerate Hessian with 1 negative eigenvalues</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
+## control$checkConv, : unable to evaluate scaled gradient</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
+## control$checkConv, : Model failed to converge: degenerate Hessian with 1
+## negative eigenvalues</code></pre>
 <pre class="r"><code>save(results_1, file = &quot;../output/images/results_1.Rdata&quot;)
 save(results_2, file = &quot;../output/images/results_2.Rdata&quot;)
 save(results_3, file = &quot;../output/images/results_3.Rdata&quot;)
@@ -485,13 +504,15 @@ save(regresion_tex, file = &quot;../output/images/reghtml.Rdata&quot;)
 load(file = &quot;../output/images/reghtml.Rdata&quot;)</code></pre>
 <pre class="r"><code>inta&lt;-plot_model(results_5, type = &quot;int&quot;)
 inta</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <pre class="r"><code>results_7 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + m_nse*p.leng + (1 + p.leng| idschool), data = data, REML=F)</code></pre>
-<pre><code>## Warning: Some predictor variables are on very different scales: consider rescaling</code></pre>
+<pre><code>## Warning: Some predictor variables are on very different scales: consider
+## rescaling</code></pre>
 <pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
 <pre class="r"><code>results_8 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + m_nse*p.leng_centrado + (1 + p.leng_centrado| idschool), data = data, REML=F)</code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model
-## failed to converge with max|grad| = 2.50219 (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
+## control$checkConv, : Model failed to converge with max|grad| = 2.50219
+## (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>screenreg(list(results_7,results_8), type=&quot;text&quot;)</code></pre>
@@ -541,11 +562,13 @@ inta</code></pre>
 save(results_8, file = &quot;../output/images/results_8.Rdata&quot;)</code></pre>
 <pre class="r"><code>int2&lt;-plot_model(results_7, type = &quot;int&quot;)
 int2</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <pre class="r"><code>results_7 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + Ocupacion*p.leng_centrado + (1 + p.leng_centrado| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning: Some predictor variables are on very different scales: consider rescaling</code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model
-## failed to converge with max|grad| = 1.54494 (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning: Some predictor variables are on very different scales: consider
+## rescaling</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
+## control$checkConv, : Model failed to converge with max|grad| = 1.54494
+## (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>int1&lt;-plot_model(results_5, type = &quot;int&quot;)
@@ -556,11 +579,11 @@ save(int1, file= &quot;../output/images/int1.png&quot;)
 save(int2, file= &quot;../output/images/int2.png&quot;)
 save(intcentrada, file= &quot;../output/images/int3.png&quot;)
 int1</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <pre class="r"><code>int2</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
 <pre class="r"><code>intcentrada</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-10-3.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-11-3.png" width="672" /></p>
 <pre class="r"><code>results_2 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + p.leng  + m_nse + m_ip_padres +  (1 | idschool), data = data, REML=F)
 screenreg(results_2)</code></pre>
 <pre><code>## 
@@ -596,10 +619,11 @@ screenreg(results_2)</code></pre>
 ## ========================================
 ## *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05</code></pre>
 <pre class="r"><code>results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : unable to
-## evaluate scaled gradient</code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model
-## failed to converge: degenerate Hessian with 1 negative eigenvalues</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
+## control$checkConv, : unable to evaluate scaled gradient</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
+## control$checkConv, : Model failed to converge: degenerate Hessian with 1
+## negative eigenvalues</code></pre>
 <pre class="r"><code>screenreg(results_3)</code></pre>
 <pre><code>## 
 ## ===============================================
@@ -650,9 +674,11 @@ screenreg(results_2)</code></pre>
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre class="r"><code>results_6 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_padres + ip_estudiante + Educacion + p.leng*m_nse + m_ip_padres + m_ip_estudiante + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning: Some predictor variables are on very different scales: consider rescaling</code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model
-## failed to converge with max|grad| = 0.697013 (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning: Some predictor variables are on very different scales: consider
+## rescaling</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
+## control$checkConv, : Model failed to converge with max|grad| = 0.697013
+## (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?;Model is nearly unidentifiable: large eigenvalue ratio
 ##  - Rescale variables?</code></pre>
@@ -671,12 +697,12 @@ screenreg(results_2)</code></pre>
 ##  Residual             60.56889      
 ## Number of obs: 3140, groups:  idschool, 152
 ## Fixed Effects:
-##     (Intercept)           Libros        Ocupacion        ip_padres    ip_estudiante  
-##        208.0377           6.2763           0.3642           2.9930          13.6904  
-##       Educacion           p.leng            m_nse      m_ip_padres  m_ip_estudiante  
-##          7.6851           1.0342          64.1589          -4.9197           5.9598  
-##    p.leng:m_nse  
-##         -0.1541  
+##     (Intercept)           Libros        Ocupacion        ip_padres  
+##        208.0377           6.2763           0.3642           2.9930  
+##   ip_estudiante        Educacion           p.leng            m_nse  
+##         13.6904           7.6851           1.0342          64.1589  
+##     m_ip_padres  m_ip_estudiante     p.leng:m_nse  
+##         -4.9197           5.9598          -0.1541  
 ## fit warnings:
 ## Some predictor variables are on very different scales: consider rescaling
 ## convergence code 0; 0 optimizer warnings; 3 lme4 warnings</code></pre>
@@ -719,50 +745,53 @@ screenreg(results_2)</code></pre>
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>hacer un indicador que solo tome a los que tienen mas del 80%.</p>
-<pre class="r"><code>screenreg(list(results_1,results_2,results_3, results_6), type=&quot;text&quot;)</code></pre>
+<pre class="r"><code>results_12 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + m_nse +  (1 | idschool), data = data, REML=F)
+
+
+screenreg(list(results_1,results_12, results_2,results_3, results_6), type=&quot;text&quot;)</code></pre>
 <pre><code>## 
-## ============================================================================================
-##                                   Model 1        Model 2        Model 3        Model 4      
-## --------------------------------------------------------------------------------------------
-## (Intercept)                          442.75 ***     217.74 ***     214.91 ***     208.04 ***
-##                                       (5.44)        (13.84)        (14.21)        (14.09)   
-## Libros                                14.78 ***       6.56 **        6.31 **        6.28 ** 
-##                                       (2.96)         (2.42)         (2.42)         (2.41)   
-## Ocupacion                              0.60 ***       0.35 ***       0.35 ***       0.36 ***
-##                                       (0.11)         (0.09)         (0.09)         (0.09)   
-## Educacion                              8.71 *         8.25 **        8.00 **        7.69 ** 
-##                                       (3.55)         (2.89)         (2.87)         (2.87)   
-## ip_padres                              9.66 **        2.92           2.97           2.99    
-##                                       (2.97)         (2.54)         (2.53)         (2.53)   
-## m_nse                                 40.75 ***      25.40 ***      21.60 ***      64.16 ***
-##                                       (3.96)         (4.05)         (3.98)        (10.09)   
-## ip_estudiante                                        13.08 ***      13.40 ***      13.69 ***
-##                                                      (2.82)         (2.81)         (2.85)   
-## p.leng                                                1.00 ***       1.01 ***       1.03 ***
-##                                                      (0.03)         (0.03)         (0.03)   
-## m_ip_padres                                          -8.52          -4.49          -4.92    
-##                                                     (18.86)        (18.68)        (18.96)   
-## m_ip_estudiante                                                                     5.96    
-##                                                                                   (15.95)   
-## p.leng:m_nse                                                                       -0.15 ***
-##                                                                                    (0.03)   
-## --------------------------------------------------------------------------------------------
-## AIC                                36221.01       34909.18       34902.93       34886.51    
-## BIC                                36269.43       34975.76       34981.60       34977.29    
-## Log Likelihood                    -18102.51      -17443.59      -17438.46      -17428.25    
-## Num. obs.                           3140           3140           3140           3140       
-## Num. groups: idschool                152            152            152            152       
-## Var: idschool (Intercept)            824.00         407.85        2164.36        1795.44    
-## Var: Residual                       5591.04        3709.68        3685.42        3668.59    
-## Var: idschool p.leng                                                 0.01           0.01    
-## Cov: idschool (Intercept) p.leng                                    -4.81          -3.86    
-## ============================================================================================
+## ===========================================================================================================
+##                                   Model 1        Model 2        Model 3        Model 4        Model 5      
+## -----------------------------------------------------------------------------------------------------------
+## (Intercept)                          442.75 ***     442.33 ***     217.74 ***     214.91 ***     208.04 ***
+##                                       (5.44)         (5.42)        (13.84)        (14.21)        (14.09)   
+## Libros                                14.78 ***      13.54 ***       6.56 **        6.31 **        6.28 ** 
+##                                       (2.96)         (2.96)         (2.42)         (2.42)         (2.41)   
+## Ocupacion                              0.60 ***       0.60 ***       0.35 ***       0.35 ***       0.36 ***
+##                                       (0.11)         (0.11)         (0.09)         (0.09)         (0.09)   
+## Educacion                              8.71 *         8.63 *         8.25 **        8.00 **        7.69 ** 
+##                                       (3.55)         (3.53)         (2.89)         (2.87)         (2.87)   
+## ip_padres                              9.66 **        4.85           2.92           2.97           2.99    
+##                                       (2.97)         (3.08)         (2.54)         (2.53)         (2.53)   
+## m_nse                                 40.75 ***      40.12 ***      25.40 ***      21.60 ***      64.16 ***
+##                                       (3.96)         (3.94)         (4.05)         (3.98)        (10.09)   
+## ip_estudiante                                        19.34 ***      13.08 ***      13.40 ***      13.69 ***
+##                                                      (3.45)         (2.82)         (2.81)         (2.85)   
+## p.leng                                                               1.00 ***       1.01 ***       1.03 ***
+##                                                                     (0.03)         (0.03)         (0.03)   
+## m_ip_padres                                                         -8.52          -4.49          -4.92    
+##                                                                    (18.86)        (18.68)        (18.96)   
+## m_ip_estudiante                                                                                    5.96    
+##                                                                                                  (15.95)   
+## p.leng:m_nse                                                                                      -0.15 ***
+##                                                                                                   (0.03)   
+## -----------------------------------------------------------------------------------------------------------
+## AIC                                36221.01       36191.77       34909.18       34902.93       34886.51    
+## BIC                                36269.43       36246.24       34975.76       34981.60       34977.29    
+## Log Likelihood                    -18102.51      -18086.88      -17443.59      -17438.46      -17428.25    
+## Num. obs.                           3140           3140           3140           3140           3140       
+## Num. groups: idschool                152            152            152            152            152       
+## Var: idschool (Intercept)            824.00         816.70         407.85        2164.36        1795.44    
+## Var: Residual                       5591.04        5535.48        3709.68        3685.42        3668.59    
+## Var: idschool p.leng                                                                0.01           0.01    
+## Cov: idschool (Intercept) p.leng                                                   -4.81          -3.86    
+## ===========================================================================================================
 ## *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05</code></pre>
 <p>los padres con interes por la politica eligen colegios que probablemente tengan ciertas practicas politicas y de buena calidad.</p>
 <p>#grafico de la interaccion. el efecto del lenguaje</p>
 <pre class="r"><code>#plot_model(results_5, type = &quot;int&quot;)
 plot_model(results_6, type = &quot;int&quot;)</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>correlacion entre interes de de los padres y cualidades democraticas del colegio.</p>
 <pre class="r"><code>library(corrplot)</code></pre>
 <pre><code>## corrplot 0.84 loaded</code></pre>
@@ -770,7 +799,7 @@ plot_model(results_6, type = &quot;int&quot;)</code></pre>
 <pre><code>## Adding missing grouping variables: `idschool`</code></pre>
 <pre class="r"><code>cor &lt;- cor(basecor)
 Correlaciones  &lt;-corrplot.mixed(cor)</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <pre class="r"><code>save(Correlaciones, file = &quot;../output/images/correlaciones.html&quot;)  </code></pre>
 </div>
 <div id="comprobamos-que-todo-sigue-funcionando-despues-del-centrado-por-el-grupo." class="section level1">
@@ -778,14 +807,16 @@ Correlaciones  &lt;-corrplot.mixed(cor)</code></pre>
 <pre class="r"><code>data$p.leng_centrado &lt;- (data$p.leng - data$m_p.leng)
 
 results_sincentrado = lmer(p.civ ~ 1 + ip_padres + p.leng + nse + m_ip_padres + m_ip_estudiante + cult_part + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model
-## failed to converge with max|grad| = 6.37026 (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
+## control$checkConv, : Model failed to converge with max|grad| = 6.37026
+## (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?;Model is nearly unidentifiable: large eigenvalue ratio
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>results_concentrado = lmer(p.civ ~ 1 + ip_padres + p.leng_centrado + nse + m_ip_padres + m_ip_estudiante + cult_part + (1 + p.leng_centrado| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model
-## failed to converge with max|grad| = 1.23098 (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
+## control$checkConv, : Model failed to converge with max|grad| = 1.23098
+## (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>results_concentrado_interaccion = lmer(p.civ ~ 1 + ip_padres + p.leng_centrado*nse + m_ip_padres + m_ip_estudiante  + (1 + p.leng_centrado| idschool), data = data, REML=F) </code></pre>
@@ -871,9 +902,9 @@ regresion&lt;-stargazer(results_5, type=&quot;text&quot;)</code></pre>
 ## ===============================================
 ## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <pre class="r"><code>plot_model(results_5, type = &quot;int&quot;)</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <pre class="r"><code>hist(data$Ocupacion) </code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-20-2.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-21-2.png" width="672" /></p>
 <pre class="r"><code>save(results_5, file = &quot;../output/images/results_5.Rdata&quot;)</code></pre>
 </div>
 

@@ -7,9 +7,6 @@ navbar:
       href: "prod_analisis.html"
     - text: "Articulo en linea"
       href: "paper.html"
-    - text: "Descargar en PDF"
-      icon: fa-file-pdf
-      href: "paper.pdf"  
     - text: "Presentacion"
       href: "pres_2_t2.html"
     - text: ""

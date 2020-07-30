@@ -78,6 +78,25 @@ data <- data %>%
   mutate(m_p.leng = mean(p.leng))
 ```
 
+
+```{r}
+library(ggplot2)
+library(ggplot2)
+library(hrbrthemes)
+#install.packages("hrbrthemes")
+data$alto_nse<-as.character(ifelse(data$nse>=0,1,0))
+
+
+
+scatter <-ggplot(data, aes(x=p.civ, y=p.leng, color=alto_nse)) + 
+    geom_point(size=2) +
+    theme_classic()
+  
+ 
+```
+
+
+
 ```{r}
 summary(data)
 #table(data$p.leng)
@@ -114,6 +133,9 @@ results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion  +  ip_padres + m_c
 results_4 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion +  +  ip_padres  + m_nse + ip_estudiante  +  m_cult_part   + p.leng + (1 + p.leng | idschool), data = data, REML=F)
 
 results_5 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  +  m_cult_part  + p.leng*m_nse + (1 + p.leng| idschool), data = data, REML=F) 
+
+
+
 
 
 save(results_1, file = "../output/images/results_1.Rdata")
@@ -226,11 +248,13 @@ hacer un indicador que solo tome a los que tienen mas del 80%.
 
 
 ```{r}
-screenreg(list(results_1,results_2,results_3, results_6), type="text")
+results_12 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + m_nse +  (1 | idschool), data = data, REML=F)
+
+
+screenreg(list(results_1,results_12, results_2,results_3, results_6), type="text")
 ```
 
 los padres con interes por la politica eligen colegios que probablemente tengan ciertas practicas politicas y de buena calidad. 
-
 
 #grafico de la interaccion. el efecto del lenguaje 
 ```{r}
@@ -265,7 +289,6 @@ screenreg(list(results_sincentrado, results_concentrado,results_concentrado_inte
 
 
 
-
 ```
 
 
@@ -275,6 +298,7 @@ screenreg(list(results_sincentrado, results_concentrado,results_concentrado_inte
 results_5 = lmer(p.civ ~ 1 + ip_padres + nse*p.leng_centrado  + m_p.leng + m_ip_padres + m_ip_estudiante + (1 + nse| idschool), data = data, REML=F) 
 regresion<-stargazer(results_5, type="text")
 plot_model(results_5, type = "int")
+
 
 hist(data$Ocupacion) 
 
