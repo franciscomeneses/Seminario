@@ -2,7 +2,9 @@
 title: "tesis"
 author: "francisco meneses"
 date: "24-10-2019"
-output: html_document
+output: 
+  html_document:
+    css: custom.css
 ---
 
 ```{r setup, include=FALSE}
@@ -43,6 +45,7 @@ scatter <-ggplot(data, aes(x=p.civ, y=p.leng, color=alto_nse)) +
     geom_point(size=2) +
     theme_classic()
   
+data$p.leng_centrado <- (data$p.leng - data$m_p.leng)
  
 ```
 
@@ -259,3 +262,135 @@ save(results_5, file = "../output/images/results_5.Rdata")
 
 ```
 
+
+
+
+
+# Mediacion multinivel. 
+
+
+## Medicacion nivel 1 sin centrado
+```{r}
+lenguaje_nse = lmer(p.leng ~ 1 +  nse  + (1 | idschool), data = data, REML=F) 
+civica_nse = lmer(p.civ ~ 1 +  nse  + (1 | idschool), data = data, REML=F) 
+civica_nse_leng = lmer(p.civ ~ 1 + nse + p.leng  + (1 | idschool), data = data, REML=F) 
+civica_nse_int = lmer(p.civ ~ 1 + nse + ip_estudiante  + (1 | idschool), data = data, REML=F) 
+civica_nse_intleng = lmer(p.civ ~ 1 + nse + ip_estudiante + p.leng + (1 | idschool), data = data, REML=F) 
+
+screenreg(list(lenguaje_nse, civica_nse,civica_nse_leng,civica_nse_int,civica_nse_intleng), type="text")
+
+```
+
+## Medicacion nivel 1 con centrado
+```{r}
+
+data$nse_c = as.numeric(data$nse - data$m_nse)
+data$ipe_c = as.numeric(data$ip_estudiante - data$m_ip_estudiante)
+
+data <- data %>%
+  group_by(idschool) %>%
+  mutate(m_p.civ = mean(p.civ))
+
+data$p.civ_c = as.numeric(data$p.civ - data$m_p.civ)
+
+lenguaje_nse_c = lmer(p.leng_centrado ~ 1 +  nse_c  + (1 | idschool), data = data, REML=F) 
+civica_nse_c = lmer(p.civ_c ~ 1 +  nse_c  + (1 | idschool), data = data, REML=F) 
+civica_nse_leng_c = lmer(p.civ_c ~ 1 + nse_c + p.leng_centrado  + (1 | idschool), data = data, REML=F) 
+civica_int_c = lmer(p.civ_c ~ 1  + ipe_c  + (1 | idschool), data = data, REML=F) 
+civica_nse_int_c = lmer(p.civ_c ~ 1 + nse_c + ipe_c  + (1 | idschool), data = data, REML=F) 
+civica_nse_intleng_c = lmer(p.civ_c ~ 1 + nse_c + ipe_c + p.leng_centrado + (1 | idschool), data = data, REML=F) 
+
+screenreg(list(lenguaje_nse, civica_nse,civica_nse_leng,civica_nse_int,civica_nse_intleng), type="text")
+
+```
+
+
+
+```{r}
+# Proporcion del efectpo controlada por lenguaje (36%)
+
+24.6 - 15.7
+
+(8.9*100)/24.6
+
+# Proporcion del efecto controlada por interes politico (5%)
+
+24.46 - 23.33
+
+(1.3*100)/24.46
+
+```
+
+
+
+
+```{r}
+
+
+lenguaje_nse_m = lmer(m_p.leng ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) 
+civica_nse_m = lmer(m_p.civ ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) 
+civica_nse_leng_m = lmer(m_p.civ ~ 1 + m_nse + m_p.leng  + (1 | idschool), data = data, REML=F) 
+civica_int_m = lmer(m_p.civ ~ 1  + m_ip_estudiante  + (1 | idschool), data = data, REML=F) 
+civica_nse_int_m = lmer(m_p.civ ~ 1 + m_nse + m_ip_estudiante  + (1 | idschool), data = data, REML=F) 
+civica_nse_intleng_m = lmer(m_p.civ ~ 1 + m_nse + m_ip_estudiante + m_p.leng + (1 | idschool), data = data, REML=F) 
+
+screenreg(list(lenguaje_nse_m, civica_nse_m,civica_nse_leng_m,civica_nse_int_m,civica_nse_intleng_m), type="text")
+
+```
+
+
+### Tabla de presentacion
+
+#### usando NSE
+
+```{r results='asis'}
+
+lenguaje_nse_c = lmer(p.leng_centrado ~ 1 +  nse_c  + (1 | idschool), data = data, REML=F) 
+civica_nse_c = lmer(p.civ_c ~ 1 +  nse_c  + (1 | idschool), data = data, REML=F) 
+civica_nse_leng_c = lmer(p.civ_c ~ 1 + nse_c + p.leng_centrado  + (1 | idschool), data = data, REML=F) 
+
+lenguaje_nse_m = lmer(m_p.leng ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) 
+civica_nse_m = lmer(m_p.civ ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) 
+civica_nse_leng_m = lmer(m_p.civ ~ 1 + m_nse + m_p.leng  + (1 | idschool), data = data, REML=F) 
+
+windowsFonts(A = windowsFont("Times New Roman"))
+
+htmlreg(list(lenguaje_nse_c,civica_nse_c, civica_nse_leng_c, lenguaje_nse_m, civica_nse_m, civica_nse_leng_m), custom.coef.names = c("Intercepto", "NSE (C)", "Lenguaje (C)", "NSE (M)", "Lenguaje (M)" ), custom.model.names = c("Lenguaje (C)", "C. Civico (C)","C. Civico (C)", "Lenguaje (M)", "C. Civico (M)", "C. Civico (M)"), custom.header = list("Nivel 1" = 1:3, "Nivel 2" = 4:6), star.symbol = "\\*", center = T, custom.note = " <div style='text-align: justify'> $***p <$ 0.001, $**p <$ 0.01, $*p <$ 0.05 <br> (C) = Centrado a la media del colegio; (M) = Promedio del colegio;  Lenguaje = puntaje simce comprension lectora;  C.Civico = puntaje prueba de conocimiento civico", caption.above = T, caption = "Mediacion multinivel del lenguaje en la desigualdad social del conocimiento civico")
+
+```
+
+```{r}
+
+# proporcion del efecto controlado por lenguaje centrado (Nivel 1)
+((18.84 - 11.29)*100)/18.4 
+
+# proporcion del efecto controlado por promedio del lenguaje (Nivel 2)
+
+((55.86 - 43.31)*100)/55.86
+
+```
+
+### Usando cantidad de libros en el hogar
+
+```{r results='asis'}
+
+data <- data %>%
+  group_by(idschool) %>%
+  mutate(Libros_m = mean(Libros))
+
+Libros_c = as.numeric(data$Libros - data$Libros_m)
+
+libros_lenguaje_nse_c = lmer(p.leng_centrado ~ 1 +  Libros_c  + (1 | idschool), data = data, REML=F) 
+libros_civica_nse_c = lmer(p.civ_c ~ 1 +  Libros_c  + (1 | idschool), data = data, REML=F) 
+libros_civica_nse_leng_c = lmer(p.civ_c ~ 1 + Libros_c + p.leng_centrado  + (1 | idschool), data = data, REML=F) 
+
+libros_lenguaje_nse_m = lmer(m_p.leng ~ 1 +  Libros_m  + (1 | idschool), data = data, REML=F) 
+libros_civica_nse_m = lmer(m_p.civ ~ 1 +  Libros_m  + (1 | idschool), data = data, REML=F) 
+libros_civica_nse_leng_m = lmer(m_p.civ ~ 1 + Libros_m + m_p.leng  + (1 | idschool), data = data, REML=F) 
+
+
+htmlreg(list(libros_lenguaje_nse_c,libros_civica_nse_c, libros_civica_nse_leng_c,libros_lenguaje_nse_m, libros_civica_nse_m, libros_civica_nse_leng_m), custom.coef.names = c("Intercepto", "Libros (C)", "Lenguaje (C)", "Libros (M)", "Lenguaje (M)"), custom.model.names = c("Lenguaje (C)", "C. Civico (C)","C. Civico (C)", "Lenguaje (M)", "C. Civico (M)", "C. Civico (M)"), custom.header = list("Nivel 1" = 1:3, "Nivel 2" = 4:6), star.symbol = "\\*", center = T, custom.note = " <div style='text-align: justify'> $***p <$ 0.001, $**p <$ 0.01, $*p <$ 0.05 <br> (C) = Centrado a la media del colegio; (M) = Promedio del colegio;  Lenguaje = puntaje simce comprension lectora;  C.Civico = puntaje prueba de conocimiento civico", caption.above = T, caption = "Mediacion multinivel del lenguaje en la desigualdad social del conocimiento civico")
+
+
+screenreg(list(libros_lenguaje_nse_c, libros_civica_nse_c,libros_civica_nse_leng_c))
+```

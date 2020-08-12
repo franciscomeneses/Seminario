@@ -8,7 +8,6 @@ output:
     css:
         - default
         - default-fonts
-        - custom.css
     lib_dir: libs
     nature:
       slideNumberFormat:   |
@@ -21,12 +20,14 @@ output:
       countIncrementalSlides: false
       beforeInit: "xaringan_custom/macros.js"
     seal: false # esto omite title slide automática
+    
 ---
 class: inverse, bottom, right
 
 
 ```{r setup, include=FALSE, cache = FALSE}
 require("knitr")
+#install.packages("xaringan")
 library(xaringan)
 library(texreg)
 options(htmltools.dir.version = FALSE)

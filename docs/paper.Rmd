@@ -1,7 +1,10 @@
 ---
-title: "Explorando la desigualdad politica: el rol de la comprension lectora"
+title: "El poder de las palabras"
+subtitle: "El efecto del manejo del lenguaje en la transmicion intergeneracional de las habilidades politicas en jovenes chilenos"
 author:
- - Francisco Javier Meneses Rivas
+ - Francisco Javier Meneses Rivas (Seminarista)
+ - Juan Carlos Castillo (Profesor Guía)
+abstract: "Actualmente múltiples países, organizaciones e investigadores se preguntan como mejorar las habilidades políticas y democráticas de los jóvenes en un mundo donde resurgen la intolerancia, las propuestas totalitarias y aumenta la apatía política. La asociación internacional para la evaluación del logro educativo (IEA) ha desarrollado el Estudio Internacional de Educación Cívica y Formación Ciudadana (ICCS) el cual ha promovido los estudios sobre lo que han conceptualista como la conocimiento cívico y ciudadano (i.e Habilidades y Conocimientos necesarios para la vida ciudadana). El conocimiento cívico, ha generado interés en distintos investigadores puesto que se asocia positiva mente con un conjunto de actitudes democráticas como la participación y la tolerancia. Hasta ahora, al momento de explicar los determinantes del conocimiento cívico en estudiantes, se ha aludido principalmente a las desigualdades sociales entre los estudiantes, evidenciando que jóvenes de estratos altos poseen mejores resultados en la prueba de conocimiento cívico. Al explicar esta relación algunos autores han señalado que en familias de alto capital cultural se genera un ambiente  más ciudadano, que implica una socializan en valores e intereses políticos. Siguiendo y profundizando en esta linea, el presente seminario, propone que parte de lo que explica la relación entre desigualdad social y conocimiento cívico es el manejo del lenguaje. Para evaluar esta hipótesis se trabajara con la base de datos de la ICCS junto con la base de datos internacional SIMCE ( N = 3140, representativo a nivel nacional) A partir de los análisis de senderos y análisis multinacional, se concluye que la transmisión intergeneracional de la desigualdad política se explica más por habilidades en el lenguaje que por intereses políticos. Evidenciamos igualmente que un buen manejo del lenguaje en sectores vulnerables hace que un estudiante de dicho sector no se encuentre en desventaja en relación a su compañero de un sector acomodado. <br> __Palabras clave: Conocimiento civico, Desigualdad politica, Comprension lectora, Interes politico__"
 css: "../input/css/custom.css"
 linestretch: '1.5'
 link-citations: yes
@@ -14,6 +17,8 @@ output:
     theme: flatly
     number_sections: true
     always_allow_html: yes
+  word_document:
+         reference_docx: "x.docx"
 linkcolor: blue
 bibliography:
   - ../input/bib/LenguajeConcivico.bib
@@ -23,11 +28,16 @@ geometry: margin=0.78in
 ---
 
 ```{r include=FALSE}
-# for render in pdf run rmarkdown::render_site("docs/paper.Rmd", output_format = "all")
+# for render in pdf run rmarkdown::render_site("docs/paper.Rmd", output_format = "pdf_document")
+# for render in pdf run rmarkdown::render_site("docs/paper.Rmd", output_format = "word_document")
+
 # clean #in the yml
 ```
 
 ```{r include=FALSE}
+#install.packages("rmarkdowm")
+#install.packages("knitr")
+
 library(knitr)
 #install.packages("KableExtra")
 library(kableExtra)
@@ -37,8 +47,10 @@ library(captioner)
 #install.packages("estimatr")
 library(estimatr)
 library(texreg)
-
+#install.packages("htmltools")
+library(htmltools)
 ```
+
 
 ```{r include=FALSE}
 
@@ -61,6 +73,7 @@ regresion_miltinivel = if(is_html_output()) {
 
 ```
 
+\pagebreak
 
 <div style="text-align: justify">
 
@@ -75,7 +88,8 @@ El artículo se centrará especialmente entre la relación de las habilidades de
 Además de repensar las variables mediadoras del mecanismo causal, incluir la comprensión lectora como predictor del conocimiento cívico posee por lo menos tres consecuencias. En primer lugar, propone que las habilidades de abstracción, comprensión, análisis e interpretación propias de la comprensión lectora poseen un correlato con las habilidades necesarias para el ejercicio de la ciudadanía. En segundo lugar, al incluirse una nueva variable relevante se hace necesario revisar si las conclusiones de otras investigaciones se mantienen pese al control por comprensión lectora, reevaluando el efecto que posee el nivel socioeconómico, el capital cultural de los padres y el interés político del estudiante. En tercer lugar, considerando que el manejo del lenguaje puede tener un efecto sobre el conocimiento cívico, que es además capaz de controlar las diferencias socioeconómicas, se propone evaluar la capacidad que tiene el manejo de lenguaje de disminuir la desigualdad social del conocimiento cívico. En consideracion de lo anterior, los objetivos de investigación son los siguientes:   
 
 
-* Objetivo general: Comprender el rol que cumple la desigualdad social de la comprensión lectora en la influencia del origen socioeconómico sobre el conocimiento cívico y ciudadano.
+* Objetivo general: Comprender el rol que cumple la desigualdad social del manejo del lenguaje en la influencia del origen socioeconómico sobre el conocimiento cívico y ciudadano.
+
 
 * Objetivos específicos: 
 
@@ -88,13 +102,16 @@ Además de repensar las variables mediadoras del mecanismo causal, incluir la co
 
 Para comprender mejor el sentido de estos objetivos es necesario exponer los argumentos que permiten relacionar la comprensión lectora y el conocimiento cívico.
 
-En primer lugar, existe una ampliamente teorizada relacion entre el lenguaje y la política. La politica requiere del lenguaje como forma de acumulacion del conocimiento intergeneraiconal y como medio de resolucion de disputas (Aristoteles, Harendt, Habermas, Gallego). Los conceptos propios de la politica, son conceptos abstractos que no residen en ni un otro lugar que no sea el lenguaje. Por ello, incorporar conocimientos politicos implica una exigencia cognitiva y un cierto manejo del lenguaje. Adicionalmente, Basil Berstein :@bernsteinCLASESSOCIALESLENGUAJE1985 plantea la existencia de una relacion entre desigualdad social y usos del lenguaje, señalando que los jovenes socializados en grupos obreros poseen un codigo restriguido basado en un lenguaje contextual, mientras que los hijos de los profesionales poseen un codigo elaborado. Estos diferentes codigos sociolinguistico implican diferentes capacidades para incorporar connocimientos abstractos, lo cual, segun el autor, explica los rendimientos diferenciados.  Por deduccion, considerando que el uso del lenguaje es diferenciado socialmente y que la politica requiere de un lenguaje abstracto, podemos decir que la evidenciada desigualdad politica pueda deberse en alguna medida al manejo diferenciado del leguaje que implica capacidades desiguales para la asimilacion de temas politicos. 
+En primer lugar, existe una ampliamente teorizada relacion entre el lenguaje y la política. La politica requiere del lenguaje como forma de acumulacion del conocimiento intergeneraiconal y como medio de resolucion de disputas (Aristoteles, Harendt, Habermas, Gallego). Los conceptos propios de la politica, son conceptos abstractos que no residen en ni un otro lugar que no sea el lenguaje. Por ello, incorporar conocimientos politicos implica una exigencia cognitiva y un cierto manejo del lenguaje. Siguiendo a Herder podemos decir que el razonamiento posee como elemento sustancial el lengauje, por ello, es necesario un manejo del lenguaje para realizar las actividades cognitivas reflexivas que son propias de la politica como la interpretaion de discursos, analizar propuestas y evaluar ideas tanto ajenas como propias. Adicionalmente, Basil Berstein :@bernsteinCLASESSOCIALESLENGUAJE1985 plantea la existencia de una relacion entre desigualdad social y usos del lenguaje, señalando que los jovenes socializados en grupos obreros poseen un codigo restriguido basado en un lenguaje contextual, mientras que los hijos de los profesionales poseen un codigo elaborado. Estos diferentes codigos sociolinguistico implican diferentes capacidades para incorporar connocimientos abstractos, lo cual, segun el autor, explica los rendimientos diferenciados.  Por deduccion, considerando que el uso del lenguaje es diferenciado socialmente y que la politica requiere de un lenguaje abstracto, podemos decir que la evidenciada desigualdad politica pueda deberse en alguna medida al manejo diferenciado del leguaje que implica capacidades desiguales para la asimilacion de temas politicos. 
 
 En segundo lugar, la relación entre manejo del lenguaje y comprensión lectora es evidente al revisar la operacionalización de ambos conceptos. Tanto la prueba de conocimiento cívico (Shulz,2016) como las pruebas de comprensión lectoras SIMCE Y PSU (MINEDUC, 2015) consideran como habilidades fundamentales, el comprender, el analizar, el interpretar y el evaluar. Dado que ambas pruebas requieren las mismas habilidades y son operacionalizadas de manera semejante se puede deducir que las habilidades para el manejo del leguaje como para el conocimiento cívico son similares. En suma, podemos decir que el conocimiento cívico requiere de habilidades básicas (comprensión) y avanzadas (análisis, interpretación, evaluacion) de comprensión lectora. 
 
 En tercer lugar, junto con esta relación en las definiciones de los conceptos, algunos estudios han evidenciado que la dificultad de la lectura presente en las pruebas de conocimiento cívico y ciudadano son relativamente altas. Según un estado [@arensmeierSwedishStudentsConceptual2015] de entrevistas donde solicitaban a los estudiantes responder las preguntas en voz alta, buena parte de los problemas con las preguntas se relacionaban, además de los temas conceptuales, con temas de comprensión lectora, siendo reiterada la situación en la que un estudiante declaró no comprender la preguntas. Más lejos aún (@zhangUnderstandingCivicCognitive2015) ha generado evidencia sobre la relación entre la abstracción y dificultad de los términos presentes en una pregunta y los resultados negativos de los estudiantes, comprobando que estos obtienen mejores resultados en versiones más simples de la prueba. En suma, podemos decir que una mayor capacidad lectora permitirá comprender de mejor manera las preguntas y consecuentemente obtener un mayor puntaje, además suponemos que un mejor manejo del lenguaje implica una mejor capacidad para comprender, no solo la prueba de conocimiento cívico, sino también las discusiones del mundo político. 
 
-En síntesis, podemos decir que la relación entre conocimiento cívico y manejo del lenguaje se sustenta en tres puntos, primero, en una relación ontológica entre la política y el lenguaje como su medio, segundo, por la similitud de habilidades requeridas y, por último, por el rol que cumple la complejidad del lenguaje y la abstracción de sus enunciados en la prueba de conocimiento cívico. A continuación el artículo se dedica a definir un marco conceptual para estudiar el fenómeno y posteriormente se realizaran pruebas multinivel para evaluar el peso de distintos factores en el conocimiento  cívico. 
+En cuarto lugar, poseer una buena comprension lectora significara una puerta de entrada al concimiento sobre la politica, en tanto, al poceer una buena comprension lectora el estudiante podra comprender de mejor manera la informacion poltiica de su alrededor, igualmente, sera capas de comprender y apreciar el componente politicop presente en distintas obras de literatura con las cuales se topara en el transcurso de su escolarizacion. Segun (__XXXXXX__), quien realizo un experimento para evaluar el efefto de la lectura en la conciencia poltiica, existe un efecto de la lectura de contenido politico bien escrita y facil de comprender en la conciencia poltiica de los estudiantes, quienes no precentan estas mejoras al ser expuestos a un texto de dificil lectura. Podemos deducir de lo anterior, que el efecto del experimento se debe a que a los estudiantes les cuesta comprender más un texto que el otro, y por ende, podemos suponer, que un buen manejo del lenguaje les permitira comprender textos de distinto nivel de claridad, aprobechandose de en cada uno de ese efecto politizador de algunas lecturas. 
+  
+
+En síntesis, podemos decir que la relación entre conocimiento cívico y manejo del lenguaje se sustenta en cuatro puntos, primero, en una relación ontológica entre la política y el lenguaje como su medio, segundo, por la similitud de habilidades requeridas y, por último, por el rol que cumple la complejidad del lenguaje y la abstracción de sus enunciados en la prueba de conocimiento cívico. A continuación el artículo se dedica a definir un marco conceptual para estudiar el fenómeno y posteriormente se realizaran pruebas multinivel para evaluar el peso de distintos factores en el conocimiento  cívico. 
 
 
 # Antecedentes y marco conceptual.
@@ -104,15 +121,17 @@ Un requisito para proponer la existencia de una relacion entre manejo del lengua
 
 El diccionario Lexico de la universidad de [Oxford](https://www.lexico.com/es/definicion/politica)  define la política como la ciencia que trata de la organización de las sociedades humanas o actividades de los que gobiernan o aspiran a gobernar asuntos que afectan a su país. Esta definición resulta interesante de problematizar puesto que si bien es certero que la politica es esencialmente referida a la organización y la solución de asuntos que afectan una determinada comunidad, no podemos considerar que la politica se restringe a un campo científico o cupular de poder. La filosofa Hanna Arendt :@arendtSobreRevolucion2008b en "Sobre la Revolución", por ejemplo, considera que la politica y la participación es un aspecto fundamental en la realización de la persona, una libertad positiva. Esta consideracion de la necesidad de la política se encuentra igualmente presente en Norbed Lechner :@lechnerConflictivaNuncaAcabada1984, cuando plantea que la politica es una forma de expresión de la colectividad subjetiva, que es continuamente puesta en cuestión por los distintos, están pluralidad y diferencias es lo que permite la politica. Al respecto Jimenez y William :@Jimeneswilliampolitica, plantean que esta Concepción es contraria a la Concepción del pensador Alemán Carl Smich :@schmittConceptoPoliticoTexto1998, para quien la politica significa la división entre los amigos y los enemigos,  esta Concepción parte de una imposición de una unicidad frente a la pluralidad, la cual consideran una amenaza a la identidad propia y motivo de guerra. Esta Concepción, es completamente antagónica a la propuesta por Harend :@arendtQueEsPolitica2009 en "¿Qué es la política” y Lechner, ya que en los últimos la politica se funda en el reconocimiento mutuo de la diferencia y la pluralidad, como forma de negación de la guerra? Los autores Jimenez y William, concluyen de sus reflexiones que la politica es un espacio de disputa discursiva donde se realiza el ejercicio del poder político que cada persona posee como parte del pueblo, así sea en pequeña proporción (para proponer, controlar, persuadir o influir) En suma, hasta ahora podemos definir la politica como el conjunto de actividades de distintos agentes que buscan influir en las decisiones sociales a distintos niveles trabajando las diferencias entre los sujetos y las opiniones. No obstante, ¿Todos se encuentran igual de preparados para ejercer es pequeña porción de responsabilidad sobre la dirección de la sociedad? y de no se así ¿que se requiere para estar preparado?
 
-según Silvia Meichsner:@Meichsnerbourdieupolitica, la teoría de Pierre Bourdieu es idónea para abordar las diferencias presentes dentro del campo político. Al respecto Bourdieu desde la teoría de los capitales señala que no todas las personas tienen el mismo peso político. Al explicar las diferencias recurre fundamentalmente al capital simbólico, el cual enviste a ciertas personas de un alto de poder, dado por la popularidad o la autoridad. Si bien este es un aspecto fundamental, igualmente son habilidades de tipo cognitivo como lo son el conocimiento y el análisis. según Schulz, Fraillon, Lositoy Agrusti (2016) los evaluadores técnicos de la escala de conocimiento y habilidades para la vida cívica y ciudadana de la ICCS, es fundamental para el desarrollo político de un joven el manejo que este posee de los conocimientos básicos del sistema político democrático (Dominio de contenido) y las capacidades de memoria y análisis (Dominio cognitivo). Sin ellos, un joven podría no tendría los conocimientos necesarios de su sistema político para influir debidamente, o no sería capaz de utilizar esos conocimientos para analizar y comprender distintas situaciones distintas. Definido de esta manera, el poseer habilidades políticas implicaría poseer conocimiento sobre la realidad politica e institucional, así como tener habilidades para comprender, analizar e interpretar distintas posturas políticas. En consideracion de lo anterior, podemos suponer que existen personas más preparadas que otras para ejercer su rol como ciudadanos críticos y participativos. Así, siguiendo la crítica de Hanna Arendt :@arendtQueEsPolitica2009 a Aristóteles, podemos decir que el humano no es instintivamente político, sino que la politica surge entre los humanos, o como plantean Cox y Castillo :@coxAprendizajeCiudadaniaContextos2015, no nacemos demócratas aprendemos a serlo en el proceso de socialización.  En suma, comprenderemos por habilidades políticas, el poseer conocimientos cívicos, es decir, poseer conocimientos sobre la realidad democrática y habilidades como el análisis para poder razonar a partir de estos conocimientos y conceptos distintas situaciones concretas. 
+según Silvia Meichsner:@Meichsnerbourdieupolitica, la teoría de Pierre Bourdieu es idónea para abordar las diferencias presentes dentro del campo político. Al respecto Bourdieu desde la teoría de los capitales señala que no todas las personas tienen el mismo peso político. Al explicar las diferencias recurre fundamentalmente al capital simbólico, el cual enviste a ciertas personas de un alto de poder, dado por la popularidad o la autoridad. Si bien este es un aspecto fundamental, igualmente son habilidades de tipo cognitivo como lo son el conocimiento y el análisis. según Schulz, Fraillon, Lositoy Agrusti (2016) los evaluadores técnicos de la escala de conocimiento y habilidades para la vida cívica y ciudadana de la ICCS, es fundamental para el desarrollo político de un joven el manejo que este posee de los conocimientos básicos del sistema político democrático (Dominio de contenido) y las capacidades de memoria y análisis (Dominio cognitivo). Sin ellos, un joven podría no tendría los conocimientos necesarios de su sistema político para influir debidamente, o no sería capaz de utilizar esos conocimientos para analizar y comprender situaciones distintas. Definido de esta manera, el poseer habilidades políticas implicaría poseer conocimiento sobre la realidad politica e institucional, así como tener habilidades para comprender, analizar e interpretar distintas posturas políticas. En consideracion de lo anterior, podemos suponer que existen personas más preparadas que otras para ejercer su rol como ciudadanos críticos y participativos. Así, siguiendo la crítica de Hanna Arendt :@arendtQueEsPolitica2009 a Aristóteles, podemos decir que el humano no es instintivamente político, sino que la politica surge entre los humanos, o como plantean Cox y Castillo :@coxAprendizajeCiudadaniaContextos2015, no nacemos demócratas aprendemos a serlo en el proceso de socialización.  En suma, comprenderemos por habilidades políticas, el poseer conocimientos cívicos, es decir, poseer conocimientos sobre la realidad democrática y habilidades como el análisis para poder razonar a partir de estos conocimientos y conceptos distintas situaciones concretas. 
 El conocimiento cívico y ciudadano es actualmente promovido por diversos agentes a nivel académico, estatal e internacional. Este conocimiento es sumamente relevante si se considera sus efectos positivos sobre la intención de participación ( Miranda, Castillo y Sandoval-Hernández, 2015), en un contexto de apatía política y baja participación de estratos bajos y jóvenes (Janmaat, 2013; Contreras y Navia, 2010; Browne y Elming, 2015). Igualmente, en el contexto de los nuevos movimientos sociales que buscan reivindicar los derechos de distintos grupos tradicionalmente discriminados, el conocimiento cívico ha demostrado estar relacionado con el respeto a los derechos humanos de estos grupos (Miranda, Castillo y Cusirle, 2018; Caro, Schulz, 2012). También, el tener más conocimiento cívico se relaciona con estar en desacuerdo con la corrupción y con la valoración positiva de la democracia como sistema representativo, lo cual, según Hastedt (2016), es fundamental en un contexto de resurgimiento de los gobiernos autoritarios. En suma, el conocimiento cívico puede ayudar a las personas a incorporar los principios democráticos de los derechos humanos y, por ello, debe buscarse las maneras de fomentar y hacer más útiles las políticas que buscan incorporarlo como ramo dentro de la educación secundaria.
 Las investigaciones actuales han propuesto que el conocimiento cívico es especialmente influido por variables de origen socioeconómico (Agencia de Calidad de la Educación, 2017; Schulz, 2011; Castillo, Miranda, Bonhmme, Cox y Bascopé, 2015; Diazgranados y Sandoval-Hernández, 2017; Treviño, Béjares, Villalobos y Naranjo, 2017), dando cuenta de lo que se denominará desde este punto, la “Desigualdad social del conocimiento cívico”. Este efecto del nivel socioeconómico, según la literatura, se debe menos al efecto de la ocupación de los padres que al efecto de variables culturales como la educación de los padres y el número de Libros, dando luces respecto al carácter cultural del fenómeno (e.g. Castillo, Miranda, Bonhomme, Cox y Bascopé, 2014). Además de los factores socioeconómicos y de transmisión cultural, otras investigaciones han enfatizado en el efecto producido por variables a nivel escuela como el nivel socioeconómico promedio de la escuela clima más abierto a la discusión y una cultura participativa a nivel escuela son propicios para el conocimiento cívico (Schulz, 2016). En suma, podemos ver que el conocimiento cívico es influido por distintas variables que se relacionan tanto con la socialización primaria como con la secundaria. 
 Por desigualdad social del conocimiento cívico este artículo se refiere a la relación positiva que existente entre el conocimiento cívico recién definido y el origen socioeconómico. Por origen socioeconómico, se entiende la relación entre el estatus ocupacional, el nivel educativo alcanzado, y la cantidad de libros en el hogar (ICCS, 2016; Mineduc, 2016). Esta variable es bastante semejante al estatus socioeconómico (SES), solo que la variable origen socioeconómico de la ICCS, no incorpora los ingresos, como usualmente lo hace el SES (Burgard y Stewart, 2003) e incorpora además la cantidad de libros. El que no se incorporen los ingresos es sopesado por incorporar ocupación, que es un mejor indicador de ingresos a largo plazo que la información de ingresos recopilada en cualquier momento dado, porque a corto plazo, los ingresos pueden ser bastante volátiles (Williams y Collins 1995). 
 Siguiendo con la desigualdad social del conocimiento cívico, se podría afirmar, que esta es parte de un proceso más amplio de desigualdad sociocultural de la política, sobre la cual Bryony Hoskinsa, Jan Germen Janmaat, Christine Han y Daniel Muijs (2016) realizan muy buenas observaciones. A partir de datos mixtos, en distintos países de Europa, los autores dan cuenta como un menor nivel socioeconómico se relaciona con un peor desempeño académico, lo que lleva a las personas a tener una auto-evaluación general deficientes de sí mismos, y por ello, una baja autoeficacia política, la cual se relaciona igualmente con baja intención de voto. Podría decirse que esta investigación sigue una lógica semejante a la de los autores, agregando a la baja autoeficacia, las dificultades que implica tener una baja capacidad de aprendizaje y mal desarrollo de habilidades en la incorporación de conocimientos y destrezas necesarias para la vida cívica y ciudadana.
 
-## Lenguaje, pensamiento y comprensión lectora
+## Lenguaje, razonamiento y comprensión lectora
 
 El lenguaje ha sido un gran tema de discusión dentro de la filosofía sobre él han reflexionado los filósofos más renombrados. Grandes tendencias teóricas como el análisis hermenéutico y la visión constructivista del conocimiento dan un gran espacio al lenguaje dentro su concepción de la ontología del humano. El filósofo romántico Herder señala la importancia del lenguaje en el pensamiento definiéndolo como la capacidad de señalar con palabras ideas separadas de la marea de sensaciones y pensamientos que siempre estimulan al humano. Estas ideas, pueden construirse posteriormente sobre otras ideas, como las características sobre los objetos, llegando a distintos niveles de abstracción dependiendo de la estimulación que se reciba. Autores como Heidegger darían un paso más allá, cuando discuten que el lenguaje no es solo un instrumento dado por la capacidad de referenciar externamente una idea interna, o la mera capacidad de “representar” la realidad. 
+
+herder plantea que le lenguaje es lo fundamental de la razon. Por ello el acto edl razonamiento recide en el el lenguaje, necesistamos un isntrumento de medicion que considere de este modo el lenguaje. Igualmente plantea que si la razon es lenguaje la razon esta hecha para la comunicacion, siendo esto la razon del humano. Esto se topa con los planteamoientos de arest respecto a la realizacion del humano en la discucion politica.
 
 Según [Gustavo Cataldo Sanguinetti](https://scielo.conicyt.cl/scielo.php?script=sci_arttext&pid=S0718-43602006000100004#:~:text=Heidegger%20no%20solo%20afirma%20que,morada%20habita%20el%20hombre%222.&text=El%20lenguaje%2C%20al%20mismo%20tiempo,y%20la%20casa%20del%20hombre) Heidegger consideraba que el lenguaje es la casa del ser y en su morada habita el hombre, lo cual quiere decir que el humano no puede relacionarse con el lenguaje como con cualquier objeto, en tanto habita dentro del, en sus límites, sus luces y sus sombras. Dicho de otro modo, no utilizamos el lenguaje para referenciar una realidad exterior, sino que la realidad exterior que referenciamos esta constituida por nuestra forma de pensarla desde el lenguaje. Así, como plantearía después Habermas @:habermas.jurgenEticaDiscursoCuestion2006 en la “ética del discurso y la cuestión de la verdad” el lenguaje es un mediador de la realidad que la impregna de valorizaciones y discursos.  
 
@@ -129,27 +148,112 @@ Según Barahona (2014) Existe un consenso en que los factores asociados al desem
 
 # Método
 
-Para abordar la problemática se trabajara con la base de datos de la encuesta internacional de conocimiento cívico (ICCS) en su tercera versión del 2016. Además contamos con los datos de la prueba simce para los mismos estudiantes lo que nos permite evaluar la relación entre comprensión lectora y conocimiento cívico. Se trabajó por ende con una base de 3140 estudiantes representativos a nivel nacional. En consideración de dicho tamaño muestral, se utilizará un 99% de nivel de confianza. Para poder probar nuestras hipótesis de manera correcta se trabajó con regresiones Multinivel, en las cuales se ha dejado de pendiente aleatoria el efecto del lenguaje y se han producido interacciones con variables de segundo nivel como el promedio del nivel socioeconómico del colegio.
+## Datos 
+
+### ICCS
+    
+Para abordar la problemática se trabajara con la base de datos de la encuesta internacional de conocimiento cívico (ICCS) en su tercera versión (2016). La ICCS es una ecuesta enfocada en el estudio longitudinal de las tendencias en conocimiento cívico y participación en estudiantes de octavo grado de 24 países, Dieciséis de esos países eran de Europa, cinco de América Latina y tres de Asia, representados por 94.000 estudiantes, 37.000 profesores y 3.800 colegios. Junto con una estrecha colavoracion de la IEA y de los centros nacionales de educacion de cada pais participante, los encargados de la elavoracion de los datos fueron El Consejo Australiano para la Investigación Educativa (ACER) en Melbourne  y el Laboratorio di Pedagogia Sperimentale (LPS) en la Universidad Roma T segun se informa en la [la pagina oficicial de la IEA](https://www.iea.nl/studies/iea/iccs/2016). La muestra de estudiantes posee un diseño estratificado de dos etapas, eligiendo escuelas al azar en un pais y aulas al azar en una escuela, de tal modo que cada pais tenga aproximadamente 150 escuelas y entre 3000 y 45000 estudiantes. La muestra de chile, con trabajo de campo en el 2015, incorporo colegios elegidos aleatoriamente, y representativos de distintas dependencias y regiones, tanto de sectores rurales como urbanos. De las escuelas seleccionadas aleatoriamente el 85% acepto participar, y dentro de las escuelas participantes, el 85% de los estudiantes acepto participar. En total, participaron 5.081 estudiantes de 178 establecimientos segun señala la agencia de caldiad de la educacion [(2018)](https://www.iea.nl/sites/default/files/2019-07/ICCS_2016_National_Report_CHL.pdf).
+    
+### SIMCE
+    
+Adicionalmente se utilizaron los datos Simce del 2015, prueba censal que fue aplicada a los mismos estudiantes participantes del estudio de la ICCS, lo cual permite agregar estas bases de datos,logrando tener las variables de ambos estudios para cada estudiante de la muestra de la ICCS. El Simce evalúa los logros de aprendizaje en las asignaturas de Lenguaje y Comunicación (Comprensión de Lectura y Escritura); Matemática; Ciencias Naturales; Historia, Geografía y Ciencias Sociales e Inglés. En esta ocacion, hemos utilizado la base de datos de la prueba Simce de lenguaje y comunicacion, más especificamente, de comprension lectora. El estudio Simce, al igual que el ICCS, trabajan con el modelo de medicion de ITR (Teoria de respuesta al Item). "En particular [el Simce trabaja con] el modelo IRT de tres parámetros, [el cual] permite estimar la habilidad de un estudiante, basándose en la probabilidad de respuesta correcta según tres características propias de las preguntas: dificultad, discriminación y azar (978-956-9484-11-7 http://archivos.agenciaeducacion.cl/Informe_Tecnico_SIMCE_2015_Final.pdf). Los procesos de aplicación de los instrumentos (pruebas y cuestionarios10) se llevan a cabo en función de instrucciones, manuales y protocolos de actuación que se basan en los criterios de estandarización internacional definidos en el documento Standards for Educational and Psychological Testing (AERA, APA y NCME, 2014). Respecto al tipo de preguntas, estas son de opcion multiple, pues este formato permite reportar información de la mayoría de los constructos a evaluar en forma efectiva y eficiente, asegurando validez, confiabilidad y objetividad del instrumento en su totalidad (Downing y Haladyna, 2006). En miras de este objetivo de la validez del instrumento, se realizan desde el año anterior a la aplicacion pruebas piloto, las cuales son analisadas cualitativa y cuantitativamente para construir los indicadores más adecuados posibles. En suma, el Simce realiza una logistica de preparacion que implica un gran gasto de recursos con el objetido de reducir al maximo el error de medida. 
+
+  
+## Variables 
+    
+### Prueba de conocimiento civico y ciudadano
+La prueba de conocimiento civico de la ICCS, tiene como objetivo evaluar los conocimientos necesarios para comprender y valorar la vida en sociedad y las formas de organización democrática, la capacidad de razonar acerca de las instituciones, eventos, acciones y procesos que se desarrollan en sus comunidades y la habilidad de desarrollar y justificar opiniones y visiones sobre estos elementos (resultados iniciales 978-90-79549-06-1). Los ítems de prueba requerían que los estudiantes aplicaran los procesos cognitivos al contenido cívico y de ciudadanía como se describe en el marco de evaluación del reporte tecnico [9789079549337]. Más especificamente, la prueba de conocimiento civico y ciudadano mide:
+
+* _Dominios de contenido_   
+    +  Sociedad y sistemas cívicos
+    + principios cívicos
+    + Participación cívica
+    + Identidades cívicas
+* _Dominios cognitivos_
+    + saber
+    + Razonamiento y aplicación
+
+Se utilizaron dos formatos de ítems: 79 de 88 ítems de la prueba son de opción múltiple con cuatro opciones de respuesta, como se puede ver en los ejemplos de los Anexos; los nueve ítems restantes fueron  de respuesta construida para los cuales los estudiantes debían escribir entre una y tres oraciones. Para calcular los puntajes de cada estudiante, se parte de una media de 500 puntos, considerando una desviacion estandar de 100 puntos, y segun esta metrica se calcuan 5 posibles resultados para cada estudiante (978-90-79549-32-0 Manueal de usuario), el que sean 5 resultados refleja el error y la incertidumbre propia de la medicion de consturctos complejos, al respecto se ha decidido trabajar con la primera estimacion de putnaje de conocimiento civico y realizar en anexos las mismas pruebas con los otros posible puntajes. Segun el reporte tecnico (9789079549337), los autores utilizaron la teoria de respuesta al item considerando modelos de un (9780598554512 -Rasch, 1960) y de dos parametros (9780941938013 Masters y Wright, 1997). Para escalar los datos de prueba de ICCS 2016, los autores recurrieron al paquete de software de escalado ACER ConQuest, Versión 4. Posteriormente se arealizaron diversas pruebas de validez, confiabildiad y equivalencia evaluar la medicion, estos estudios permiten comprobar que el concovimiento civico es un constructo unidimencional y continuo.
+
+Además de las evaluaciones de fiavildiad, invarianza, equivalencia y validez realizadas por los centros de investigacion designados por la IEA en el marco de la ICCS, otras agencias han evaluado la calidad de los cuestionarios. Asi por ejemplo,  la agencia nacional de educacion, evaluo el sesgo de deseavilidad social, concluyendo que la prueba no precenta problemas mayores de deseabilidad, y que estos se concentran en los aspectos de preguntas de actitudes y opiniones [(Ministerio de Educacion, 2009)]( https://s3.amazonaws.com/archivos.agenciaeducacion.cl/documentos-web/Estudios+Internacionales/ICCS/ICCS+2009/ICCS_2009_Estudio_validacion_cuestionario_estudiante.pdf)
+    
+  
+### Prueba de comprension lectora
+    
+La comprension lectora busca evaluar a los estudiantes en su capacidad de manejo del lenguaje y la comunicacion. Especificamente, la prueba de lenguaje evalua las siguientes actividades. 
+
+* Localizar informacion
+    + Identificar
+    + Discriminar
+    + Extraer
+* Interpretar
+    + Inferir
+    + Interpretar lenguaje denotativo
+    + Reconocer relaciones causales
+* Reflexionar
+    + Contrastar con conocimientos previos
+    + Evaluar criticamente aspecto de contenido y formato
+
+Asi, como puede apreciarse, para un buen puntaje en comprension lectora, no solo se requiere la capacidad de decodificar el significado de las palabras, sino que se requiere un manejo del lenguaje a un nivel de razonamiento. Como ya se comento, el proceso de elavoracion y aplicacion de la prueba tiene el objetivo de disminuir al minimo variables externas al manejo del lenguaje que pudieran afectar la medicion. Para evaluar las propiedades psicometricas de esta prueba, los encargados de la prueba simce realizaron analisis en base a lineamientos internacionales (978-0-935302-35-6). En base a los analisis realizados por el equipo tecnico (978-956-9484-11-7), podemos decir que la prueba de comprension lectora posee unidimensionaldiad (i.e El afc indica un solo factor), independencia local (i.e estudiantes de un mismo rendimiento no precentan dificultades para determinada pregunta por factores externos) y monoticidad creciente (i.e es un constructo continuo donde la probabilidad de responder correctamente un item aumenta progresivamente en estudiantes de mayor rendimiento). 
+    
+### Nivel socioeconomico del estudiante y del colegio. 
+    
+Para medir el nivel socioeconomico de los estudiantes y de las escuelas se utilizara el Índice nacional de antecedentes socioeconómicos el cual es elavorado por el equipo de la e cuesta ICCS. Este indice es elavorado como un puntaje factorial que representa una variable latente relacionada con el mayor nivel ocupacional entre los padres, el mayor nivel educativo entre los padres y la cantidad de libros declarados en el hogar. Para evaluar el contexto socioeconomico del establecimiento educativo, se trabajara con el promedio por colegio del Índice nacional de antecedentes socioeconómicos. Adicionalemente, para realizar analisis más detallados,  se utilizan de manera independiente las tres variables que componen dicho indice, para separar aspectos que refieren a desigualdades de capital cultural (Educacion de los padres y libros del hogar) del item que refiere a desigualdad economica (Ocupacion de los padres).
+
+    
+### Interes politico
+
+Para medir el interes politico los estudiantes se utilizara la pregunta creada por la enciesta internacional ICCS. En este item se le pregunta al estudiante ¿Qué tan interesado está en temas políticos y sociales? (Muy interesado
+/ Bastante interesado / No muy interesado / No me interesa en absoluto). Para simplificar el analisis se ha recodificado esta pre2gunta de tal modo que las dos primeras alternativas se resumen en "Interesado en la politica" y las ultimas dos en "No interesado en la politica". 
+
+### Variables de control
+
+Como variables de control, sera incluida la calidad de la discucion en el aula, ya que este es un indicador que ha sido consistentemente señalado como relevante por la evidencia, esta variable de nivel dos corresponde al promedio de los indicadores relacionados con las preguntas de clima en el aula. 
+    
+
+- Metodos 
+    
+    
+ Respecto al metodo, este estudio trabajara desde un efoque cuantitativo transversar. El uso de las herramientas cuantitativas es fundamental para despejar las dudas planteadas en este articulo, puesto que la cuantificacion, como medicion de lo social (Asun, xxx), nos permitira contrastar que variable posee una mejor capacidad medidadora de la reproduccion de la desigualdad politica, la comprension lectora o el interes politico.
  
- "podría interpretarse de manera consistente y que reconoce que la escala de logros es
-Un continuo.
+ Se trabajara con tecnicas de regresion multinivel, ya que estas son indispensables al estudiar muestras de colegios. Las regresiones multinivel, a diferencia de las regresiones normales, asumen que los estudiantes de un mismo establecimiento compartiran caracteristicas debido al contexto comun. Si se trabajara con regresiones lineales uninivel, se romperia el supuesto de independencia de los casos en la muestra, ya que los casos estarian relacionados entre si al pertenecer a los mismos establecimeintos. Esta metodologia tambien nos permitira evaluar el efecto de caracteristicas de la escuela, como lo son el nse promedio o la percepcion promedio de apertura a la discucion, sobre variables individuales como lo es el concimiento civico. 
+ 
+Más especificamente, dentro del trabajo con regresiones mulinivel, se trabajara con relaciones pendientes aleatorias, mediacion multinivel e interacciones entre niveles. 
+  
+Las pendientes aleatorias sirven para evaluar como varia la pendiente de una relacion en distintos contextos, para este trabajo se calculara la variacion de la pendiente de la relacion entre concimiento civico y comprension lectora. 
+
+Para comprender esta metodologia, es necesario entender que una medicacion corresponde al fenomeno segun el cual una variable "x", explica una variable "Y", por medio de "M", de tal modo que "A" genera "M" y M genera "Y" (978-1-60918-230-4;10.1002/job.436). Al igual que en una moderacion de un solo nivel, es requisito para comprovar la moderacion multinivel, que "X" sea capas de explicar tanto "M" como "Y", y que, ademas, M sea capas de explicar "Y", controlando, en alguna medida el efecto de "X" (10.1037//0022-3514.51.6.1173). En nuestro caso, queremos evaluar la capacidad de la comprension lectora de mediar la relacion entre nse y conicimiento civico, por ende debemos evaluar la capacidad explicativa del nse sobre la comprension lectora y el conocimiento civico, y la capacidad del conocimiento civico de controlar el efecto del nse sobre cc, todas relaciones entre variables de nivel 1. Considerando las recomendaciones de (10.1177/1094428108327450) para cuando todas las variables del proceso de mediacion se encuentran en el primer nivel, es fundamental, para evitar confuciones de los efectos producidas por la estructura jerarquica de la muestra, evaluar las relaciones en ambos niveles, es decir, un efecto de mediacion intragrupo y otro entre grupos, para ello se deben realizar centrados en las medias de los grupos, segun concluyeron los investigadores a partir de pruebas de simulaicon montecarlo. En suma, se evaluara la medicacion  de la comprnesion lectora sobre la relacion entre nse y conocimiento civico, evaluando la relacion a nivel dos y a nivel 1, incorporando centrados a la media del grupo. Se espera que el efecto de nse sobre cc disminulla en buena medida al incluir el control de la comprension lectora. Ademas, se espera que la disminucion del efecto por control,sea mayor al incluir la variable comprension lectora que interes politico. 
+
+
+los investigadores pueden examinar si es un efecto de mediación a nivel de grupo, un efecto de mediación dentro del grupo (estanque de ranas), o ambos tipos de efecto. 
+
+
+En terminos de interacciones entre niveles, evaluaremos la capacidad de la comprension lectora del estudiante de moderar el efecto negativo sobre el conocimiento civico que se deberiva de pertenecer a un establecimiento de bajo nse promedio. 
+
+
+
+
+
+      
+    - Formula: efectos controles, 
+    
+    - Definir todos los resultados, tratamientos, factores de confusión, moderadores y mediadores
+    
+- Sofware, paquetes y herramientas. citar.
+
+  
 
  
 # Resultados.
-
-##  Analisis descriptivo y bibariado
-
-diferencias y diferencias parcializadas. 
-diferencias en actitudes y en conocimiento cívico. 
 
 
 ##  Resultados del Modelo y analisis de interacciones. 
 
 En la tabla consecutiva se presentan 4 modelos multinivel los cuales son todos significativamente mejores que el anterior. El primer modelo incluye las variables de reproducción social, el segundo, incluye una variable de la escuela, el tercero agrega el interés político social del estudiante. El cuarto incluye la variable puntaje en la prueba simce de lenguaje, y el quinto expone la aleatorización de la pendiente y la interacción  de una variable nivel dos: el promedio del nivel socioeconómico.
 
-```{r results='asis'}
-regresion_miltinivel
-```
+
+![Regresiones multinivel](../input/images/tabla_regmultinivel.png)
+
 
 
 El primer modelo incluye aquellas variables que representan la reproducción social de la desigualdad política, y como puede verse, todas estas variables poseen un efecto significativo que implica cambios de puntajes que van aproximadamente 10 a 40 puntos. Así, poseer más de 100 libros en la casa, aumenta 14 puntos el conocimiento cívico, por su parte la variable ocupación posee un efecto considerable, en un rango de más de 80 valores, por cada unidad que aumenta el índice de estatus ocupacional el estudiante aumentó 0.6 puntos en la prueba de conocimiento cívico, así por ejemplo poseer 50 pts. más de estatus ocupacional implica aumentar 30 pts. en la prueba de conocimiento cívico. Respecto al efecto de la educación de los padres, este es ambivalente, puesto que si bien es respaldado por la literatura, en vista de los controles aplicados parece solo tener un efecto significativo con un 90% de confianza, criterio demasiado laxo para una muestra de más de 3000 casos. En último lugar, considerando la variable de segundo nivel, promedio del nivel socioeconómico de los padres del colegio, podemos decir que existe un gran peso del contexto socioeconómico del colegio.
@@ -166,6 +270,7 @@ Como puede verse en el gráfico, la pendiente de la relación es muy distinta si
 
 Observando el gráfico anterior, llama la atención que en puntajes muy altos de comprensión lectora, no importa el contexto económico del colegio del estudiante. Este punto del gráfico incita a pensar que si estudiantes de contextos vulnerables alcanzan una buena comprensión lectora podrán desarrollar de buena manera las habilidades y conocimientos que son necesarios para la vida ciudadana. Para evaluar esta posibilidad, invertimos el orden del gráfico, evaluando en qué medida un buen puntaje en el lenguaje puede moderar la relación entre estar en un contexto escolar vulnerable y tener un deficiente conocimiento cívico. En el gráfico 2 se evalúa dicha interacción. 
 
+![](../output/tables/Mediacion_multinivel.png)
 
 
 En este gráfico podemos evaluar como el efecto del nivel socioeconómico de la escuela es moderado de manera casi perfecta por la comprensión lectora. Como puede verse, si un estudiante posee un excelente puntaje en la prueba de comprension lectora simce, independiente del nivel socioeconómico de su escuela, tendrá un muy alto puntaje en conocimiento cívico.
@@ -199,6 +304,39 @@ los estudiantes responden sin tener conocimiento básico llegan a altos puntajes
 
  Este punto, pone en tela de juicio la validez del instrumento, en tanto las diferencias en comprensión lectora podrían estar inflando las diferencias sociales en el conocimiento cívico.
 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ---------------- 
+ 
+ 
+   Tabla de puntajes y cortes. http://archivos.agenciaeducacion.cl/Estudio_Marco_Evaluacion_ICCS.pdf 
+            * Buscar tabla: Niveles de desempeño en ICCS
+            * Buscar tabla: Preguntas ICCS 2009 por dominios de contenido y dominios cognitivos
+            * buscar tems liberados del módulo general 1.
+  
+ 
+ http://archivos.agenciaeducacion.cl/Plan_nacional_evaluaciones.pdf
+ 
+ 
+ 
+ ------------------
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
 Agencia de Calidad de la Educación, (2017) Estudio internacional de Educacion Civica y Ciudadana, Presentación de resultados. Recuperado el 17 de septiembre de https://www.agenciaeducacion.cl/estudios/estudios-internacionales/iccs/
 Schulz, W., Ainely, J., Fraillon, J., Kerr, D. y Losito, B. (2011). ICCS 2009 international Report: Civic. 	Knowledge, attitudes, and engagement among lower secondary school students in 38 	countries. Ámstendam: Internacional Association for the Evaluation  of Educational 	Achievement (IEA).
