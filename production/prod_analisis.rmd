@@ -220,7 +220,7 @@ correlacion entre interes de de los padres y cualidades democraticas del colegio
 ```{r}
 
 library(corrplot)
-basecor<-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ)
+basecor<-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ, p.leng, nse)
 
 cor <- cor(basecor)
 Correlaciones  <-corrplot.mixed(cor)
@@ -285,7 +285,12 @@ screenreg(list(lenguaje_nse, civica_nse,civica_nse_leng,civica_nse_int,civica_ns
 ```{r}
 
 data$nse_c = as.numeric(data$nse - data$m_nse)
-data$ipe_c = as.numeric(data$ip_estudiante - data$m_ip_estudiante)
+
+data <- data %>%
+  group_by(idschool) %>%
+  mutate(m_ip_estudiante.or = mean(ip_estudiante.or))
+
+data$ipe_c = as.numeric(data$ip_estudiante.or - data$m_ip_estudiante.or)
 
 data <- data %>%
   group_by(idschool) %>%
@@ -293,17 +298,23 @@ data <- data %>%
 
 data$p.civ_c = as.numeric(data$p.civ - data$m_p.civ)
 
+
+
 lenguaje_nse_c = lmer(p.leng_centrado ~ 1 +  nse_c  + (1 | idschool), data = data, REML=F) 
+
+int_nse_c = lmer(ipe_c ~ 1  + nse_c  + (1 | idschool), data = data, REML=F) 
+
 civica_nse_c = lmer(p.civ_c ~ 1 +  nse_c  + (1 | idschool), data = data, REML=F) 
+
+civica_nse_int_c = lmer(p.civ_c ~ 1 + nse_c + ipe_c  + (1 | idschool), data = data, REML=F)
+
 civica_nse_leng_c = lmer(p.civ_c ~ 1 + nse_c + p.leng_centrado  + (1 | idschool), data = data, REML=F) 
-civica_int_c = lmer(p.civ_c ~ 1  + ipe_c  + (1 | idschool), data = data, REML=F) 
-civica_nse_int_c = lmer(p.civ_c ~ 1 + nse_c + ipe_c  + (1 | idschool), data = data, REML=F) 
+
 civica_nse_intleng_c = lmer(p.civ_c ~ 1 + nse_c + ipe_c + p.leng_centrado + (1 | idschool), data = data, REML=F) 
 
-screenreg(list(lenguaje_nse, civica_nse,civica_nse_leng,civica_nse_int,civica_nse_intleng), type="text")
+screenreg(list(lenguaje_nse_c, int_nse_c,civica_nse_c,civica_nse_int_c,civica_nse_leng_c,civica_nse_intleng_c), type="text")
 
 ```
-
 
 
 ```{r}
@@ -323,10 +334,79 @@ screenreg(list(lenguaje_nse, civica_nse,civica_nse_leng,civica_nse_int,civica_ns
 
 
 
+```{r}
+
+```
+
+
 
 ```{r}
 
+# Hacer porcentaje lenguaje centrado
+summary(data$p.leng_centrado)
 
+168.3130 + 123.8707
+
+292.1837 - 100 
+
+data$p.leng.c.pr <- as.numeric((data$p.leng_centrado + 168.3130)*100)/292.1837
+
+hist(data$p.leng.c.pr)
+
+#Hacer porcentaje interes poltico centrado
+
+summary(data$ipe_c)
+0.6522 + 2.9600  
+
+data$ipe_c.pr <- as.numeric((data$ipe_c + 0.6522 )*100)/3.6122
+
+hist(data$ipe_c.pr)
+
+# Hacer porcentaje conocimiento civico
+
+summary(data$p.civ_c)
+287.54 + 241.57 
+
+529.11
+
+data$p.civ_c.pr <- as.numeric((data$p.civ_c + 287.54 )*100)/529.11
+
+hist(data$p.civ_c.pr)
+
+# hacer porcentaje nivel socioeconomico centrado
+
+summary(data$nse_c)
+2.33171  + 2.79194 
+
+5.12365
+
+data$nse_c.pr <- as.numeric((data$nse_c + 2.33171 )*100)/5.12365
+
+hist(data$nse_c.pr)
+```
+
+
+```{r}
+
+lenguaje_nse_c = lmer(p.leng.c.pr ~ 1 +  nse_c.pr  + (1 | idschool), data = data, REML=F) 
+
+int_nse_c = lmer(ipe_c.pr ~ 1  + nse_c.pr  + (1 | idschool), data = data, REML=F) 
+
+civica_nse_c = lmer(p.civ_c.pr ~ 1 +  nse_c.pr  + (1 | idschool), data = data, REML=F) 
+
+civica_nse_int_c = lmer(p.civ_c.pr ~ 1 + nse_c.pr + ipe_c.pr  + (1 | idschool), data = data, REML=F)
+
+civica_nse_leng_c = lmer(p.civ_c.pr ~ 1 + nse_c.pr + p.leng.c.pr  + (1 | idschool), data = data, REML=F) 
+
+civica_nse_intleng_c = lmer(p.civ_c.pr ~ 1 + nse_c.pr + ipe_c.pr + p.leng.c.pr + (1 | idschool), data = data, REML=F) 
+
+screenreg(list(lenguaje_nse_c, int_nse_c,civica_nse_c,civica_nse_int_c,civica_nse_leng_c,civica_nse_intleng_c), type="text")
+
+```
+
+
+### Nivel 2
+```{r}
 lenguaje_nse_m = lmer(m_p.leng ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) 
 civica_nse_m = lmer(m_p.civ ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) 
 civica_nse_leng_m = lmer(m_p.civ ~ 1 + m_nse + m_p.leng  + (1 | idschool), data = data, REML=F) 
@@ -337,7 +417,39 @@ civica_nse_intleng_m = lmer(m_p.civ ~ 1 + m_nse + m_ip_estudiante + m_p.leng + (
 screenreg(list(lenguaje_nse_m, civica_nse_m,civica_nse_leng_m,civica_nse_int_m,civica_nse_intleng_m), type="text")
 
 ```
+```{r}
+summary(data$m_p.leng)
+data$m_p.leng.pr = as.numeric(((data$m_p.leng)*100)/335.9)
+hist(data$m_p.leng.pr)
 
+summary(data$m_p.civ)
+data$m_p.civ.pr = as.numeric(((data$m_p.civ)*100)/604.6)
+hist(data$m_p.civ.pr)
+
+summary(data$m_ip_estudiante.or)
+
+data$m_ip_estudiante.pr = as.numeric(((data$m_ip_estudiante.or)*100)/2)
+
+
+hist(data$m_ip_estudiante.pr)
+
+summary(data$m_nse)
+data$m_nse.pr = as.numeric(((data$m_nse)*100)/2.2300)
+hist(data$m_nse.pr)
+```
+
+```{r}
+lenguaje_nse_m = lmer(m_p.leng.pr ~ 1 +  m_nse.pr  + (1 | idschool), data = data, REML=F) 
+int_nse = lmer(m_ip_estudiante.pr ~ 1 +  m_nse.pr  + (1 | idschool), data = data, REML=F) 
+civica_nse_m = lmer(m_p.civ.pr ~ 1 +  m_nse.pr  + (1 | idschool), data = data, REML=F) 
+
+civica_nse_leng_m = lmer(m_p.civ.pr ~ 1 + m_nse.pr + m_p.leng.pr  + (1 | idschool), data = data, REML=F) 
+civica_nse_int_m = lmer(m_p.civ.pr ~ 1 + m_nse.pr + m_ip_estudiante.pr  + (1 | idschool), data = data, REML=F) 
+civica_nse_intleng_m = lmer(m_p.civ.pr ~ 1 + m_nse.pr + m_ip_estudiante.pr + m_p.leng.pr + (1 | idschool), data = data, REML=F) 
+
+screenreg(list(lenguaje_nse_m,int_nse,civica_nse_m, civica_nse_leng_m,civica_nse_int_m,civica_nse_intleng_m), type="text")
+
+```
 
 ### Tabla de presentacion
 
