@@ -1,442 +1,285 @@
 <!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>presentacion taller 2</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=".small[Francisco Meneses Rivas    Departamento de Sociología - UCH / COES   ]" />
+    <link href="site_libs/remark-css/default.css" rel="stylesheet" />
+    <link href="site_libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
 
-<html>
-
-<head>
-
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-
-
-<meta name="author" content=".small[Francisco Meneses Rivas    Departamento de Sociología - UCH / COES   ]" />
-
-
-<title>presentacion taller 2</title>
-
-<script src="site_libs/jquery/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap/shim/respond.min.js"></script>
-<script src="site_libs/navigation/tabsets.js"></script>
-<link href="site_libs/highlightjs/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs/highlight.js"></script>
-<link href="site_libs/font-awesome/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-<link rel="stylesheet" href="..\input\bib\style.css" type="text/css" />
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-</style>
-
-
-<style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 60px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h2 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h3 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h4 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h5 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.section h6 {
-  padding-top: 65px;
-  margin-top: -65px;
-}
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
-}
-</style>
-
-<script>
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.parent().addClass('active');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-});
-</script>
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
+class: inverse, bottom, right
 
 
 
 
-</head>
-
-<body>
-
-
-<div class="container-fluid main-container">
 
 
 
 
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">Seminario de grado, Francisco Meneses</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="prod_analisis.html">Analisis Multinivel</a>
-</li>
-<li>
-  <a href="paper.html">Articulo en linea</a>
-</li>
-<li>
-  <a href="pres_2_t2.html">Presentacion</a>
-</li>
-<li>
-  <a href="https://github.com/franciscomeneses/Seminario">
-    <span class="fa fa-github fa-lg"></span>
-     
+&lt;!---
+About macros.js: permite escalar las imágenes como [:scale 50%](path to image), hay si que grabar ese archivo js en el directorio.
+---&gt;
+# ¿Como resolver la reproduccion de la desigualdad politica?
+## * La importancia del manejo del lenguaj para el conocimiento civico *
+&lt;br&gt;
+&lt;hr&gt;
+### Francisco Meneses Rivas, Estudiante de Sociologia de la universidad de Chile.
+
+&lt;br&gt;
+
+.small[Seminario de grado - Profesor Guía: Juan Carlos Castillo]
+---
+#Problema social: La desigualdad politica
+
+![](https://raw.githubusercontent.com/franciscomeneses/Seminario/master/input/images/Diapositiva1.PNG)
+
+&gt; En Chile, la desigualdad economica posee relacion con la desigualdad en la paritipacion politica lo cual pone en riesgo la legitimidad de la democracia. 
+---
+
+## Escuela de la reproduccion cultural 
+
+  * Bourdieu y Berstein
     
-  </a>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
+    + Habilidades: incorporacion de pautas complejas de lenguaje (Bernstein, 1977)
+  
+    +  Gustos: influencia social sobre los intereses personales  (Bourdieu,1979)
+  
+## Investigaciones actuales
 
-<div class="fluid-row" id="header">
+ * Estudio Internacional de Educación Cívica y Formación Ciudadana
+    
+    + Desigualdad social en el conocimiento civico (Schulz,2010)
+    
+    + Papel fundamental del capital cultural (Castillo, Miranda, Bonhomme, Cox &amp; Bascopé, 2014)
+   
+    + Dificultad de los estudiantes para comprender los enunciados la prueba  (Zhang,Torney-Purta &amp; Mislevy, 2015)
 
+---
 
+## Discutiendo los antecedentes del conocimiento civico
+  
+  1. Falta de claridad del papel que poseen los intereses y las habilidades
+  
+  2. Posible sobre-estimacion del efecto del nivel socioeconomico por ausencia de variables potencialmente importantes: 
+    * la importancia del manejo del lenguaje.
+    * la importancia de la capacidades analiticas.
+    * la importancia de las capacididades de memeoria.
+    
+  3. Falta de propuestas de solución focalizadas para grupos vulnerables
+  
+### Nuestra propuesta:
 
-<h1 class="title toc-ignore">presentacion taller 2</h1>
-<h4 class="author">.small[Francisco Meneses Rivas <br><br> Departamento de Sociología - UCH / COES <br><br>]</h4>
+__Se hipotetisa que el lenguaje posee un rol fundamental por las siguientes razones__
 
-</div>
+  * La comprension lectora requiere de las mismas habilidades que el conocimiento civico (Comprension, analisis, interpretacion y evaluacion)
+  * Algunos estudiantes no son capaces de comprender las fraces de la prueba de conocimiento civico. 
+  * _Zoon politikón__: Aristoteles y Harendt destacan el rol del lenguaje como escencia de la politica.  
 
+---
+&lt;div style="text-align: justify"&gt;
 
-<p>class: inverse, bottom, right</p>
-<div id="como-resolver-la-reproduccion-de-la-desigualdad-politica" class="section level1">
-<h1>¿Como resolver la reproduccion de la desigualdad politica?</h1>
-## * La importancia del manejo del lenguaj para el conocimiento civico * <br>
-<hr>
-<div id="francisco-meneses-rivas-estudiante-de-sociologia-de-la-universidad-de-chile." class="section level3">
-<h3>Francisco Meneses Rivas, Estudiante de Sociologia de la universidad de Chile.</h3>
-<p><br></p>
-</div>
-<div id="smallseminario-de-grado---profesor-guía-juan-carlos-castillo" class="section level2">
-<h2>.small[Seminario de grado - Profesor Guía: Juan Carlos Castillo]</h2>
-<p>#Problema social: La desigualdad politica</p>
-<p><img src="https://raw.githubusercontent.com/franciscomeneses/Seminario/master/input/images/Diapositiva1.PNG" /></p>
-</div>
-<div id="en-chile-la-desigualdad-economica-posee-relacion-con-la-desigualdad-en-la-paritipacion-politica-lo-cual-pone-en-riesgo-la-legitimidad-de-la-democracia." class="section level2">
-<h2>&gt; En Chile, la desigualdad economica posee relacion con la desigualdad en la paritipacion politica lo cual pone en riesgo la legitimidad de la democracia.</h2>
-</div>
-<div id="escuela-de-la-reproduccion-cultural" class="section level2">
-<h2>Escuela de la reproduccion cultural</h2>
-<ul>
-<li><p>Bourdieu y Berstein</p>
-<ul>
-<li><p>Habilidades: incorporacion de pautas complejas de lenguaje (Bernstein, 1977)</p></li>
-<li><p>Gustos: influencia social sobre los intereses personales (Bourdieu,1979)</p></li>
-</ul></li>
-</ul>
-</div>
-<div id="investigaciones-actuales" class="section level2">
-<h2>Investigaciones actuales</h2>
-<ul>
-<li><p>Estudio Internacional de Educación Cívica y Formación Ciudadana</p>
-<ul>
-<li><p>Desigualdad social en el conocimiento civico (Schulz,2010)</p></li>
-<li><p>Papel fundamental del capital cultural (Castillo, Miranda, Bonhomme, Cox &amp; Bascopé, 2014)</p></li>
-<li><p>Dificultad de los estudiantes para comprender los enunciados la prueba (Zhang,Torney-Purta &amp; Mislevy, 2015)</p></li>
-</ul></li>
-</ul>
-<hr />
-</div>
-<div id="discutiendo-los-antecedentes-del-conocimiento-civico" class="section level2">
-<h2>Discutiendo los antecedentes del conocimiento civico</h2>
-<ol style="list-style-type: decimal">
-<li><p>Falta de claridad del papel que poseen los intereses y las habilidades</p></li>
-<li><p>Posible sobre-estimacion del efecto del nivel socioeconomico por ausencia de variables potencialmente importantes: * la importancia del manejo del lenguaje. * la importancia de la capacidades analiticas. * la importancia de las capacididades de memeoria.</p></li>
-<li><p>Falta de propuestas de solución focalizadas para grupos vulnerables</p></li>
-</ol>
-<div id="nuestra-propuesta" class="section level3">
-<h3>Nuestra propuesta:</h3>
-<p><strong>Se hipotetisa que el lenguaje posee un rol fundamental por las siguientes razones</strong></p>
-<ul>
-<li>La comprension lectora requiere de las mismas habilidades que el conocimiento civico (Comprension, analisis, interpretacion y evaluacion)</li>
-<li>Algunos estudiantes no son capaces de comprender las fraces de la prueba de conocimiento civico.</li>
-<li>_Zoon politikón__: Aristoteles y Harendt destacan el rol del lenguaje como escencia de la politica.</li>
-</ul>
-<p># Método</p>
-<p>## Variables - Prueba internacional de conocimiento cívico (ISSC) - Prueba de comprensión lectora de lenguaje (SIMCE) - National index of socioeconomic background (ISSC) ## Estadisticos - path uni-nivel y multi-nivel(en progreso) - interacciones entre niveles de regresiones multinivel</p>
-<hr />
-<p>class: middle, center</p>
-</div>
-</div>
-</div>
-<div id="h1-la-desigualdad-socieconomica-del-conocimiento-cívico-es-mediada-en-buena-medida-por-el-manejo-del-lenguaje." class="section level1">
-<h1>H1: La desigualdad socieconomica del conocimiento cívico es mediada en buena medida por el manejo del lenguaje.</h1>
-<div id="section" class="section level2">
-<h2><img src="../input/images/tabla_regmultinivel.png" style="width:90.0%" /></h2>
-<p>class: middle, center</p>
-<div style="text-align: justify">
+## Preguntas e hipótesis de investigación:
+  
+  * Objetivo general: Comprender el rol que cumple la comprensión lectora en la influencia del origen socioeconómico sobre el conocimiento cívico.
 
-<blockquote>
-<p><strong>Resultados</strong>: A partir de la regresión multinivel anterior podemos decir que prácticamente todo el efecto sobre conocimiento cívico de poseer libros en el hogar es controlado por las habilidades de comprensión lectora. Esto indica que el efecto de los libros en el hogar se debe a la translaticio de habilidades, más precisamente, al desarrollo de capacidades lingüísticas que permitan la comprensión, interpretación y evaluación del mundo político.</p>
-</blockquote>
-<p><img src="../input/images/libros.jpg" /></p>
-<div/>
+* Objetivos específicos: 
 
-<p><img src="../output/images/interaccionfinal.png" alt="La moderacion de la desigualdad por el lenguaje" /> &gt; A partir de esta interacción podemos decir que estudiantes de colegios de bajo nse, que poseen una buena comprension lectora, logran obtener igualmente un buen puntaje en la prueba de conocimiento civico, superando a estudiantes de colegios acomoddados con un mal manejo del lenguaje y presentando leves diferencias con estudiantes de igual manejo del lenguaje de dichos colegios.</p>
-<p># Discusión</p>
-<ol style="list-style-type: decimal">
-<li><p>Ha existido una exageracion de la transmicion intergeneracional de valores, intereses y capacidades politicas.</p></li>
-<li><p>Es necesario revisar relaciones anteriormente señaladas controlando por el efecto de la comprension lectora</p></li>
-<li><p>Es necesario generar una prueba que este menos influida por la dificultad del lenguaje para una comparacion más valida</p></li>
-</ol>
-</div>
-</div>
+    + Evaluar la relación entre comprensión lectora y conocimiento cívico incorporando factores influyentes señalados por la literatura.
 
+    + Contrastar si la desigualdad social del conocimiento cívico se explica en mayor medida por las diferencias de comprensión lectoras o por la transmisión de interés políticos.
 
+    + Evaluar la capacidad que posee la comprensión lectora para resolver la desigualdad social del conocimiento cívico.
 
+&lt;div/&gt;
+---
+ # Método
 
-</div>
+  ## Variables 
+    - Prueba internacional de conocimiento cívico (ISSC)
+    - Prueba de comprensión lectora de lenguaje (SIMCE)
+    - National index of socioeconomic background (ISSC)
+  ## Estadisticos
+    - path uni-nivel y multi-nivel(en progreso)
+    - interacciones entre niveles de regresiones multinivel 
 
-<script>
+---
 
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
+class: middle, center
+
+# H1: La desigualdad socieconomica del conocimiento cívico es mediada en buena medida por el manejo del lenguaje. 
+
+---
+class: middle, center
+
+# Resultados: Análisis multinivel
+
+---
+
+![](../input/images/tabla_regmultinivel.png){width=90%}
+---
+
+class: middle, center
+
+&lt;div style="text-align: justify"&gt;
+
+&gt; __Resultados__: A partir de la regresión multinivel anterior podemos decir que prácticamente todo el efecto sobre conocimiento cívico de poseer libros en el hogar es controlado por las habilidades de comprensión lectora. Esto indica que el efecto de los libros en el hogar se debe a la translaticio de habilidades, más precisamente, al desarrollo de capacidades lingüísticas que permitan la comprensión, interpretación y evaluación del mundo político. 
+
+![](../input/images/libros.jpg)
+
+&lt;div/&gt;
+
+---
+class: middle, center
+
+# ¿Como podemos disminuir la desigualdad del conocimiento cívico?
+
+---
+![La moderacion de la desigualdad por el lenguaje](../output/images/interaccionfinal.png)
+&gt; A partir de esta interacción podemos decir que estudiantes de colegios de bajo nse, que poseen una buena comprension lectora, logran obtener igualmente un buen puntaje en la prueba de conocimiento civico, superando a estudiantes de colegios acomoddados con un mal manejo del lenguaje y presentando leves diferencias con estudiantes de igual manejo del lenguaje de dichos colegios. 
+
+---
+ # Conclusion:
+ 
+ 1. La comprension lectora posee una alta y robusta relacion con el conocimiento civico
+ 
+ 2. La comprension lectora posee mayor capacidad que el interes politico para explicar  la desigualdad del conocimeinto civico, lo cual da cuenta de un problema de habilidades más que de gustos. 
+ 
+ 3. La comprension lectora puede mejorar el conocimiento civico en contextos de vulnerabilidad socioeconomica, por ende, la eficacia de la ley F.C. depende de mejorar el uso del lenguaje.
+ 
+---
+
+ # Discusión 
+
+  1. Ha existido una exageracion de la transmicion intergeneracional de valores, intereses y capacidades politicas. 
+ 
+  2. Es necesario revisar relaciones anteriormente señaladas controlando por el efecto de la comprension lectora
+
+  3. Es necesario generar una prueba que este menos influida por la dificultad del lenguaje para una comparacion más valida
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="xaringan_custom/macros.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">   </div> </div>` ",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
 });
-
-
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
 });
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
 
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
   });
-});
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
 </script>
-
-<!-- code folding -->
-
-
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
 </script>
-
-</body>
+  </body>
 </html>

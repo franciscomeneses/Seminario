@@ -71,7 +71,7 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="..\input\bib\style.css" type="text/css" />
+<link rel="stylesheet" href="custom.css" type="text/css" />
 
 
 
@@ -285,9 +285,6 @@ $(document).ready(function () {
   <a href="paper.html">Articulo en linea</a>
 </li>
 <li>
-  <a href="pres_2_t2.html">Presentacion</a>
-</li>
-<li>
   <a href="https://github.com/franciscomeneses/Seminario">
     <span class="fa fa-github fa-lg"></span>
      
@@ -322,56 +319,12 @@ $(document).ready(function () {
                texreg, # tablas lme4
                sjPlot #graficos
 )</code></pre>
-<pre class="r"><code>iccssimce &lt;- read_dta(&quot;../input/data/original/iccs_simce.dta&quot;)</code></pre>
-<pre class="r"><code>data &lt;- iccssimce %&gt;% select(&quot;p.leng&quot;=ptje_lect8b_alu, &quot;p.mat&quot;=ptje_mate8b_alu, &quot;p.nat&quot;=ptje_nat8b_alu, &quot;p.civ&quot;=PV1CIV, &quot;nse&quot;=S_NISB, &quot;ip_estudiante&quot;=S_SINT, &quot;ip_padres&quot;=S_HINT,idschool,apert_disc=S_OPDISC, &quot;cult_part&quot;=S_VALPARTS, esp_part=C_ENGAGE , &quot;Libros&quot;=S_HOMLIT, &quot;Ocupacion&quot; = S_HISEI, &quot;Educacion&quot;=S_HISCED, IC3G13A, rel_prof=S_STUTREL, S_ABUSE) %&gt;% as.data.frame()
-data = na.omit(data)
-
-
-data$Libros&lt;-ifelse(data$Libros&gt;=2,1,0)
-data$IC3G13A&lt;-ifelse(data$IC3G13A==2,1,0)
-data$ip_padres&lt;-ifelse(data$ip_padres&gt;=2,1,0)
-data$Educacion&lt;-ifelse(data$Educacion&gt;=3,1,0)
-data$ip_estudiante&lt;-ifelse(data$ip_estudiante&gt;=2,1,0)
-
-
-data &lt;- data %&gt;%
-  group_by(idschool) %&gt;%
-  mutate(m_nse = mean(nse))
-
-data &lt;- data %&gt;%
-  group_by(idschool) %&gt;%
-  mutate(m_apert_disc = mean(apert_disc))
-data &lt;- data %&gt;%
-  group_by(idschool) %&gt;%
-  mutate(clima_prof = mean(rel_prof))
-
-data &lt;- data %&gt;%
-  group_by(idschool) %&gt;%
-  mutate(m_esp_part = mean(esp_part))
-
-data &lt;- data %&gt;%
-  group_by(idschool) %&gt;%
-  mutate(m_ip_estudiante = mean(ip_estudiante))
-
-data &lt;- data %&gt;%
-  group_by(idschool) %&gt;%
-  mutate(sd_nse = sd(nse))
-
-data &lt;- data %&gt;%
-  group_by(idschool) %&gt;%
-  mutate(m_ip_padres = mean(ip_padres))
-
-data &lt;- data %&gt;%
-  group_by(idschool) %&gt;%
-  mutate(m_cult_part = mean(cult_part))
-
-data &lt;- data %&gt;%
-  group_by(idschool) %&gt;%
-  mutate(m_p.leng = mean(p.leng))</code></pre>
+<pre class="r"><code>load(file = &quot;../input/data/proc/data.RData&quot;)</code></pre>
 <pre class="r"><code>library(ggplot2)
 library(ggplot2)
 library(hrbrthemes)</code></pre>
-<pre><code>## Warning: package &#39;hrbrthemes&#39; was built under R version 4.0.2</code></pre>
+<pre><code>## Warning: package &#39;hrbrthemes&#39; was built under R
+## version 4.0.2</code></pre>
 <pre><code>## Registering Windows fonts with R</code></pre>
 <pre><code>## NOTE: Either Arial Narrow or Roboto Condensed fonts are required to use these themes.</code></pre>
 <pre><code>##       Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed and</code></pre>
@@ -383,56 +336,74 @@ data$alto_nse&lt;-as.character(ifelse(data$nse&gt;=0,1,0))
 
 scatter &lt;-ggplot(data, aes(x=p.civ, y=p.leng, color=alto_nse)) + 
     geom_point(size=2) +
-    theme_classic()</code></pre>
+    theme_classic()
+  
+data$p.leng_centrado &lt;- (data$p.leng - data$m_p.leng)</code></pre>
 <pre class="r"><code>summary(data)</code></pre>
-<pre><code>##      p.leng          p.mat           p.nat           p.civ      
-##  Min.   :126.0   Min.   :142.0   Min.   :149.0   Min.   :232.1  
-##  1st Qu.:214.5   1st Qu.:235.2   1st Qu.:236.9   1st Qu.:432.1  
-##  Median :255.7   Median :275.0   Median :273.9   Median :502.2  
-##  Mean   :251.7   Mean   :272.6   Mean   :274.7   Mean   :498.4  
-##  3rd Qu.:288.9   3rd Qu.:309.9   3rd Qu.:311.4   3rd Qu.:565.0  
-##  Max.   :373.2   Max.   :394.4   Max.   :416.9   Max.   :782.7  
-##                                                                 
-##       nse          ip_estudiante      ip_padres         idschool   
-##  Min.   :-2.0800   Min.   :0.0000   Min.   :0.0000   Min.   :1001  
-##  1st Qu.:-0.6300   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1046  
-##  Median : 0.0700   Median :0.0000   Median :1.0000   Median :1090  
-##  Mean   : 0.1816   Mean   :0.2296   Mean   :0.6548   Mean   :1092  
-##  3rd Qu.: 1.0000   3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:1138  
-##  Max.   : 2.4900   Max.   :1.0000   Max.   :1.0000   Max.   :1178  
-##                                                                    
-##    apert_disc      cult_part        esp_part         Libros      
-##  Min.   :16.67   Min.   :17.22   Min.   :25.41   Min.   :0.0000  
-##  1st Qu.:46.53   1st Qu.:45.66   1st Qu.:41.21   1st Qu.:0.0000  
-##  Median :53.15   Median :53.75   Median :48.22   Median :1.0000  
-##  Mean   :53.12   Mean   :55.25   Mean   :49.33   Mean   :0.5041  
-##  3rd Qu.:58.96   3rd Qu.:68.37   3rd Qu.:52.28   3rd Qu.:1.0000  
-##  Max.   :78.16   Max.   :68.37   Max.   :70.79   Max.   :1.0000  
-##                                                                  
-##    Ocupacion       Educacion         IC3G13A          rel_prof    
-##  Min.   :10.00   Min.   :0.0000   Min.   :0.0000   Min.   :18.78  
-##  1st Qu.:33.00   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:45.48  
-##  Median :42.00   Median :0.0000   Median :1.0000   Median :53.24  
-##  Mean   :45.86   Mean   :0.4994   Mean   :0.5013   Mean   :54.55  
-##  3rd Qu.:59.00   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:64.54  
-##  Max.   :89.00   Max.   :1.0000   Max.   :1.0000   Max.   :71.68  
-##                                                                   
-##     S_ABUSE          m_nse          m_apert_disc     clima_prof   
-##  Min.   :37.04   Min.   :-1.5500   Min.   :35.49   Min.   :34.53  
-##  1st Qu.:37.04   1st Qu.:-0.4104   1st Qu.:50.28   1st Qu.:52.08  
-##  Median :50.42   Median : 0.1079   Median :53.07   Median :54.45  
-##  Mean   :49.47   Mean   : 0.1816   Mean   :53.12   Mean   :54.55  
-##  3rd Qu.:56.17   3rd Qu.: 0.5552   3rd Qu.:56.08   3rd Qu.:57.19  
-##  Max.   :87.38   Max.   : 2.2300   Max.   :78.16   Max.   :66.72  
-##                                                                   
-##    m_esp_part    m_ip_estudiante      sd_nse        m_ip_padres    
-##  Min.   :25.87   Min.   :0.0000   Min.   :0.2894   Min.   :0.0000  
-##  1st Qu.:41.76   1st Qu.:0.1364   1st Qu.:0.6125   1st Qu.:0.5385  
-##  Median :48.22   Median :0.2083   Median :0.7231   Median :0.6486  
-##  Mean   :49.33   Mean   :0.2296   Mean   :0.7175   Mean   :0.6548  
-##  3rd Qu.:53.25   3rd Qu.:0.2941   3rd Qu.:0.8101   3rd Qu.:0.7568  
-##  Max.   :70.79   Max.   :1.0000   Max.   :1.8455   Max.   :1.0000  
-##                                   NA&#39;s   :10                       
+<pre><code>##      p.leng          p.mat           p.nat      
+##  Min.   :126.0   Min.   :142.0   Min.   :149.0  
+##  1st Qu.:214.5   1st Qu.:235.2   1st Qu.:236.9  
+##  Median :255.7   Median :275.0   Median :273.9  
+##  Mean   :251.7   Mean   :272.6   Mean   :274.7  
+##  3rd Qu.:288.9   3rd Qu.:309.9   3rd Qu.:311.4  
+##  Max.   :373.2   Max.   :394.4   Max.   :416.9  
+##                                                 
+##      p.civ            nse          ip_estudiante   
+##  Min.   :232.1   Min.   :-2.0800   Min.   :0.0000  
+##  1st Qu.:432.1   1st Qu.:-0.6300   1st Qu.:0.0000  
+##  Median :502.2   Median : 0.0700   Median :0.0000  
+##  Mean   :498.4   Mean   : 0.1816   Mean   :0.2296  
+##  3rd Qu.:565.0   3rd Qu.: 1.0000   3rd Qu.:0.0000  
+##  Max.   :782.7   Max.   : 2.4900   Max.   :1.0000  
+##                                                    
+##    ip_padres         idschool      apert_disc   
+##  Min.   :0.0000   Min.   :1001   Min.   :16.67  
+##  1st Qu.:0.0000   1st Qu.:1046   1st Qu.:46.53  
+##  Median :1.0000   Median :1090   Median :53.15  
+##  Mean   :0.6548   Mean   :1092   Mean   :53.12  
+##  3rd Qu.:1.0000   3rd Qu.:1138   3rd Qu.:58.96  
+##  Max.   :1.0000   Max.   :1178   Max.   :78.16  
+##                                                 
+##    cult_part        esp_part         Libros      
+##  Min.   :17.22   Min.   :25.41   Min.   :0.0000  
+##  1st Qu.:45.66   1st Qu.:41.21   1st Qu.:0.0000  
+##  Median :53.75   Median :48.22   Median :1.0000  
+##  Mean   :55.25   Mean   :49.33   Mean   :0.5041  
+##  3rd Qu.:68.37   3rd Qu.:52.28   3rd Qu.:1.0000  
+##  Max.   :68.37   Max.   :70.79   Max.   :1.0000  
+##                                                  
+##    Ocupacion       Educacion         IC3G13A      
+##  Min.   :10.00   Min.   :0.0000   Min.   :0.0000  
+##  1st Qu.:33.00   1st Qu.:0.0000   1st Qu.:0.0000  
+##  Median :42.00   Median :0.0000   Median :1.0000  
+##  Mean   :45.86   Mean   :0.4994   Mean   :0.5013  
+##  3rd Qu.:59.00   3rd Qu.:1.0000   3rd Qu.:1.0000  
+##  Max.   :89.00   Max.   :1.0000   Max.   :1.0000  
+##                                                   
+##     rel_prof        S_ABUSE          m_nse        
+##  Min.   :18.78   Min.   :37.04   Min.   :-1.5500  
+##  1st Qu.:45.48   1st Qu.:37.04   1st Qu.:-0.4104  
+##  Median :53.24   Median :50.42   Median : 0.1079  
+##  Mean   :54.55   Mean   :49.47   Mean   : 0.1816  
+##  3rd Qu.:64.54   3rd Qu.:56.17   3rd Qu.: 0.5552  
+##  Max.   :71.68   Max.   :87.38   Max.   : 2.2300  
+##                                                   
+##   m_apert_disc     clima_prof      m_esp_part   
+##  Min.   :35.49   Min.   :34.53   Min.   :25.87  
+##  1st Qu.:50.28   1st Qu.:52.08   1st Qu.:41.76  
+##  Median :53.07   Median :54.45   Median :48.22  
+##  Mean   :53.12   Mean   :54.55   Mean   :49.33  
+##  3rd Qu.:56.08   3rd Qu.:57.19   3rd Qu.:53.25  
+##  Max.   :78.16   Max.   :66.72   Max.   :70.79  
+##                                                 
+##  m_ip_estudiante      sd_nse        m_ip_padres    
+##  Min.   :0.0000   Min.   :0.2894   Min.   :0.0000  
+##  1st Qu.:0.1364   1st Qu.:0.6125   1st Qu.:0.5385  
+##  Median :0.2083   Median :0.7231   Median :0.6486  
+##  Mean   :0.2296   Mean   :0.7175   Mean   :0.6548  
+##  3rd Qu.:0.2941   3rd Qu.:0.8101   3rd Qu.:0.7568  
+##  Max.   :1.0000   Max.   :1.8455   Max.   :1.0000  
+##                   NA&#39;s   :10                       
 ##   m_cult_part       m_p.leng       alto_nse        
 ##  Min.   :22.35   Min.   :168.5   Length:3140       
 ##  1st Qu.:52.86   1st Qu.:234.0   Class :character  
@@ -440,6 +411,14 @@ scatter &lt;-ggplot(data, aes(x=p.civ, y=p.leng, color=alto_nse)) +
 ##  Mean   :55.25   Mean   :251.7                     
 ##  3rd Qu.:58.26   3rd Qu.:269.9                     
 ##  Max.   :68.37   Max.   :335.9                     
+##                                                    
+##  p.leng_centrado    
+##  Min.   :-168.3130  
+##  1st Qu.: -28.5909  
+##  Median :   0.3501  
+##  Mean   :   0.0000  
+##  3rd Qu.:  29.4851  
+##  Max.   : 123.8707  
 ## </code></pre>
 <pre class="r"><code>#table(data$p.leng)
 sd(data$p.civ)</code></pre>
@@ -475,18 +454,19 @@ results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion  +  ip_padres + m_c
 
 
 results_4 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion +  +  ip_padres  + m_nse + ip_estudiante  +  m_cult_part   + p.leng + (1 + p.leng | idschool), data = data, REML=F)</code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge with max|grad| = 34.4135
-## (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 34.4135 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?;Model is nearly unidentifiable: large eigenvalue ratio
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>results_5 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  +  m_cult_part  + p.leng*m_nse + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : unable to evaluate scaled gradient</code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge: degenerate Hessian with 1
-## negative eigenvalues</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : unable to evaluate scaled
+## gradient</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge:
+## degenerate Hessian with 1 negative eigenvalues</code></pre>
 <pre class="r"><code>save(results_1, file = &quot;../output/images/results_1.Rdata&quot;)
 save(results_2, file = &quot;../output/images/results_2.Rdata&quot;)
 save(results_3, file = &quot;../output/images/results_3.Rdata&quot;)
@@ -504,15 +484,15 @@ save(regresion_tex, file = &quot;../output/images/reghtml.Rdata&quot;)
 load(file = &quot;../output/images/reghtml.Rdata&quot;)</code></pre>
 <pre class="r"><code>inta&lt;-plot_model(results_5, type = &quot;int&quot;)
 inta</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <pre class="r"><code>results_7 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + m_nse*p.leng + (1 + p.leng| idschool), data = data, REML=F)</code></pre>
-<pre><code>## Warning: Some predictor variables are on very different scales: consider
-## rescaling</code></pre>
+<pre><code>## Warning: Some predictor variables are on very
+## different scales: consider rescaling</code></pre>
 <pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
 <pre class="r"><code>results_8 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + m_nse*p.leng_centrado + (1 + p.leng_centrado| idschool), data = data, REML=F)</code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge with max|grad| = 2.50219
-## (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 2.50219 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>screenreg(list(results_7,results_8), type=&quot;text&quot;)</code></pre>
@@ -562,13 +542,13 @@ inta</code></pre>
 save(results_8, file = &quot;../output/images/results_8.Rdata&quot;)</code></pre>
 <pre class="r"><code>int2&lt;-plot_model(results_7, type = &quot;int&quot;)
 int2</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <pre class="r"><code>results_7 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + Ocupacion*p.leng_centrado + (1 + p.leng_centrado| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning: Some predictor variables are on very different scales: consider
-## rescaling</code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge with max|grad| = 1.54494
-## (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning: Some predictor variables are on very
+## different scales: consider rescaling</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 1.54494 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>int1&lt;-plot_model(results_5, type = &quot;int&quot;)
@@ -579,11 +559,11 @@ save(int1, file= &quot;../output/images/int1.png&quot;)
 save(int2, file= &quot;../output/images/int2.png&quot;)
 save(intcentrada, file= &quot;../output/images/int3.png&quot;)
 int1</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <pre class="r"><code>int2</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
 <pre class="r"><code>intcentrada</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-11-3.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-10-3.png" width="672" /></p>
 <pre class="r"><code>results_2 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + p.leng  + m_nse + m_ip_padres +  (1 | idschool), data = data, REML=F)
 screenreg(results_2)</code></pre>
 <pre><code>## 
@@ -619,11 +599,12 @@ screenreg(results_2)</code></pre>
 ## ========================================
 ## *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05</code></pre>
 <pre class="r"><code>results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : unable to evaluate scaled gradient</code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge: degenerate Hessian with 1
-## negative eigenvalues</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : unable to evaluate scaled
+## gradient</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge:
+## degenerate Hessian with 1 negative eigenvalues</code></pre>
 <pre class="r"><code>screenreg(results_3)</code></pre>
 <pre><code>## 
 ## ===============================================
@@ -668,23 +649,29 @@ screenreg(results_2)</code></pre>
 ## results_3: p.civ ~ 1 + Libros + Ocupacion + ip_estudiante + ip_padres + 
 ## results_3:     Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng | 
 ## results_3:     idschool)
-##           npar   AIC   BIC logLik deviance  Chisq Df Pr(&gt;Chisq)   
-## results_2   11 34909 34976 -17444    34887                        
-## results_3   13 34903 34982 -17439    34877 10.256  2   0.005929 **
+##           npar   AIC   BIC logLik deviance  Chisq Df
+## results_2   11 34909 34976 -17444    34887          
+## results_3   13 34903 34982 -17439    34877 10.256  2
+##           Pr(&gt;Chisq)   
+## results_2              
+## results_3   0.005929 **
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre class="r"><code>results_6 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_padres + ip_estudiante + Educacion + p.leng*m_nse + m_ip_padres + m_ip_estudiante + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning: Some predictor variables are on very different scales: consider
-## rescaling</code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge with max|grad| = 0.697013
-## (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning: Some predictor variables are on very
+## different scales: consider rescaling</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 0.697013 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?;Model is nearly unidentifiable: large eigenvalue ratio
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>results_6</code></pre>
-<pre><code>## Linear mixed model fit by maximum likelihood  [&#39;lmerMod&#39;]
-## Formula: p.civ ~ 1 + Libros + Ocupacion + ip_padres + ip_estudiante +  
+<pre><code>## Linear mixed model fit by maximum likelihood [lmerMod
+## ]
+## Formula: 
+## p.civ ~ 1 + Libros + Ocupacion + ip_padres + ip_estudiante +  
 ##     Educacion + p.leng * m_nse + m_ip_padres + m_ip_estudiante +  
 ##     (1 + p.leng | idschool)
 ##    Data: data
@@ -697,12 +684,14 @@ screenreg(results_2)</code></pre>
 ##  Residual             60.56889      
 ## Number of obs: 3140, groups:  idschool, 152
 ## Fixed Effects:
-##     (Intercept)           Libros        Ocupacion        ip_padres  
-##        208.0377           6.2763           0.3642           2.9930  
-##   ip_estudiante        Educacion           p.leng            m_nse  
-##         13.6904           7.6851           1.0342          64.1589  
-##     m_ip_padres  m_ip_estudiante     p.leng:m_nse  
-##         -4.9197           5.9598          -0.1541  
+##     (Intercept)           Libros        Ocupacion  
+##        208.0377           6.2763           0.3642  
+##       ip_padres    ip_estudiante        Educacion  
+##          2.9930          13.6904           7.6851  
+##          p.leng            m_nse      m_ip_padres  
+##          1.0342          64.1589          -4.9197  
+## m_ip_estudiante     p.leng:m_nse  
+##          5.9598          -0.1541  
 ## fit warnings:
 ## Some predictor variables are on very different scales: consider rescaling
 ## convergence code 0; 0 optimizer warnings; 3 lme4 warnings</code></pre>
@@ -714,11 +703,15 @@ screenreg(results_2)</code></pre>
 ## results_3: p.civ ~ 1 + Libros + Ocupacion + ip_estudiante + ip_padres + 
 ## results_3:     Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng | 
 ## results_3:     idschool)
-##           npar   AIC   BIC logLik deviance  Chisq Df Pr(&gt;Chisq)   
-## results_2   11 34909 34976 -17444    34887                        
-## results_3   13 34903 34982 -17439    34877 10.256  2   0.005929 **
+##           npar   AIC   BIC logLik deviance  Chisq Df
+## results_2   11 34909 34976 -17444    34887          
+## results_3   13 34903 34982 -17439    34877 10.256  2
+##           Pr(&gt;Chisq)   
+## results_2              
+## results_3   0.005929 **
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre class="r"><code>anova(results_3,results_4)</code></pre>
 <pre><code>## Data: data
 ## Models:
@@ -727,11 +720,15 @@ screenreg(results_2)</code></pre>
 ## results_3:     idschool)
 ## results_4: p.civ ~ 1 + Libros + Ocupacion + Educacion + +ip_padres + m_nse + 
 ## results_4:     ip_estudiante + m_cult_part + p.leng + (1 + p.leng | idschool)
-##           npar   AIC   BIC logLik deviance  Chisq Df Pr(&gt;Chisq)    
-## results_3   13 34903 34982 -17439    34877                         
-## results_4   13 34894 34973 -17434    34868 8.5617  0  &lt; 2.2e-16 ***
+##           npar   AIC   BIC logLik deviance  Chisq Df
+## results_3   13 34903 34982 -17439    34877          
+## results_4   13 34894 34973 -17434    34868 8.5617  0
+##                      Pr(&gt;Chisq)    
+## results_3                          
+## results_4 &lt; 0.00000000000000022 ***
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <pre class="r"><code>anova(results_2,results_4)</code></pre>
 <pre><code>## Data: data
 ## Models:
@@ -739,11 +736,15 @@ screenreg(results_2)</code></pre>
 ## results_2:     Educacion + p.leng + m_nse + m_ip_padres + (1 | idschool)
 ## results_4: p.civ ~ 1 + Libros + Ocupacion + Educacion + +ip_padres + m_nse + 
 ## results_4:     ip_estudiante + m_cult_part + p.leng + (1 + p.leng | idschool)
-##           npar   AIC   BIC logLik deviance  Chisq Df Pr(&gt;Chisq)    
-## results_2   11 34909 34976 -17444    34887                         
-## results_4   13 34894 34973 -17434    34868 18.817  2    8.2e-05 ***
+##           npar   AIC   BIC logLik deviance  Chisq Df
+## results_2   11 34909 34976 -17444    34887          
+## results_4   13 34894 34973 -17434    34868 18.817  2
+##           Pr(&gt;Chisq)    
+## results_2               
+## results_4   0.000082 ***
 ## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>hacer un indicador que solo tome a los que tienen mas del 80%.</p>
 <pre class="r"><code>results_12 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + m_nse +  (1 | idschool), data = data, REML=F)
 
@@ -791,15 +792,14 @@ screenreg(list(results_1,results_12, results_2,results_3, results_6), type=&quot
 <p>#grafico de la interaccion. el efecto del lenguaje</p>
 <pre class="r"><code>#plot_model(results_5, type = &quot;int&quot;)
 plot_model(results_6, type = &quot;int&quot;)</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>correlacion entre interes de de los padres y cualidades democraticas del colegio.</p>
-<pre class="r"><code>library(corrplot)</code></pre>
-<pre><code>## corrplot 0.84 loaded</code></pre>
-<pre class="r"><code>basecor&lt;-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ)</code></pre>
+<pre class="r"><code>library(corrplot)
+basecor&lt;-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ)</code></pre>
 <pre><code>## Adding missing grouping variables: `idschool`</code></pre>
 <pre class="r"><code>cor &lt;- cor(basecor)
 Correlaciones  &lt;-corrplot.mixed(cor)</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <pre class="r"><code>save(Correlaciones, file = &quot;../output/images/correlaciones.html&quot;)  </code></pre>
 </div>
 <div id="comprobamos-que-todo-sigue-funcionando-despues-del-centrado-por-el-grupo." class="section level1">
@@ -807,16 +807,16 @@ Correlaciones  &lt;-corrplot.mixed(cor)</code></pre>
 <pre class="r"><code>data$p.leng_centrado &lt;- (data$p.leng - data$m_p.leng)
 
 results_sincentrado = lmer(p.civ ~ 1 + ip_padres + p.leng + nse + m_ip_padres + m_ip_estudiante + cult_part + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge with max|grad| = 6.37026
-## (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 6.37026 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?;Model is nearly unidentifiable: large eigenvalue ratio
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>results_concentrado = lmer(p.civ ~ 1 + ip_padres + p.leng_centrado + nse + m_ip_padres + m_ip_estudiante + cult_part + (1 + p.leng_centrado| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge with max|grad| = 1.23098
-## (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 1.23098 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>results_concentrado_interaccion = lmer(p.civ ~ 1 + ip_padres + p.leng_centrado*nse + m_ip_padres + m_ip_estudiante  + (1 + p.leng_centrado| idschool), data = data, REML=F) </code></pre>
@@ -902,10 +902,1147 @@ regresion&lt;-stargazer(results_5, type=&quot;text&quot;)</code></pre>
 ## ===============================================
 ## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <pre class="r"><code>plot_model(results_5, type = &quot;int&quot;)</code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <pre class="r"><code>hist(data$Ocupacion) </code></pre>
-<p><img src="prod_analisis_files/figure-html/unnamed-chunk-21-2.png" width="672" /></p>
+<pre><code>## Found more than one class &quot;haven_labelled&quot; in cache; using the first, from namespace &#39;haven&#39;</code></pre>
+<pre><code>## Also defined by &#39;memisc&#39;</code></pre>
+<pre><code>## Found more than one class &quot;haven_labelled&quot; in cache; using the first, from namespace &#39;haven&#39;</code></pre>
+<pre><code>## Also defined by &#39;memisc&#39;</code></pre>
+<p><img src="prod_analisis_files/figure-html/unnamed-chunk-20-2.png" width="672" /></p>
 <pre class="r"><code>save(results_5, file = &quot;../output/images/results_5.Rdata&quot;)</code></pre>
+</div>
+<div id="mediacion-multinivel." class="section level1">
+<h1>Mediacion multinivel.</h1>
+<div id="medicacion-nivel-1-sin-centrado" class="section level2">
+<h2>Medicacion nivel 1 sin centrado</h2>
+<pre class="r"><code>lenguaje_nse = lmer(p.leng ~ 1 +  nse  + (1 | idschool), data = data, REML=F) 
+civica_nse = lmer(p.civ ~ 1 +  nse  + (1 | idschool), data = data, REML=F) 
+civica_nse_leng = lmer(p.civ ~ 1 + nse + p.leng  + (1 | idschool), data = data, REML=F) 
+civica_nse_int = lmer(p.civ ~ 1 + nse + ip_estudiante  + (1 | idschool), data = data, REML=F) 
+civica_nse_intleng = lmer(p.civ ~ 1 + nse + ip_estudiante + p.leng + (1 | idschool), data = data, REML=F) 
+
+screenreg(list(lenguaje_nse, civica_nse,civica_nse_leng,civica_nse_int,civica_nse_intleng), type=&quot;text&quot;)</code></pre>
+<pre><code>## 
+## ====================================================================================================
+##                            Model 1        Model 2        Model 3        Model 4        Model 5      
+## ----------------------------------------------------------------------------------------------------
+## (Intercept)                   247.46 ***     489.52 ***     235.45 ***     484.91 ***     234.50 ***
+##                                (1.98)         (3.58)         (6.73)         (3.62)         (6.71)   
+## nse                             9.90 ***      24.61 ***      15.70 ***      23.33 ***      14.91 ***
+##                                (0.98)         (1.72)         (1.40)         (1.72)         (1.40)   
+## p.leng                                                        1.03 ***                      1.02 ***
+##                                                              (0.03)                        (0.03)   
+## ip_estudiante                                                               20.96 ***      13.93 ***
+##                                                                             (3.32)         (2.72)   
+## ----------------------------------------------------------------------------------------------------
+## AIC                         32781.28       36294.44       34979.87       36256.94       34955.77    
+## BIC                         32805.49       36318.65       35010.13       36287.20       34992.08    
+## Log Likelihood             -16386.64      -18143.22      -17484.93      -18123.47      -17471.88    
+## Num. obs.                    3140           3140           3140           3140           3140       
+## Num. groups: idschool         152            152            152            152            152       
+## Var: idschool (Intercept)     460.21        1528.75         672.89        1500.36         665.96    
+## Var: Residual                1839.22        5612.30        3747.17        5543.51        3716.43    
+## ====================================================================================================
+## *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05</code></pre>
+</div>
+<div id="medicacion-nivel-1-con-centrado" class="section level2">
+<h2>Medicacion nivel 1 con centrado</h2>
+<pre class="r"><code>data$nse_c = as.numeric(data$nse - data$m_nse)
+data$ipe_c = as.numeric(data$ip_estudiante - data$m_ip_estudiante)
+
+data &lt;- data %&gt;%
+  group_by(idschool) %&gt;%
+  mutate(m_p.civ = mean(p.civ))</code></pre>
+<pre><code>## Found more than one class &quot;haven_labelled&quot; in cache; using the first, from namespace &#39;haven&#39;</code></pre>
+<pre><code>## Also defined by &#39;memisc&#39;</code></pre>
+<pre><code>## Found more than one class &quot;haven_labelled&quot; in cache; using the first, from namespace &#39;haven&#39;</code></pre>
+<pre><code>## Also defined by &#39;memisc&#39;</code></pre>
+<pre class="r"><code>data$p.civ_c = as.numeric(data$p.civ - data$m_p.civ)
+
+lenguaje_nse_c = lmer(p.leng_centrado ~ 1 +  nse_c  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>civica_nse_c = lmer(p.civ_c ~ 1 +  nse_c  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>civica_nse_leng_c = lmer(p.civ_c ~ 1 + nse_c + p.leng_centrado  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>civica_int_c = lmer(p.civ_c ~ 1  + ipe_c  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>civica_nse_int_c = lmer(p.civ_c ~ 1 + nse_c + ipe_c  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>civica_nse_intleng_c = lmer(p.civ_c ~ 1 + nse_c + ipe_c + p.leng_centrado + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>screenreg(list(lenguaje_nse, civica_nse,civica_nse_leng,civica_nse_int,civica_nse_intleng), type=&quot;text&quot;)</code></pre>
+<pre><code>## 
+## ====================================================================================================
+##                            Model 1        Model 2        Model 3        Model 4        Model 5      
+## ----------------------------------------------------------------------------------------------------
+## (Intercept)                   247.46 ***     489.52 ***     235.45 ***     484.91 ***     234.50 ***
+##                                (1.98)         (3.58)         (6.73)         (3.62)         (6.71)   
+## nse                             9.90 ***      24.61 ***      15.70 ***      23.33 ***      14.91 ***
+##                                (0.98)         (1.72)         (1.40)         (1.72)         (1.40)   
+## p.leng                                                        1.03 ***                      1.02 ***
+##                                                              (0.03)                        (0.03)   
+## ip_estudiante                                                               20.96 ***      13.93 ***
+##                                                                             (3.32)         (2.72)   
+## ----------------------------------------------------------------------------------------------------
+## AIC                         32781.28       36294.44       34979.87       36256.94       34955.77    
+## BIC                         32805.49       36318.65       35010.13       36287.20       34992.08    
+## Log Likelihood             -16386.64      -18143.22      -17484.93      -18123.47      -17471.88    
+## Num. obs.                    3140           3140           3140           3140           3140       
+## Num. groups: idschool         152            152            152            152            152       
+## Var: idschool (Intercept)     460.21        1528.75         672.89        1500.36         665.96    
+## Var: Residual                1839.22        5612.30        3747.17        5543.51        3716.43    
+## ====================================================================================================
+## *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05</code></pre>
+<pre class="r"><code># Proporcion del efectpo controlada por lenguaje (36%)
+
+24.6 - 15.7</code></pre>
+<pre><code>## [1] 8.9</code></pre>
+<pre class="r"><code>(8.9*100)/24.6</code></pre>
+<pre><code>## [1] 36.17886</code></pre>
+<pre class="r"><code># Proporcion del efecto controlada por interes politico (5%)
+
+24.46 - 23.33</code></pre>
+<pre><code>## [1] 1.13</code></pre>
+<pre class="r"><code>(1.3*100)/24.46</code></pre>
+<pre><code>## [1] 5.3148</code></pre>
+<pre class="r"><code>lenguaje_nse_m = lmer(m_p.leng ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in optwrap(optimizer, devfun, getStart(start,
+## rho$pp), lower = rho$lower, : convergence code -4
+## from nloptwrap</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : unable to evaluate scaled
+## gradient</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge:
+## degenerate Hessian with 1 negative eigenvalues</code></pre>
+<pre class="r"><code>civica_nse_m = lmer(m_p.civ ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in optwrap(optimizer, devfun, getStart(start,
+## rho$pp), lower = rho$lower, : convergence code -4
+## from nloptwrap</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 0.0446721 (tol = 0.002, component 1)</code></pre>
+<pre class="r"><code>civica_nse_leng_m = lmer(m_p.civ ~ 1 + m_nse + m_p.leng  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 0.60044 (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>civica_int_m = lmer(m_p.civ ~ 1  + m_ip_estudiante  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 1.40838 (tol = 0.002, component 1)
+
+## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>civica_nse_int_m = lmer(m_p.civ ~ 1 + m_nse + m_ip_estudiante  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 0.924873 (tol = 0.002, component 1)
+
+## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>civica_nse_intleng_m = lmer(m_p.civ ~ 1 + m_nse + m_ip_estudiante + m_p.leng + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 5.4646 (tol = 0.002, component 1)
+
+## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>screenreg(list(lenguaje_nse_m, civica_nse_m,civica_nse_leng_m,civica_nse_int_m,civica_nse_intleng_m), type=&quot;text&quot;)</code></pre>
+<pre><code>## 
+## ====================================================================================================
+##                            Model 1        Model 2        Model 3        Model 4        Model 5      
+## ----------------------------------------------------------------------------------------------------
+## (Intercept)                   245.18 ***     484.59 ***     359.49 ***     495.95 ***     419.11 ***
+##                                (0.42)         (0.67)         (5.83)         (1.09)         (6.32)   
+## m_nse                          24.34 ***      55.86 ***      43.31 ***      57.93 ***      49.75 ***
+##                                (0.49)         (0.78)         (0.88)         (0.88)         (0.99)   
+## m_p.leng                                                      0.51 ***                      0.28 ***
+##                                                              (0.02)                        (0.03)   
+## m_ip_estudiante                                                            -38.24 ***      -8.91 ** 
+##                                                                             (3.80)         (3.39)   
+## ----------------------------------------------------------------------------------------------------
+## AIC                        -41806.77      -41542.49      -48236.68      -52883.31      -48909.53    
+## BIC                        -41782.56      -41518.28      -48206.42      -52853.05      -48873.22    
+## Log Likelihood              20907.39       20775.24       24123.34       26446.65       24460.76    
+## Num. obs.                    3140           3140           3140           3140           3140       
+## Num. groups: idschool         152            152            152            152            152       
+## Var: idschool (Intercept)      26.31          67.00          48.87          70.29          55.64    
+## Var: Residual                   0.00           0.00           0.00           0.00           0.00    
+## ====================================================================================================
+## *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05</code></pre>
+<div id="tabla-de-presentacion" class="section level3">
+<h3>Tabla de presentacion</h3>
+<div id="usando-nse" class="section level4">
+<h4>usando NSE</h4>
+<pre class="r"><code>lenguaje_nse_c = lmer(p.leng_centrado ~ 1 +  nse_c  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>civica_nse_c = lmer(p.civ_c ~ 1 +  nse_c  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>civica_nse_leng_c = lmer(p.civ_c ~ 1 + nse_c + p.leng_centrado  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>lenguaje_nse_m = lmer(m_p.leng ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in optwrap(optimizer, devfun, getStart(start,
+## rho$pp), lower = rho$lower, : convergence code -4
+## from nloptwrap</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : unable to evaluate scaled
+## gradient</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge:
+## degenerate Hessian with 1 negative eigenvalues</code></pre>
+<pre class="r"><code>civica_nse_m = lmer(m_p.civ ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in optwrap(optimizer, devfun, getStart(start,
+## rho$pp), lower = rho$lower, : convergence code -4
+## from nloptwrap</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 0.0446721 (tol = 0.002, component 1)</code></pre>
+<pre class="r"><code>civica_nse_leng_m = lmer(m_p.civ ~ 1 + m_nse + m_p.leng  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 0.60044 (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>windowsFonts(A = windowsFont(&quot;Times New Roman&quot;))
+
+htmlreg(list(lenguaje_nse_c,civica_nse_c, civica_nse_leng_c, lenguaje_nse_m, civica_nse_m, civica_nse_leng_m), custom.coef.names = c(&quot;Intercepto&quot;, &quot;NSE (C)&quot;, &quot;Lenguaje (C)&quot;, &quot;NSE (M)&quot;, &quot;Lenguaje (M)&quot; ), custom.model.names = c(&quot;Lenguaje (C)&quot;, &quot;C. Civico (C)&quot;,&quot;C. Civico (C)&quot;, &quot;Lenguaje (M)&quot;, &quot;C. Civico (M)&quot;, &quot;C. Civico (M)&quot;), custom.header = list(&quot;Nivel 1&quot; = 1:3, &quot;Nivel 2&quot; = 4:6), star.symbol = &quot;\\*&quot;, center = T, custom.note = &quot; &lt;div style=&#39;text-align: justify&#39;&gt; $***p &lt;$ 0.001, $**p &lt;$ 0.01, $*p &lt;$ 0.05 &lt;br&gt; (C) = Centrado a la media del colegio; (M) = Promedio del colegio;  Lenguaje = puntaje simce comprension lectora;  C.Civico = puntaje prueba de conocimiento civico&quot;, caption.above = T, caption = &quot;Mediacion multinivel del lenguaje en la desigualdad social del conocimiento civico&quot;)</code></pre>
+<table class="texreg" style="margin: 10px auto;border-collapse: collapse;border-spacing: 0px;color: #000000;border-top: 2px solid #000000;">
+<caption>
+Mediacion multinivel del lenguaje en la desigualdad social del conocimiento civico
+</caption>
+<thead>
+<tr>
+<th>
+ 
+</th>
+<th style="padding-left: 5px;padding-right: 5px;border-bottom: 1px solid #000000;" colspan="3">
+Nivel 1
+</th>
+<th style="padding-left: 5px;padding-right: 5px;border-bottom: 1px solid #000000;" colspan="3">
+Nivel 2
+</th>
+</tr>
+<tr>
+<th style="padding-left: 5px;padding-right: 5px;">
+ 
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+Lenguaje (C)
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+C. Civico (C)
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+C. Civico (C)
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+Lenguaje (M)
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+C. Civico (M)
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+C. Civico (M)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">
+Intercepto
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+245.18<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+484.59<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+359.49<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.75)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(1.30)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(1.06)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.42)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.67)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(5.83)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+NSE (C)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+7.49<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+18.84<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+11.29<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(1.04)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(1.82)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(1.50)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Lenguaje (C)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+1.01<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.03)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+NSE (M)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+24.34<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+55.86<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+43.31<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.49)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.78)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.88)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Lenguaje (M)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.51<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.02)
+</td>
+</tr>
+<tr style="border-top: 1px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">
+AIC
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+32359.10
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+35861.40
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+34592.96
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-41806.77
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-41542.49
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-48236.68
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+BIC
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+32383.31
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+35885.60
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+34623.22
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-41782.56
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-41518.28
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-48206.42
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Log Likelihood
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-16175.55
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-17926.70
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-17291.48
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+20907.39
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+20775.24
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+24123.34
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Num. obs.
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3140
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3140
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3140
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3140
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3140
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3140
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Num. groups: idschool
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+152
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+152
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+152
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+152
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+152
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+152
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Var: idschool (Intercept)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+26.31
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+67.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+48.87
+</td>
+</tr>
+<tr style="border-bottom: 2px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">
+Var: Residual
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+1745.89
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+5326.25
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3553.92
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="font-size: 0.8em;" colspan="7">
+<div style='text-align: justify'>
+<span class="math inline">\(***p &lt;\)</span> 0.001, <span class="math inline">\(**p &lt;\)</span> 0.01, <span class="math inline">\(*p &lt;\)</span> 0.05 <br> (C) = Centrado a la media del colegio; (M) = Promedio del colegio; Lenguaje = puntaje simce comprension lectora; C.Civico = puntaje prueba de conocimiento civico
+</td>
+</tr>
+</tfoot>
+</table>
+<pre class="r"><code># proporcion del efecto controlado por lenguaje centrado (Nivel 1)
+((18.84 - 11.29)*100)/18.4 </code></pre>
+<pre><code>## [1] 41.03261</code></pre>
+<pre class="r"><code># proporcion del efecto controlado por promedio del lenguaje (Nivel 2)
+
+((55.86 - 43.31)*100)/55.86</code></pre>
+<pre><code>## [1] 22.46688</code></pre>
+</div>
+</div>
+<div id="usando-cantidad-de-libros-en-el-hogar" class="section level3">
+<h3>Usando cantidad de libros en el hogar</h3>
+<pre class="r"><code>data &lt;- data %&gt;%
+  group_by(idschool) %&gt;%
+  mutate(Libros_m = mean(Libros))
+
+Libros_c = as.numeric(data$Libros - data$Libros_m)
+
+libros_lenguaje_nse_c = lmer(p.leng_centrado ~ 1 +  Libros_c  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>libros_civica_nse_c = lmer(p.civ_c ~ 1 +  Libros_c  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>libros_civica_nse_leng_c = lmer(p.civ_c ~ 1 + Libros_c + p.leng_centrado  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
+<pre class="r"><code>libros_lenguaje_nse_m = lmer(m_p.leng ~ 1 +  Libros_m  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 5.25261 (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>libros_civica_nse_m = lmer(m_p.civ ~ 1 +  Libros_m  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 0.742895 (tol = 0.002, component 1)
+
+## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>libros_civica_nse_leng_m = lmer(m_p.civ ~ 1 + Libros_m + m_p.leng  + (1 | idschool), data = data, REML=F) </code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 2.02223 (tol = 0.002, component 1)
+
+## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
+##  - Rescale variables?</code></pre>
+<pre class="r"><code>htmlreg(list(libros_lenguaje_nse_c,libros_civica_nse_c, libros_civica_nse_leng_c,libros_lenguaje_nse_m, libros_civica_nse_m, libros_civica_nse_leng_m), custom.coef.names = c(&quot;Intercepto&quot;, &quot;Libros (C)&quot;, &quot;Lenguaje (C)&quot;, &quot;Libros (M)&quot;, &quot;Lenguaje (M)&quot;), custom.model.names = c(&quot;Lenguaje (C)&quot;, &quot;C. Civico (C)&quot;,&quot;C. Civico (C)&quot;, &quot;Lenguaje (M)&quot;, &quot;C. Civico (M)&quot;, &quot;C. Civico (M)&quot;), custom.header = list(&quot;Nivel 1&quot; = 1:3, &quot;Nivel 2&quot; = 4:6), star.symbol = &quot;\\*&quot;, center = T, custom.note = &quot; &lt;div style=&#39;text-align: justify&#39;&gt; $***p &lt;$ 0.001, $**p &lt;$ 0.01, $*p &lt;$ 0.05 &lt;br&gt; (C) = Centrado a la media del colegio; (M) = Promedio del colegio;  Lenguaje = puntaje simce comprension lectora;  C.Civico = puntaje prueba de conocimiento civico&quot;, caption.above = T, caption = &quot;Mediacion multinivel del lenguaje en la desigualdad social del conocimiento civico&quot;)</code></pre>
+<table class="texreg" style="margin: 10px auto;border-collapse: collapse;border-spacing: 0px;color: #000000;border-top: 2px solid #000000;">
+<caption>
+Mediacion multinivel del lenguaje en la desigualdad social del conocimiento civico
+</caption>
+<thead>
+<tr>
+<th>
+ 
+</th>
+<th style="padding-left: 5px;padding-right: 5px;border-bottom: 1px solid #000000;" colspan="3">
+Nivel 1
+</th>
+<th style="padding-left: 5px;padding-right: 5px;border-bottom: 1px solid #000000;" colspan="3">
+Nivel 2
+</th>
+</tr>
+<tr>
+<th style="padding-left: 5px;padding-right: 5px;">
+ 
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+Lenguaje (C)
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+C. Civico (C)
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+C. Civico (C)
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+Lenguaje (M)
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+C. Civico (M)
+</th>
+<th style="padding-left: 5px;padding-right: 5px;">
+C. Civico (M)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">
+Intercepto
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+200.96<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+444.37<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+339.73<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.75)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(1.32)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(1.07)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.90)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(1.61)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(5.65)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Libros (C)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+7.98<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+16.89<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+8.72<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(1.66)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(2.92)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(2.38)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Lenguaje (C)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+1.02<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.03)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Libros (M)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+105.80<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+113.66<sup>***</sup>
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+136.80<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(1.64)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(2.95)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(3.19)
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Lenguaje (M)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.35<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+ 
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+(0.03)
+</td>
+</tr>
+<tr style="border-top: 1px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">
+AIC
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+32387.34
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+35933.39
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+34635.78
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-60855.29
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-53770.85
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-49167.25
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+BIC
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+32411.55
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+35957.60
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+34666.04
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-60831.08
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-53746.64
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-49136.99
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Log Likelihood
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-16189.67
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-17962.70
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+-17312.89
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+30431.64
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+26889.42
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+24588.62
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Num. obs.
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3140
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3140
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3140
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3140
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3140
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3140
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Num. groups: idschool
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+152
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+152
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+152
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+152
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+152
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+152
+</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">
+Var: idschool (Intercept)
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+31.14
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+92.68
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+62.31
+</td>
+</tr>
+<tr style="border-bottom: 2px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">
+Var: Residual
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+1761.66
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+5449.78
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+3602.71
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+<td style="padding-left: 5px;padding-right: 5px;">
+0.00
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="font-size: 0.8em;" colspan="7">
+<div style='text-align: justify'>
+<span class="math inline">\(***p &lt;\)</span> 0.001, <span class="math inline">\(**p &lt;\)</span> 0.01, <span class="math inline">\(*p &lt;\)</span> 0.05 <br> (C) = Centrado a la media del colegio; (M) = Promedio del colegio; Lenguaje = puntaje simce comprension lectora; C.Civico = puntaje prueba de conocimiento civico
+</td>
+</tr>
+</tfoot>
+</table>
+<pre class="r"><code>screenreg(list(libros_lenguaje_nse_c, libros_civica_nse_c,libros_civica_nse_leng_c))</code></pre>
+<p>====================================================================== Model 1 Model 2 Model 3<br />
+———————————————————————- (Intercept) -0.00 -0.00 -0.00<br />
+(0.75) (1.32) (1.07)<br />
+Libros_c 7.98 *** 16.89 *** 8.72 <strong><em> (1.66) (2.92) (2.38)<br />
+p.leng_centrado 1.02 </em></strong> (0.03)<br />
+———————————————————————- AIC 32387.34 35933.39 34635.78<br />
+BIC 32411.55 35957.60 34666.04<br />
+Log Likelihood -16189.67 -17962.70 -17312.89<br />
+Num. obs. 3140 3140 3140<br />
+Num. groups: idschool 152 152 152<br />
+Var: idschool (Intercept) 0.00 0.00 0.00<br />
+Var: Residual 1761.66 5449.78 3602.71<br />
+====================================================================== *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05</p>
+</div>
+</div>
 </div>
 
 

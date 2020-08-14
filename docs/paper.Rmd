@@ -1,11 +1,11 @@
 ---
 title: "El poder de las palabras"
-subtitle: "El efecto del manejo del lenguaje en la transmicion intergeneracional de las habilidades politicas en jovenes chilenos"
+subtitle: "El efecto del manejo del lenguaje en la transmisión intergeneracional de las habilidades politicas en jovenes chilenos"
 author:
  - Francisco Javier Meneses Rivas (Seminarista)
  - Juan Carlos Castillo (Profesor Guía)
 abstract: "Actualmente múltiples países, organizaciones e investigadores se preguntan como mejorar las habilidades políticas y democráticas de los jóvenes en un mundo donde resurgen la intolerancia, las propuestas totalitarias y aumenta la apatía política. La asociación internacional para la evaluación del logro educativo (IEA) ha desarrollado el Estudio Internacional de Educación Cívica y Formación Ciudadana (ICCS) el cual ha promovido los estudios sobre lo que han conceptualista como la conocimiento cívico y ciudadano (i.e Habilidades y Conocimientos necesarios para la vida ciudadana). El conocimiento cívico, ha generado interés en distintos investigadores puesto que se asocia positiva mente con un conjunto de actitudes democráticas como la participación y la tolerancia. Hasta ahora, al momento de explicar los determinantes del conocimiento cívico en estudiantes, se ha aludido principalmente a las desigualdades sociales entre los estudiantes, evidenciando que jóvenes de estratos altos poseen mejores resultados en la prueba de conocimiento cívico. Al explicar esta relación algunos autores han señalado que en familias de alto capital cultural se genera un ambiente  más ciudadano, que implica una socializan en valores e intereses políticos. Siguiendo y profundizando en esta linea, el presente seminario, propone que parte de lo que explica la relación entre desigualdad social y conocimiento cívico es el manejo del lenguaje. Para evaluar esta hipótesis se trabajara con la base de datos de la ICCS junto con la base de datos internacional SIMCE ( N = 3140, representativo a nivel nacional) A partir de los análisis de senderos y análisis multinacional, se concluye que la transmisión intergeneracional de la desigualdad política se explica más por habilidades en el lenguaje que por intereses políticos. Evidenciamos igualmente que un buen manejo del lenguaje en sectores vulnerables hace que un estudiante de dicho sector no se encuentre en desventaja en relación a su compañero de un sector acomodado. <br> __Palabras clave: Conocimiento civico, Desigualdad politica, Comprension lectora, Interes politico__"
-css: "../input/css/custom.css"
+#css: "../input/css/custom.css"
 linestretch: '1.5'
 link-citations: yes
 output:
@@ -211,7 +211,7 @@ Para medir el interes politico los estudiantes se utilizara la pregunta creada p
 Como variables de control, sera incluida la calidad de la discucion en el aula, ya que este es un indicador que ha sido consistentemente señalado como relevante por la evidencia, esta variable de nivel dos corresponde al promedio de los indicadores relacionados con las preguntas de clima en el aula. 
     
 
-- Metodos 
+### Metodos 
     
     
  Respecto al metodo, este estudio trabajara desde un efoque cuantitativo transversar. El uso de las herramientas cuantitativas es fundamental para despejar las dudas planteadas en este articulo, puesto que la cuantificacion, como medicion de lo social (Asun, xxx), nos permitira contrastar que variable posee una mejor capacidad medidadora de la reproduccion de la desigualdad politica, la comprension lectora o el interes politico.
@@ -225,10 +225,7 @@ Las pendientes aleatorias sirven para evaluar como varia la pendiente de una rel
 Para comprender esta metodologia, es necesario entender que una medicacion corresponde al fenomeno segun el cual una variable "x", explica una variable "Y", por medio de "M", de tal modo que "A" genera "M" y M genera "Y" (978-1-60918-230-4;10.1002/job.436). Al igual que en una moderacion de un solo nivel, es requisito para comprovar la moderacion multinivel, que "X" sea capas de explicar tanto "M" como "Y", y que, ademas, M sea capas de explicar "Y", controlando, en alguna medida el efecto de "X" (10.1037//0022-3514.51.6.1173). En nuestro caso, queremos evaluar la capacidad de la comprension lectora de mediar la relacion entre nse y conicimiento civico, por ende debemos evaluar la capacidad explicativa del nse sobre la comprension lectora y el conocimiento civico, y la capacidad del conocimiento civico de controlar el efecto del nse sobre cc, todas relaciones entre variables de nivel 1. Considerando las recomendaciones de (10.1177/1094428108327450) para cuando todas las variables del proceso de mediacion se encuentran en el primer nivel, es fundamental, para evitar confuciones de los efectos producidas por la estructura jerarquica de la muestra, evaluar las relaciones en ambos niveles, es decir, un efecto de mediacion intragrupo y otro entre grupos, para ello se deben realizar centrados en las medias de los grupos, segun concluyeron los investigadores a partir de pruebas de simulaicon montecarlo. En suma, se evaluara la medicacion  de la comprnesion lectora sobre la relacion entre nse y conocimiento civico, evaluando la relacion a nivel dos y a nivel 1, incorporando centrados a la media del grupo. Se espera que el efecto de nse sobre cc disminulla en buena medida al incluir el control de la comprension lectora. Ademas, se espera que la disminucion del efecto por control,sea mayor al incluir la variable comprension lectora que interes politico. 
 
 
-los investigadores pueden examinar si es un efecto de mediación a nivel de grupo, un efecto de mediación dentro del grupo (estanque de ranas), o ambos tipos de efecto. 
-
-
-En terminos de interacciones entre niveles, evaluaremos la capacidad de la comprension lectora del estudiante de moderar el efecto negativo sobre el conocimiento civico que se deberiva de pertenecer a un establecimiento de bajo nse promedio. 
+En terminos de interacciones entre niveles, evaluaremos la capacidad de la comprension lectora del estudiante de moderar el efecto negativo sobre el conocimiento civico que se deberiva de pertenecer a un establecimiento de bajo nse promedio. Siguiendo las buenas practicas para interacciones multinivel propuestas por 10.1177/0149206313478188, se centraron las variables segun el promedio de la escuela, con la intencion de despejar debidamente el componente individual de la varianza. 
 
 
 
