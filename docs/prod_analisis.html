@@ -16,7 +16,7 @@
 
 <script src="site_libs/jquery/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap/css/darkly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap/shim/respond.min.js"></script>
@@ -322,8 +322,14 @@ $(document).ready(function () {
 <pre class="r"><code>load(file = &quot;../input/data/proc/data.RData&quot;)</code></pre>
 <pre class="r"><code>library(ggplot2)
 library(ggplot2)
-library(hrbrthemes)
-#install.packages(&quot;hrbrthemes&quot;)
+library(hrbrthemes)</code></pre>
+<pre><code>## Warning: package &#39;hrbrthemes&#39; was built under R
+## version 4.0.2</code></pre>
+<pre><code>## Registering Windows fonts with R</code></pre>
+<pre><code>## NOTE: Either Arial Narrow or Roboto Condensed fonts are required to use these themes.</code></pre>
+<pre><code>##       Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed and</code></pre>
+<pre><code>##       if Arial Narrow is not on your system, please see https://bit.ly/arialnarrow</code></pre>
+<pre class="r"><code>#install.packages(&quot;hrbrthemes&quot;)
 data$alto_nse&lt;-as.character(ifelse(data$nse&gt;=0,1,0))
 
 
@@ -342,46 +348,38 @@ data$p.leng_centrado &lt;- (data$p.leng - data$m_p.leng)</code></pre>
 ##  3rd Qu.:288.9   3rd Qu.:309.9   3rd Qu.:311.4  
 ##  Max.   :373.2   Max.   :394.4   Max.   :416.9  
 ##                                                 
-##      p.civ            nse         
-##  Min.   :232.1   Min.   :-2.0800  
-##  1st Qu.:432.1   1st Qu.:-0.6300  
-##  Median :502.2   Median : 0.0700  
-##  Mean   :498.4   Mean   : 0.1816  
-##  3rd Qu.:565.0   3rd Qu.: 1.0000  
-##  Max.   :782.7   Max.   : 2.4900  
-##                                   
-##  ip_estudiante      ip_padres         idschool   
-##  Min.   :0.0000   Min.   :0.0000   Min.   :1001  
-##  1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1046  
-##  Median :0.0000   Median :1.0000   Median :1090  
-##  Mean   :0.2296   Mean   :0.6548   Mean   :1092  
-##  3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:1138  
-##  Max.   :1.0000   Max.   :1.0000   Max.   :1178  
-##                                                  
-##    apert_disc      cult_part        esp_part    
-##  Min.   :16.67   Min.   :17.22   Min.   :25.41  
-##  1st Qu.:46.53   1st Qu.:45.66   1st Qu.:41.21  
-##  Median :53.15   Median :53.75   Median :48.22  
-##  Mean   :53.12   Mean   :55.25   Mean   :49.33  
-##  3rd Qu.:58.96   3rd Qu.:68.37   3rd Qu.:52.28  
-##  Max.   :78.16   Max.   :68.37   Max.   :70.79  
+##      p.civ            nse          ip_estudiante   
+##  Min.   :232.1   Min.   :-2.0800   Min.   :0.0000  
+##  1st Qu.:432.1   1st Qu.:-0.6300   1st Qu.:0.0000  
+##  Median :502.2   Median : 0.0700   Median :0.0000  
+##  Mean   :498.4   Mean   : 0.1816   Mean   :0.2296  
+##  3rd Qu.:565.0   3rd Qu.: 1.0000   3rd Qu.:0.0000  
+##  Max.   :782.7   Max.   : 2.4900   Max.   :1.0000  
+##                                                    
+##    ip_padres         idschool      apert_disc   
+##  Min.   :0.0000   Min.   :1001   Min.   :16.67  
+##  1st Qu.:0.0000   1st Qu.:1046   1st Qu.:46.53  
+##  Median :1.0000   Median :1090   Median :53.15  
+##  Mean   :0.6548   Mean   :1092   Mean   :53.12  
+##  3rd Qu.:1.0000   3rd Qu.:1138   3rd Qu.:58.96  
+##  Max.   :1.0000   Max.   :1178   Max.   :78.16  
 ##                                                 
-##      Libros         Ocupacion    
-##  Min.   :0.0000   Min.   :10.00  
-##  1st Qu.:0.0000   1st Qu.:33.00  
-##  Median :1.0000   Median :42.00  
-##  Mean   :0.5041   Mean   :45.86  
-##  3rd Qu.:1.0000   3rd Qu.:59.00  
-##  Max.   :1.0000   Max.   :89.00  
-##                                  
-##    Educacion         IC3G13A      
-##  Min.   :0.0000   Min.   :0.0000  
-##  1st Qu.:0.0000   1st Qu.:0.0000  
-##  Median :0.0000   Median :1.0000  
-##  Mean   :0.4994   Mean   :0.5013  
-##  3rd Qu.:1.0000   3rd Qu.:1.0000  
-##  Max.   :1.0000   Max.   :1.0000  
-##                                   
+##    cult_part        esp_part         Libros      
+##  Min.   :17.22   Min.   :25.41   Min.   :0.0000  
+##  1st Qu.:45.66   1st Qu.:41.21   1st Qu.:0.0000  
+##  Median :53.75   Median :48.22   Median :1.0000  
+##  Mean   :55.25   Mean   :49.33   Mean   :0.5041  
+##  3rd Qu.:68.37   3rd Qu.:52.28   3rd Qu.:1.0000  
+##  Max.   :68.37   Max.   :70.79   Max.   :1.0000  
+##                                                  
+##    Ocupacion       Educacion         IC3G13A      
+##  Min.   :10.00   Min.   :0.0000   Min.   :0.0000  
+##  1st Qu.:33.00   1st Qu.:0.0000   1st Qu.:0.0000  
+##  Median :42.00   Median :0.0000   Median :1.0000  
+##  Mean   :45.86   Mean   :0.4994   Mean   :0.5013  
+##  3rd Qu.:59.00   3rd Qu.:1.0000   3rd Qu.:1.0000  
+##  Max.   :89.00   Max.   :1.0000   Max.   :1.0000  
+##                                                   
 ##     rel_prof        S_ABUSE      ip_estudiante.or
 ##  Min.   :18.78   Min.   :37.04   Min.   :0.00    
 ##  1st Qu.:45.48   1st Qu.:37.04   1st Qu.:1.00    
@@ -390,38 +388,30 @@ data$p.leng_centrado &lt;- (data$p.leng - data$m_p.leng)</code></pre>
 ##  3rd Qu.:64.54   3rd Qu.:56.17   3rd Qu.:1.00    
 ##  Max.   :71.68   Max.   :87.38   Max.   :3.00    
 ##                                                  
-##      m_nse          m_apert_disc  
-##  Min.   :-1.5500   Min.   :35.49  
-##  1st Qu.:-0.4104   1st Qu.:50.28  
-##  Median : 0.1079   Median :53.07  
-##  Mean   : 0.1816   Mean   :53.12  
-##  3rd Qu.: 0.5552   3rd Qu.:56.08  
-##  Max.   : 2.2300   Max.   :78.16  
-##                                   
-##    clima_prof      m_esp_part    m_ip_estudiante 
-##  Min.   :34.53   Min.   :25.87   Min.   :0.0000  
-##  1st Qu.:52.08   1st Qu.:41.76   1st Qu.:0.1364  
-##  Median :54.45   Median :48.22   Median :0.2083  
-##  Mean   :54.55   Mean   :49.33   Mean   :0.2296  
-##  3rd Qu.:57.19   3rd Qu.:53.25   3rd Qu.:0.2941  
-##  Max.   :66.72   Max.   :70.79   Max.   :1.0000  
+##      m_nse          m_apert_disc     clima_prof   
+##  Min.   :-1.5500   Min.   :35.49   Min.   :34.53  
+##  1st Qu.:-0.4104   1st Qu.:50.28   1st Qu.:52.08  
+##  Median : 0.1079   Median :53.07   Median :54.45  
+##  Mean   : 0.1816   Mean   :53.12   Mean   :54.55  
+##  3rd Qu.: 0.5552   3rd Qu.:56.08   3rd Qu.:57.19  
+##  Max.   : 2.2300   Max.   :78.16   Max.   :66.72  
+##                                                   
+##    m_esp_part    m_ip_estudiante      sd_nse      
+##  Min.   :25.87   Min.   :0.0000   Min.   :0.2894  
+##  1st Qu.:41.76   1st Qu.:0.1364   1st Qu.:0.6125  
+##  Median :48.22   Median :0.2083   Median :0.7231  
+##  Mean   :49.33   Mean   :0.2296   Mean   :0.7175  
+##  3rd Qu.:53.25   3rd Qu.:0.2941   3rd Qu.:0.8101  
+##  Max.   :70.79   Max.   :1.0000   Max.   :1.8455  
+##                                   NA&#39;s   :10      
+##   m_ip_padres      m_cult_part       m_p.leng    
+##  Min.   :0.0000   Min.   :22.35   Min.   :168.5  
+##  1st Qu.:0.5385   1st Qu.:52.86   1st Qu.:234.0  
+##  Median :0.6486   Median :54.88   Median :250.2  
+##  Mean   :0.6548   Mean   :55.25   Mean   :251.7  
+##  3rd Qu.:0.7568   3rd Qu.:58.26   3rd Qu.:269.9  
+##  Max.   :1.0000   Max.   :68.37   Max.   :335.9  
 ##                                                  
-##      sd_nse        m_ip_padres    
-##  Min.   :0.2894   Min.   :0.0000  
-##  1st Qu.:0.6125   1st Qu.:0.5385  
-##  Median :0.7231   Median :0.6486  
-##  Mean   :0.7175   Mean   :0.6548  
-##  3rd Qu.:0.8101   3rd Qu.:0.7568  
-##  Max.   :1.8455   Max.   :1.0000  
-##  NA&#39;s   :10                       
-##   m_cult_part       m_p.leng    
-##  Min.   :22.35   Min.   :168.5  
-##  1st Qu.:52.86   1st Qu.:234.0  
-##  Median :54.88   Median :250.2  
-##  Mean   :55.25   Mean   :251.7  
-##  3rd Qu.:58.26   3rd Qu.:269.9  
-##  Max.   :68.37   Max.   :335.9  
-##                                 
 ##    alto_nse         p.leng_centrado    
 ##  Length:3140        Min.   :-168.3130  
 ##  Class :character   1st Qu.: -28.5909  
@@ -465,20 +455,18 @@ results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion  +  ip_padres + m_c
 
 results_4 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion +  +  ip_padres  + m_nse + ip_estudiante  +  m_cult_part   + p.leng + (1 + p.leng | idschool), data = data, REML=F)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 34.4135 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 34.4135 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?;Model is nearly unidentifiable: large eigenvalue ratio
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>results_5 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  +  m_cult_part  + p.leng*m_nse + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : unable to evaluate
-## scaled gradient</code></pre>
+## ctrl = control$checkConv, : unable to evaluate scaled
+## gradient</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge: degenerate Hessian with 1 negative
-## eigenvalues</code></pre>
+## ctrl = control$checkConv, : Model failed to converge:
+## degenerate Hessian with 1 negative eigenvalues</code></pre>
 <pre class="r"><code>save(results_1, file = &quot;../output/images/results_1.Rdata&quot;)
 save(results_2, file = &quot;../output/images/results_2.Rdata&quot;)
 save(results_3, file = &quot;../output/images/results_3.Rdata&quot;)
@@ -503,9 +491,8 @@ inta</code></pre>
 <pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
 <pre class="r"><code>results_8 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + m_nse*p.leng_centrado + (1 + p.leng_centrado| idschool), data = data, REML=F)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 2.50219 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 2.50219 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>screenreg(list(results_7,results_8), type=&quot;text&quot;)</code></pre>
@@ -560,9 +547,8 @@ int2</code></pre>
 <pre><code>## Warning: Some predictor variables are on very
 ## different scales: consider rescaling</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 1.54494 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 1.54494 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>int1&lt;-plot_model(results_5, type = &quot;int&quot;)
@@ -614,12 +600,11 @@ screenreg(results_2)</code></pre>
 ## *** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05</code></pre>
 <pre class="r"><code>results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : unable to evaluate
-## scaled gradient</code></pre>
+## ctrl = control$checkConv, : unable to evaluate scaled
+## gradient</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge: degenerate Hessian with 1 negative
-## eigenvalues</code></pre>
+## ctrl = control$checkConv, : Model failed to converge:
+## degenerate Hessian with 1 negative eigenvalues</code></pre>
 <pre class="r"><code>screenreg(results_3)</code></pre>
 <pre><code>## 
 ## ===============================================
@@ -664,12 +649,12 @@ screenreg(results_2)</code></pre>
 ## results_3: p.civ ~ 1 + Libros + Ocupacion + ip_estudiante + ip_padres + 
 ## results_3:     Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng | 
 ## results_3:     idschool)
-##           npar   AIC   BIC logLik deviance  Chisq
-## results_2   11 34909 34976 -17444    34887       
-## results_3   13 34903 34982 -17439    34877 10.256
-##           Df Pr(&gt;Chisq)   
-## results_2                 
-## results_3  2   0.005929 **
+##           npar   AIC   BIC logLik deviance  Chisq Df
+## results_2   11 34909 34976 -17444    34887          
+## results_3   13 34903 34982 -17439    34877 10.256  2
+##           Pr(&gt;Chisq)   
+## results_2              
+## results_3   0.005929 **
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
@@ -677,15 +662,13 @@ screenreg(results_2)</code></pre>
 <pre><code>## Warning: Some predictor variables are on very
 ## different scales: consider rescaling</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 0.697013 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 0.697013 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?;Model is nearly unidentifiable: large eigenvalue ratio
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>results_6</code></pre>
-<pre><code>## Linear mixed model fit by maximum likelihood [
-## lmerMod]
+<pre><code>## Linear mixed model fit by maximum likelihood [lmerMod]
 ## Formula: 
 ## p.civ ~ 1 + Libros + Ocupacion + ip_padres + ip_estudiante +  
 ##     Educacion + p.leng * m_nse + m_ip_padres + m_ip_estudiante +  
@@ -700,18 +683,14 @@ screenreg(results_2)</code></pre>
 ##  Residual             60.56889      
 ## Number of obs: 3140, groups:  idschool, 152
 ## Fixed Effects:
-##     (Intercept)           Libros  
-##        208.0377           6.2763  
-##       Ocupacion        ip_padres  
-##          0.3642           2.9930  
-##   ip_estudiante        Educacion  
-##         13.6904           7.6851  
-##          p.leng            m_nse  
-##          1.0342          64.1589  
-##     m_ip_padres  m_ip_estudiante  
-##         -4.9197           5.9598  
-##    p.leng:m_nse  
-##         -0.1541  
+##     (Intercept)           Libros        Ocupacion  
+##        208.0377           6.2763           0.3642  
+##       ip_padres    ip_estudiante        Educacion  
+##          2.9930          13.6904           7.6851  
+##          p.leng            m_nse      m_ip_padres  
+##          1.0342          64.1589          -4.9197  
+## m_ip_estudiante     p.leng:m_nse  
+##          5.9598          -0.1541  
 ## fit warnings:
 ## Some predictor variables are on very different scales: consider rescaling
 ## convergence code 0; 0 optimizer warnings; 3 lme4 warnings</code></pre>
@@ -723,12 +702,12 @@ screenreg(results_2)</code></pre>
 ## results_3: p.civ ~ 1 + Libros + Ocupacion + ip_estudiante + ip_padres + 
 ## results_3:     Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng | 
 ## results_3:     idschool)
-##           npar   AIC   BIC logLik deviance  Chisq
-## results_2   11 34909 34976 -17444    34887       
-## results_3   13 34903 34982 -17439    34877 10.256
-##           Df Pr(&gt;Chisq)   
-## results_2                 
-## results_3  2   0.005929 **
+##           npar   AIC   BIC logLik deviance  Chisq Df
+## results_2   11 34909 34976 -17444    34887          
+## results_3   13 34903 34982 -17439    34877 10.256  2
+##           Pr(&gt;Chisq)   
+## results_2              
+## results_3   0.005929 **
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
@@ -740,12 +719,12 @@ screenreg(results_2)</code></pre>
 ## results_3:     idschool)
 ## results_4: p.civ ~ 1 + Libros + Ocupacion + Educacion + +ip_padres + m_nse + 
 ## results_4:     ip_estudiante + m_cult_part + p.leng + (1 + p.leng | idschool)
-##           npar   AIC   BIC logLik deviance  Chisq
-## results_3   13 34903 34982 -17439    34877       
-## results_4   13 34894 34973 -17434    34868 8.5617
-##           Df            Pr(&gt;Chisq)    
-## results_3                             
-## results_4  0 &lt; 0.00000000000000022 ***
+##           npar   AIC   BIC logLik deviance  Chisq Df
+## results_3   13 34903 34982 -17439    34877          
+## results_4   13 34894 34973 -17434    34868 8.5617  0
+##           Pr(&gt;Chisq)    
+## results_3               
+## results_4  &lt; 2.2e-16 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
@@ -756,12 +735,12 @@ screenreg(results_2)</code></pre>
 ## results_2:     Educacion + p.leng + m_nse + m_ip_padres + (1 | idschool)
 ## results_4: p.civ ~ 1 + Libros + Ocupacion + Educacion + +ip_padres + m_nse + 
 ## results_4:     ip_estudiante + m_cult_part + p.leng + (1 + p.leng | idschool)
-##           npar   AIC   BIC logLik deviance  Chisq
-## results_2   11 34909 34976 -17444    34887       
-## results_4   13 34894 34973 -17434    34868 18.817
-##           Df Pr(&gt;Chisq)    
-## results_2                  
-## results_4  2   0.000082 ***
+##           npar   AIC   BIC logLik deviance  Chisq Df
+## results_2   11 34909 34976 -17444    34887          
+## results_4   13 34894 34973 -17434    34868 18.817  2
+##           Pr(&gt;Chisq)    
+## results_2               
+## results_4    8.2e-05 ***
 ## ---
 ## Signif. codes:  
 ## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
@@ -814,8 +793,9 @@ screenreg(list(results_1,results_12, results_2,results_3, results_6), type=&quot
 plot_model(results_6, type = &quot;int&quot;)</code></pre>
 <p><img src="prod_analisis_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>correlacion entre interes de de los padres y cualidades democraticas del colegio.</p>
-<pre class="r"><code>library(corrplot)
-basecor&lt;-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ, p.leng, nse)</code></pre>
+<pre class="r"><code>library(corrplot)</code></pre>
+<pre><code>## corrplot 0.84 loaded</code></pre>
+<pre class="r"><code>basecor&lt;-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ, p.leng, nse)</code></pre>
 <pre><code>## Adding missing grouping variables: `idschool`</code></pre>
 <pre class="r"><code>cor &lt;- cor(basecor)
 Correlaciones  &lt;-corrplot.mixed(cor)</code></pre>
@@ -828,17 +808,15 @@ Correlaciones  &lt;-corrplot.mixed(cor)</code></pre>
 
 results_sincentrado = lmer(p.civ ~ 1 + ip_padres + p.leng + nse + m_ip_padres + m_ip_estudiante + cult_part + (1 + p.leng| idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 6.37026 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 6.37026 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?;Model is nearly unidentifiable: large eigenvalue ratio
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>results_concentrado = lmer(p.civ ~ 1 + ip_padres + p.leng_centrado + nse + m_ip_padres + m_ip_estudiante + cult_part + (1 + p.leng_centrado| idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 1.23098 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 1.23098 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>results_concentrado_interaccion = lmer(p.civ ~ 1 + ip_padres + p.leng_centrado*nse + m_ip_padres + m_ip_estudiante  + (1 + p.leng_centrado| idschool), data = data, REML=F) </code></pre>
@@ -1069,10 +1047,8 @@ hist(data$p.civ_c.pr)</code></pre>
 <pre class="r"><code># hacer porcentaje nivel socioeconomico centrado
 
 summary(data$nse_c)</code></pre>
-<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu. 
-## -2.33171 -0.50085 -0.04026  0.00000  0.45241 
-##     Max. 
-##  2.79194</code></pre>
+<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## -2.33171 -0.50085 -0.04026  0.00000  0.45241  2.79194</code></pre>
 <pre class="r"><code>2.33171  + 2.79194 </code></pre>
 <pre><code>## [1] 5.12365</code></pre>
 <pre class="r"><code>5.12365</code></pre>
@@ -1119,29 +1095,26 @@ hist(data$nse_c.pr)</code></pre>
 <div id="nivel-2" class="section level3">
 <h3>Nivel 2</h3>
 <pre class="r"><code>lenguaje_nse_m = lmer(m_p.leng ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in optwrap(optimizer, devfun,
-## getStart(start, rho$pp), lower = rho$lower, :
-## convergence code -4 from nloptwrap</code></pre>
+<pre><code>## Warning in optwrap(optimizer, devfun, getStart(start,
+## rho$pp), lower = rho$lower, : convergence code -4 from
+## nloptwrap</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : unable to evaluate
-## scaled gradient</code></pre>
+## ctrl = control$checkConv, : unable to evaluate scaled
+## gradient</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge: degenerate Hessian with 1 negative
-## eigenvalues</code></pre>
+## ctrl = control$checkConv, : Model failed to converge:
+## degenerate Hessian with 1 negative eigenvalues</code></pre>
 <pre class="r"><code>civica_nse_m = lmer(m_p.civ ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in optwrap(optimizer, devfun,
-## getStart(start, rho$pp), lower = rho$lower, :
-## convergence code -4 from nloptwrap</code></pre>
+<pre><code>## Warning in optwrap(optimizer, devfun, getStart(start,
+## rho$pp), lower = rho$lower, : convergence code -4 from
+## nloptwrap</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 0.0446721 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 0.0446721 (tol = 0.002, component 1)</code></pre>
 <pre class="r"><code>civica_nse_leng_m = lmer(m_p.civ ~ 1 + m_nse + m_p.leng  + (1 | idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 0.60044 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 0.60044 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>civica_int_m = lmer(m_p.civ ~ 1  + m_ip_estudiante  + (1 | idschool), data = data, REML=F) </code></pre>
@@ -1209,25 +1182,23 @@ hist(data$m_ip_estudiante.pr)</code></pre>
 hist(data$m_nse.pr)</code></pre>
 <p><img src="prod_analisis_files/figure-html/unnamed-chunk-28-4.png" width="672" /></p>
 <pre class="r"><code>lenguaje_nse_m = lmer(m_p.leng.pr ~ 1 +  m_nse.pr  + (1 | idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in optwrap(optimizer, devfun,
-## getStart(start, rho$pp), lower = rho$lower, :
-## convergence code -4 from nloptwrap</code></pre>
+<pre><code>## Warning in optwrap(optimizer, devfun, getStart(start,
+## rho$pp), lower = rho$lower, : convergence code -4 from
+## nloptwrap</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : unable to evaluate
-## scaled gradient</code></pre>
+## ctrl = control$checkConv, : unable to evaluate scaled
+## gradient</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge: degenerate Hessian with 1 negative
-## eigenvalues</code></pre>
+## ctrl = control$checkConv, : Model failed to converge:
+## degenerate Hessian with 1 negative eigenvalues</code></pre>
 <pre class="r"><code>int_nse = lmer(m_ip_estudiante.pr ~ 1 +  m_nse.pr  + (1 | idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in optwrap(optimizer, devfun,
-## getStart(start, rho$pp), lower = rho$lower, :
-## convergence code -4 from nloptwrap</code></pre>
+<pre><code>## Warning in optwrap(optimizer, devfun, getStart(start,
+## rho$pp), lower = rho$lower, : convergence code -4 from
+## nloptwrap</code></pre>
 <pre class="r"><code>civica_nse_m = lmer(m_p.civ.pr ~ 1 +  m_nse.pr  + (1 | idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 7.17613 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 7.17613 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>civica_nse_leng_m = lmer(m_p.civ.pr ~ 1 + m_nse.pr + m_p.leng.pr  + (1 | idschool), data = data, REML=F) </code></pre>
@@ -1236,18 +1207,16 @@ hist(data$m_nse.pr)</code></pre>
 ## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>civica_nse_int_m = lmer(m_p.civ.pr ~ 1 + m_nse.pr + m_ip_estudiante.pr  + (1 | idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in optwrap(optimizer, devfun,
-## getStart(start, rho$pp), lower = rho$lower, :
-## convergence code -4 from nloptwrap</code></pre>
+<pre><code>## Warning in optwrap(optimizer, devfun, getStart(start,
+## rho$pp), lower = rho$lower, : convergence code -4 from
+## nloptwrap</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 0.0306717 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 0.0306717 (tol = 0.002, component 1)</code></pre>
 <pre class="r"><code>civica_nse_intleng_m = lmer(m_p.civ.pr ~ 1 + m_nse.pr + m_ip_estudiante.pr + m_p.leng.pr + (1 | idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 1.09983 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 1.09983 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>screenreg(list(lenguaje_nse_m,int_nse,civica_nse_m, civica_nse_leng_m,civica_nse_int_m,civica_nse_intleng_m), type=&quot;text&quot;)</code></pre>
@@ -1285,29 +1254,26 @@ hist(data$m_nse.pr)</code></pre>
 <pre class="r"><code>civica_nse_leng_c = lmer(p.civ_c ~ 1 + nse_c + p.leng_centrado  + (1 | idschool), data = data, REML=F) </code></pre>
 <pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
 <pre class="r"><code>lenguaje_nse_m = lmer(m_p.leng ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in optwrap(optimizer, devfun,
-## getStart(start, rho$pp), lower = rho$lower, :
-## convergence code -4 from nloptwrap</code></pre>
+<pre><code>## Warning in optwrap(optimizer, devfun, getStart(start,
+## rho$pp), lower = rho$lower, : convergence code -4 from
+## nloptwrap</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : unable to evaluate
-## scaled gradient</code></pre>
+## ctrl = control$checkConv, : unable to evaluate scaled
+## gradient</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge: degenerate Hessian with 1 negative
-## eigenvalues</code></pre>
+## ctrl = control$checkConv, : Model failed to converge:
+## degenerate Hessian with 1 negative eigenvalues</code></pre>
 <pre class="r"><code>civica_nse_m = lmer(m_p.civ ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning in optwrap(optimizer, devfun,
-## getStart(start, rho$pp), lower = rho$lower, :
-## convergence code -4 from nloptwrap</code></pre>
+<pre><code>## Warning in optwrap(optimizer, devfun, getStart(start,
+## rho$pp), lower = rho$lower, : convergence code -4 from
+## nloptwrap</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 0.0446721 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 0.0446721 (tol = 0.002, component 1)</code></pre>
 <pre class="r"><code>civica_nse_leng_m = lmer(m_p.civ ~ 1 + m_nse + m_p.leng  + (1 | idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 0.60044 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 0.60044 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>windowsFonts(A = windowsFont(&quot;Times New Roman&quot;))
@@ -1780,9 +1746,8 @@ libros_lenguaje_nse_c = lmer(p.leng_centrado ~ 1 +  Libros_c  + (1 | idschool), 
 <pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
 <pre class="r"><code>libros_lenguaje_nse_m = lmer(m_p.leng ~ 1 +  Libros_m  + (1 | idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par,
-## ctrl = control$checkConv, : Model failed to
-## converge with max|grad| = 5.25261 (tol = 0.002,
-## component 1)</code></pre>
+## ctrl = control$checkConv, : Model failed to converge
+## with max|grad| = 5.25261 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <pre class="r"><code>libros_civica_nse_m = lmer(m_p.civ ~ 1 +  Libros_m  + (1 | idschool), data = data, REML=F) </code></pre>
