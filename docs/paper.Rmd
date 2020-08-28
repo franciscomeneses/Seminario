@@ -4,7 +4,7 @@ subtitle: "El efecto del manejo del lenguaje en la transmisión intergeneraciona
 author:
  - Francisco Javier Meneses Rivas (Seminarista)
  - Juan Carlos Castillo (Profesor Guía)
-abstract: "Actualmente las democracias se encuentran frente a crisis de legitimidad que se relacionan, entre otras cosas, con la falta de representación de distintos grupos, como los sectores populares y los jóvenes. Al respeto, las investigaciones han señalado que no solo existen diferencias actitudinales hacia la politica según grupo social, sino que también existen brechas en las habilidades políticas que se relacionan con la participación desigual. La asociación internacional para la evaluación del logro educativo (IEA) ha desarrollado el Estudio Internacional de Educación Cívica y Formación Ciudadana (ICCS) que se enfoca en estudiar las Habilidades y Conocimientos necesarios para la vida ciudadana en jóvenes estudiantes. El conocimiento cívico de la ICCS ha generado interés en distintos investigadores puesto que se asocia positivamente con un conjunto de actitudes democráticas como la participación y la tolerancia. Se ha demostrado que existe una relación entre nivel socioeconómico y conocimiento Cívico. Al explicar esta desigualdad algunos autores han señalado que en familias de alto capital cultural se genera un ambiente más ciudadano y académico, que implica una socialización en valores políticos y habilidades cognitivas. Para profundizar esta línea de investigación, se propone que parte de lo que explica la relación entre desigualdad social y conocimiento cívico es el manejo del lenguaje. Para evaluar esta hipótesis se trabajaron conjuntamente los datos de la ICCS y el SIMCE (N = 3140). A partir de los análisis de mediación multinivel, se concluye que la transmisión intergeneracional de la desigualdad política se explica más por habilidades en el lenguaje que por la transmisión de intereses políticos. Además, se evidencia el potencial del lenguaje para disminuir la desigualdad de habilidades políticas, lo cual puede ser provechoso para la implementación del ramo de formación ciudadana. <br> __Palabras clave: Conocimiento Cívico, Desigualdad politica, Comprensión lectora, Interés político__"
+abstract: "Actualmente las democracias se encuentran frente a crisis de legitimidad que se relacionan, entre otras cosas, con la falta de representación de distintos grupos, como los sectores populares y los jóvenes. Al respecto, las investigaciones han señalado que no solo existen diferencias actitudinales hacia la politica según grupo social, sino que también existen brechas en las habilidades políticas que se relacionan con la participación desigual. La asociación internacional para la evaluación del logro educativo (IEA) ha desarrollado el Estudio Internacional de Educación Cívica y Formación Ciudadana (ICCS) que se enfoca en estudiar las Habilidades y Conocimientos necesarios para la vida ciudadana en jóvenes estudiantes. El conocimiento cívico de la ICCS ha generado interés en distintos investigadores puesto que se asocia positivamente con un conjunto de actitudes democráticas como la participación y la tolerancia. Se ha demostrado que existe una relación entre nivel socioeconómico y conocimiento Cívico. Al explicar esta desigualdad algunos autores han señalado que en familias de alto capital cultural se genera un ambiente más ciudadano y académico, que implica una socialización en valores políticos y habilidades cognitivas. Para profundizar esta línea de investigación, se propone que parte de lo que explica la relación entre desigualdad social y conocimiento cívico es el manejo del lenguaje. Para evaluar esta hipótesis se trabajaron conjuntamente los datos de la ICCS y el SIMCE (N = 3140). A partir de los análisis de mediación multinivel, se concluye que la transmisión intergeneracional de la desigualdad política se explica más por habilidades en el lenguaje que por la transmisión de intereses políticos. Además, se evidencia el potencial del lenguaje para disminuir la desigualdad de habilidades políticas, lo cual puede ser provechoso para la implementación del ramo de formación ciudadana. <br> __Palabras clave: Conocimiento Cívico, Desigualdad política, Comprensión lectora, Interés político__"
 css: "../input/css/custom.css"
 linestretch: '1.5'
 link-citations: yes
@@ -22,6 +22,8 @@ output:
 linkcolor: blue
 bibliography:
   - ../input/bib/Lenguaje_y_Conocimiento_civico.bib
+csl: 
+  - ../input/bib/apa6.csl
 editor_options:
   chunk_output_type: console
 geometry: margin=0.78in
@@ -79,7 +81,7 @@ regresion_miltinivel = if(is_html_output()) {
 
 # Introducción
 
-Construir sociedades más democráticas es un objetivo internacional consagrado por la Organización de las Naciones Unidas tanto en la Declaración Universal de los Derechos Humanos como en el Pacto internacional de los Derechos Civiles y Políticos. Basándose en estos tratados internacionales, para que una sociedad sea efectivamente democrática son necesarias varias condiciones entre las cuales por lo menos dos tienen que ver con la participación, primero, que la mayoría de la sociedad participe responsablemente, y segundo, que no exista desigualdad politica entre los diversos grupos. Actualmente podemos decir que múltiples democracias poseen conflictos respecto a estas dos condiciones. En primer lugar, existe una tendencia a la disminución en la participación politica [@tezanos-pintoParticipacionPoliticaDescontento2015; @herrmannDisminucionParticipacionPoblacion2016;@diazDimensionesTendenciasParticipacion2017; @janmaatCivicCompetences2013; @contrerasDIFERENCIASGENERACIONALESPARTICIPACION2013; @galstonCivicKnowledgeCivic2007]. En segundo lugar, la participación politica es desigual, perjudicando la representación de la voz politica de sectores más pobres, de grupos racializados, de las mujeres y de los más jóvenes [@verbaWouldDreamPolitical2003; @lijphartUnequalParticipationDemocracy1997; @desposatoGenderGapLatin2009;@coffeExplainingGenderDifferences2020; @hutchingsCENTRALITYRACEAMERICAN2004]. Más aun, estas desigualdades políticas se transmiten de manera intergeneracional [@bradyPoliticalMobilityPolitical2015]. En el caso Chileno, tanto el Centro de Estudio de Conflicto y Cohesión Social (COES) como el Programa de las Naciones Unidas para el Desarrollo (PNUD) han señalado que existe una gran desigualdad en la participación politica, la cual sobrerrepresenta los grupos acomodados del país favoreciendo la reproducción de la desigualdad [@joignantDesigualdadesVozPolitica2017; @paletDesigualesOrigenesCambios2017].
+Construir sociedades más democráticas es un objetivo internacional consagrado por la Organización de las Naciones Unidas tanto en la Declaración Universal de los Derechos Humanos como en el Pacto internacional de los Derechos Civiles y Políticos. Basándose en estos tratados internacionales, para que una sociedad sea efectivamente democrática son requisitos fundamentales una amplia participación de la ciudadanía y que la participación sea representativa, es decir, que no tenga sesgos socioeconómicos, raciales, de género, o de cualquier otra razón. Actualmente podemos decir que múltiples democracias poseen conflictos respecto a estas dos condiciones. En primer lugar, existe una tendencia a la disminución en la participación politica [@tezanos-pintoParticipacionPoliticaDescontento2015; @herrmannDisminucionParticipacionPoblacion2016;@diazDimensionesTendenciasParticipacion2017; @janmaatCivicCompetences2013; @contrerasDIFERENCIASGENERACIONALESPARTICIPACION2013; @galstonCivicKnowledgeCivic2007]. En segundo lugar, la participación politica es desigual, perjudicando la representación de la voz politica de sectores más pobres, de grupos racializados, de las mujeres y de los más jóvenes [@verbaWouldDreamPolitical2003; @lijphartUnequalParticipationDemocracy1997; @desposatoGenderGapLatin2009;@coffeExplainingGenderDifferences2020; @hutchingsCENTRALITYRACEAMERICAN2004]. Más aun, estas desigualdades políticas se transmiten de manera intergeneracional [@bradyPoliticalMobilityPolitical2015]. En el caso Chileno, tanto el Centro de Estudio de Conflicto y Cohesión Social (COES) como el Programa de las Naciones Unidas para el Desarrollo (PNUD) han señalado que existe una gran desigualdad en la participación politica, la cual sobrerrepresenta los grupos acomodados del país favoreciendo la reproducción de la desigualdad [@joignantDesigualdadesVozPolitica2017; @paletDesigualesOrigenesCambios2017].
 
 Con el objetivo de fomentar valores democráticos en los ciudadanos y afrontar los desafíos de las democracias, cada vez más países, entre ellos chile, han incorporado en sus planes de estudio un mayor espacio para temáticas ciudadanas [@keerCiudadaniaNivelNacional2015]. La escuela es un lugar estratégico para fomentar valores, principios y conductas democráticas, pues en ella se realiza un proceso de socialización donde los estudiantes incorporan normas sociales necesarias para la vida en su comunidad [@durkheimEducacionSociologia2010]. En torno a la socialización ciudadana de los jóvenes en las escuelas existen más de cuarenta años acumulados de investigaciones desde las ciencias sociales [@torneyCrossnationalPoliticalSocialization1979]. Estas investigaciones han evidenciado reiteradamente que los estudiantes de distintos grupos socioeconómicos poseen distintas actitudes e intenciones de participación, lo cual es un obstáculo para la realización de la democracia [@informeiccs2011;@castilloSocialInequalityChanges2014;@mirandaDesigualdadCiudadaniaAproximacion2018;@ferransCivicCompetenceGaps2017;@trevinoInfluenceTeachersSchools2017].
 
@@ -130,11 +132,11 @@ Actualmente las habilidades para la vida politica son un constructo muy estudiad
 
 Dentro de los estudios de las habilidades políticas, enmarcados en los estudios de socialización escolar, nace la propuesta de medir dichas habilidades a partir de una prueba estandarizada. Esta, es la prueba de conocimiento y habilidades para la vida cívica y ciudadana, presente en el estudio internacional ICCS. Esta prueba, considera dos dimensiones en las habilidades ciudadanas, el Dominio de contenido, es decir el conocimiento factico de los principios del sistema democrático, y el Dominio cognitivo, comprendido como el conjunto de habilidades necesarias para la vida ciudadana, como la comprensión, el análisis y la evaluación [@schulzEstudioInternacionalSobre2011]. Los conocimientos evaluados en esta prueba pueden apreciarse en la siguiente tabla.
 
-![Tabla de contenidos](../input/images/Contenidos.png) 
+![Fuente: Mineduc (2016)](../input/images/Contenidos.png) 
 
 Cabe destacar, que esta prueba de conocimiento cívico ya ha pasado por tres olas internacionales, a partir de las cuales se ha refinado las características psicométricas de la medición. Esta prueba consta tanto de preguntas de selección múltiple como preguntas abiertas, a continuación, se presenta un ejemplo de pregunta en la cual se miden dominios cognitivos de razonamiento y análisis. Al respecto es importante destacar como esta pregunta requiere tanto de conocimientos políticos, como de habilidades propias del lenguaje como es la interpretación. Al respecto, @schulzEstudioInternacionalSobre2011, señalan que las preguntas de razonamiento y análisis requieren del uso del lenguaje para interpretar información, relatar, justificar, integrar, generalizar, evaluar, sugerir soluciones o predecir.
 
-![Ejemplo de pregunta](../input/anexos/Pregunta-liberada1.png) 
+![Fuente: Mineduc (2016)](../input/anexos/Pregunta-liberada1.png) 
 
 En torno a la evidencia levantada sobre el conocimiento cívico de estudiantes medido desde la propuesta de la ICCS, se han señalado fundamentalmente dos conclusiones: primero, el conocimiento cívico posee efectos positivos en valores y conductas democráticas, y segundo, el conocimiento cívico está influido por factores contextuales como la desigualdad social y la socialización escolar. 
 
@@ -156,7 +158,16 @@ Al respecto, el sociólogo contemporáneo de la línea de la reproducción cultu
 Un indicador útil para medir la capacidad de los estudiantes de entender distintos discursos y ser capases de comprender ideas abstractas, así como analizarlas, interpretarlas y evaluarlas, es la comprensión lectora. La comprensión lectora implica la medición de la capacidad del estudiante, no solo de decodificar el texto, sino de comprender y analizar la relación entre las distintas partes de los textos, para posteriormente realizar ejercicios mentales más complejos como los son la síntesis, la interpretación la evaluación [@agenciadelacalidaddelaeducacionInformeTecnicoSimce2018].Para trabajar con esta variable se utilizará la prueba SIMCE, la cual, justamente busca medir los logros de aprendizaje de los estudiantes chilenos.
 
 Según Barahona (2014) existe un consenso en que los factores asociados al desempeño académico  en lenguaje pueden tener su origen en dos grandes ámbitos: en los determinantes personales y en los determinantes sociales. Así, una de las variables fundamentales para explicar el rendimiento en lenguaje es el nivel socioeconómico (Coleman, otros. ). No obstante, no todo es reproducción social, pues como plantean Lara, Mizala y Repetto, 2010, las practicas docentes pueden tener un efecto positivo, por ejemplo, discutir la materia en clases es positivo para el rendimiento en comprensión lectora. Además de la participación en clases, el interés sobre la materia es un factor fundamental para su aprendizaje (Méndez, 2015; Carrillo, Padilla, Rosero y Villagómez, 2009; Lozano, García-Cueto y Gallo, 2000; Mateos, Bejarano, Ezquerro y López-Fernández, s.f.). 
+
 En suma, el manejo del lenguaje es una habilidad que permite la reflexión, la cual es fundamental para actividades que requieren de abstracción como lo es la académica y la politica. Este manejo, es adecuadamente medido por la prueba de comprensión lectora que evalúa habilidades como la comprensión, el análisis y la interpretación. Según la evidencia, el manejo del lenguaje es influido por variables socioeconómicas, por variables individuales; como el interés en la materia y por características de la escuela; como una educación participativa. 
+
+
+Retomando nuestra hipótesis y robusteciéndola con las definiciones planteadas, podemos decir que el manejo del lenguaje, como herramienta del razonamiento, posee una influencia positiva en las habilidades políticas necesarias para la vida ciudadana, entre las cuales destacan la comprensión, la interpretación y la evaluación. Igualmente podemos decir que ambos conceptos son bien medidos por la prueba de conocimiento cívico y ciudadano, así como por las pruebas de lectura. Antes de entrar en el trabajo de datos de esta investigación (que será con las bases ICCS y Simce), se presenta una evidencia preliminar. A continuación, se puede observar un gráfico que expone la relación a nivel internacional, entre los promedios de los estudiantes por país de las pruebas de comprensión lectora de la prueba pisa y el conocimiento cívico de la ICCS. 
+
+![Fuente: Elaboración propia](../input/images/pizaiccs.png)
+
+Como puede apreciarse, a nivel internacional, existe una estrecha relación entre ambas variables. Según esta relación, países con mayores niveles de comprensión lectora poseen igualmente mayores niveles de conocimiento cívico y ciudadano. Como se expone en la imagen, existe una relación de alta intensidad entre ambas variables (r = .95).  No obstante, no hay que dejarse engañar por esta relación por dos razones. En primer lugar, esta relación no está controlada por ninguna variable. En segundo lugar, esta relación a nivel países, no nos permite afirmar que exista una relación entre comprensión lectora y conocimiento cívico a nivel individual o a nivel escuela. En consideracion de estas limitaciones, presentamos a continuación la propuesta metodológica para evaluar de un modo más certero esta hipótesis.
+
 
 
 # Método
@@ -236,51 +247,50 @@ En términos de interacciones entre niveles, evaluaremos la capacidad de la comp
 
 ### Software
 
-El software de análisis estadístico utilizado fue R (version 4.02) y la plataforma de edición Github. Para los análisis multinivel recurrimos al paquete lme4, en su versión 1.1-23 [@batesPackageLme42020). 
+El software de análisis estadístico utilizado fue R (version 4.02) y la plataforma de edición Github. Para los análisis multinivel recurrimos al paquete lme4, en su versión 1.1-23 [@batesPackageLme42020]. 
 
-
-
-      
-    - Formula: efectos controles, 
-    
-    - Definir todos los resultados, tratamientos, factores de confusión, moderadores y mediadores
-    
-- Sofware, paquetes y herramientas. citar.
-
-  
+Además, siguiendo los lineamientos de la ciencia abierta, este trabajo está en un repositorio para facilitar tanto su acceso como su reproductibilidad. El lector de este seminario esta cordialmente invitado a visitar la [página web del proyecto]() en la que se puede revisar tanto el articulo como los análisis. Igualmente, si el lector desea reproducir los análisis para verificar su veracidad, puede descartar el proyecto  [desde el repositorio de Github]().Para facilitar la comprension del orden de los archivos, estos se han ordenado segun el esquema IPO ()
 
  
 # Resultados.
 
 
-##  Resultados del Modelo y analisis de interacciones. 
+##  Resultados del analisis multinivel: efectos e interaccion.
 
 En la tabla consecutiva se presentan 4 modelos multinivel los cuales son todos significativamente mejores que el anterior. El primer modelo incluye las variables de reproducción social, el segundo, incluye una variable de la escuela, el tercero agrega el interés político social del estudiante. El cuarto incluye la variable puntaje en la prueba simce de lenguaje, y el quinto expone la aleatorización de la pendiente y la interacción  de una variable nivel dos: el promedio del nivel socioeconómico.
 
 
-![Regresiones multinivel](../input/images/tabla_regmultinivel.png)
+![Regresiones multinivel](../input/images/regmultinivel.png)
 
 
 
 El primer modelo incluye aquellas variables que representan la reproducción social de la desigualdad política, y como puede verse, todas estas variables poseen un efecto significativo que implica cambios de puntajes que van aproximadamente 10 a 40 puntos. Así, poseer más de 100 libros en la casa, aumenta 14 puntos el conocimiento cívico, por su parte la variable ocupación posee un efecto considerable, en un rango de más de 80 valores, por cada unidad que aumenta el índice de estatus ocupacional el estudiante aumentó 0.6 puntos en la prueba de conocimiento cívico, así por ejemplo poseer 50 pts. más de estatus ocupacional implica aumentar 30 pts. en la prueba de conocimiento cívico. Respecto al efecto de la educación de los padres, este es ambivalente, puesto que si bien es respaldado por la literatura, en vista de los controles aplicados parece solo tener un efecto significativo con un 90% de confianza, criterio demasiado laxo para una muestra de más de 3000 casos. En último lugar, considerando la variable de segundo nivel, promedio del nivel socioeconómico de los padres del colegio, podemos decir que existe un gran peso del contexto socioeconómico del colegio.
+
 El segundo modelo incorpora una variable del contexto educativo, esta variable da cuenta de que tan de acuerdo están los estudiantes en general con que la participación en la escuela y la comunidad son beneficiosos para la comunidad. Como puede verse, por cada punto que aumenta este promedio mejora en 2 puntos el conocimiento cívico, lo cual reafirma la hipótesis de que un contexto de participación es útil para mejorar el conocimiento cívico de los estudiantes. Cabe destacar que el incorporar esta variable no logra controlar las variables de origen familiar, lo que nos da cuenta que las ventajas sociales del conocimiento cívico no pasan por estar en colegios con mejores climas democráticos.
 
-El Tercer modelo incorpora la variable interés político del estudiante. Como plantea la teoría, un estudiante que posee intereses sobre una materia posee una ventaja respecto a la misma, premisa que es comprobada en este caso. El que un estudiante posea interés en la política y los asuntos sociales se asocia con tener 19 puntos más en la prueba de conocimiento cívico. Resulta interesante que el efecto de poseer padres interesados por la política, es completamente controlado por el efecto de que el estudiante tenga interés, lo que nos da cuenta de que el efecto de los padres pasa a través de los hijos. Este control nos permite decir que el efecto del nivel socioeconómico y las ventajas en términos de capital cultural no se explican completa, ni medianamente por qué las personas de mayores recursos tengan más intereses en la política, lo cual nos permite desde ya poner en duda las explicaciones que aluden a que el conocimiento cívico es transmitido como valores e intereses de generacion en generacion. Siendo más específicos, el efecto que más es controlados es el de tener libros en la casa. Al parecer, el tener libros en la casa se relaciona con estudiantes interesados en la política, que obtuvieron mejores puntajes en esta prueba.
+El Tercer modelo incorpora la variable interés político del estudiante. Como plantea la teoría, un estudiante que posee intereses sobre una materia posee una ventaja respecto a la misma, premisa que es comprobada en este caso. El que un estudiante posea interés en la política y los asuntos sociales se asocia con tener 19 puntos más en la prueba de conocimiento cívico. Resulta interesante que el efecto de poseer padres interesados por la política, es completamente controlado por el efecto de que el estudiante tenga interés, lo que nos da cuenta de que el efecto de los padres pasa a través de los hijos. Este control nos permite decir que el efecto del nivel socioeconómico y las ventajas en términos de capital cultural no se explican completa, ni medianamente por qué las personas de mayores recursos tengan más intereses en la política, lo cual nos permite desde ya poner en duda las explicaciones que aluden a que el conocimiento cívico es transmitido como valores e intereses de generacion en generacion. Siendo más específicos, el efecto que más es controlados es el de tener libros en el hogar. Al parecer, el tener libros en la casa se relaciona con estudiantes interesados en la política, que obtuvieron mejores puntajes en esta prueba.
 
 El cuarto modelo modelo es el modelo fundamental de este trabajo. En este modelo las demás variables son controladas por el efecto de la comprensión lectora medida en la prueba simce de lenguaje. Como puede verse cada punto que aumenta alguien en la prueba simce de lenguaje, aumenta 1 punto en la prueba de conocimiento cívico, lo cual es una relación bastante estrecha considerando los rangos de ambas pruebas. Lo más interesante de incorporar esta variable es lo que ocurre con las demás. Como puede verse el efecto de que existan más de 100 libros en el hogar, prácticamente desaparece, pasando de un efecto de 13 a 6 puntos, y perdiendo la significación al 99%. Por su parte, respecto a la variable de estatus ocupacional de los padres y al nivel socioeconómico promedio del colegio, es bastante sugerente el hecho de que ambos efectos disminuyen casi a la mitad. En vista de estos controles, podemos decir que el efecto de que los padres posean libros en la casa es realmente producido por la influencia que eso ejerce en la comprensión lectora de los estudiantes. Igualmente, podemos decir que casi la mitad del efecto del nivel socioeconómico de los padres en el conocimiento cívico se debe a la influencia de estas posiciones en el buen manejo del lenguaje.
+
 El quinto modelo es un poco más complejo. Primero incorpora la aleatorización de la pendiente del efecto de la comprensión lectora sobre el conocimiento cívico, permitiendo que esta varíe según contextos. Luego, intentamos explicar dicha variación de la pendiente en función del nivel socioeconómico del colegio, para ver si el efecto del lenguaje sobre el conocimiento cívico difiere en contextos socioeconómicos distintos. Como puede verse en la tabla, el efecto es significativo, y mientras mayor es el nivel socioeconómico menos importante es la comprensión lectora, como puede verse en el gráfico
 
-![La moderación de la desigualdad por el lenguaje, centrado](../output/images/G2.png)
+![La moderación de la desigualdad por el lenguaje, centrado](../input/images/interaction.png)
 
 Como puede verse en el gráfico, la pendiente de la relación es muy distinta si se posee un alto o un bajo nivel socioeconómico promedio de la escuela. En escuelas con un bajo nivel socioeconómico (línea roja), la pendiente es mucho más pronunciada y el intercepto es mucho menor. Dicho de otra manera, en las escuelas con un nse promedio bajo, la comprensión lectora es más determinante respecto al conocimiento cívico, así, quienes no poseen una buena comprensión lectora siendo establecimientos vulnerables, alcanzan 300 puntos en a la prueba de conocimiento cívico, mientras que quienes están en una escuela con padres de alto estatus y poseen una pésima comprensión lectora, alcanzan 450 puntos en dicha prueba. Esto, nos permite afirmar que en contextos vulnerables es aún más importante promover el manejo del lenguaje. 
 
 Observando el gráfico anterior, llama la atención que en puntajes muy altos de comprensión lectora, no importa el contexto económico del colegio del estudiante. Este punto del gráfico incita a pensar que si estudiantes de contextos vulnerables alcanzan una buena comprensión lectora podrán desarrollar de buena manera las habilidades y conocimientos que son necesarios para la vida ciudadana. Para evaluar esta posibilidad, invertimos el orden del gráfico, evaluando en qué medida un buen puntaje en el lenguaje puede moderar la relación entre estar en un contexto escolar vulnerable y tener un deficiente conocimiento cívico. En el gráfico 2 se evalúa dicha interacción. 
 
+En este gráfico podemos evaluar como el efecto del nivel socioeconómico de la escuela es moderado de manera casi perfecta por la comprensión lectora. Como puede verse, si un estudiante posee un excelente puntaje en la prueba de comprension lectora simce, independiente del nivel socioeconómico de su escuela, tendrá un muy alto puntaje en conocimiento cívico. Hasta este punto, cabe la duda de si todo este efecto de la comprensión lectora es efectivamente propio, o es más bien un reflejo de algún efecto del colegio. Para evaluar que esto no esté ocurriendo, replicamos el último modelo centrando la variable comprensión lectora por el promedio de cada grupo, con el objetivo de despejar aquella varianza que corresponde al nivel escuela. Los resultados se exponen en la tabla número 2.
+
+
+##  Resultados de la mediación multinivel: efectos e interaccion.
+
+
+
+
 ![](../output/tables/Mediacion_multinivel.png)
 
 
-En este gráfico podemos evaluar como el efecto del nivel socioeconómico de la escuela es moderado de manera casi perfecta por la comprensión lectora. Como puede verse, si un estudiante posee un excelente puntaje en la prueba de comprension lectora simce, independiente del nivel socioeconómico de su escuela, tendrá un muy alto puntaje en conocimiento cívico.
-Hasta este punto, cabe la duda de si todo este efecto de la comprensión lectora es efectivamente propio, o es más bien un reflejo de algún efecto del colegio. Para evaluar que esto no esté ocurriendo, replicamos el último modelo centrando la variable comprensión lectora por el promedio de cada grupo, con el objetivo de despejar aquella varianza que corresponde al nivel escuela. Los resultados se exponen en la tabla número 2.
 
 ![Mediacion Multinivel](../input/images/diagrama.png)
 
@@ -293,7 +303,7 @@ En segundo lugar, en función de los resultados, podemos decir que aquellas teor
 
 En tercer lugar, gracias a la evidencia, podemos señalar que la comprensión lectora puede ser una forma de mejorar el conocimiento Cívico en sectores vulnerables, puesto que estudiantes de dichos sectores que si poseen un buen manejo del lenguaje poseen igualmente altas capacidades y conocimientos para la vida ciudadana. En función de lo anterior, se hace necesario estudiar experimentalmente el efecto que podría tener un reforzamiento en lenguaje para la prueba de la ICCS.
 
-#  Discusión: las implicancias de la evidencia
+#  Discusión
 
 Dados los resultados, y el rol prominente de la comprensión lectora en el conocimiento Cívico, se hace necesario revisar algunas propuestas que intentan explicar el conocimiento Cívico, puesto que pueden caer en resultados espurios al no considerar una variable relevante dentro de sus modelos. 
 
@@ -302,39 +312,5 @@ Igualmente, se hace necesario profundizar hasta qué punto la comprensión lecto
 Respecto a cuáles son los caminos que deben tomarse para mejorar la desigualdad en el conocimiento cívico y en la participación ciudadana, resulta evidente después de los resultados, que además de reforzar la educación cívica en los colegios como ya se está haciendo (y debe seguirse haciendo, debe fomentarse la comprensión lectora). Incluso podemos decir que cuando se posee altos niveles de comprensión lectora, las diferencias de estatus socioeconómico no afectan de manera sustancial, existiendo estudiantes de colegios con bajo nivel económico que poseen una buena comprensión lectora y cívica. Al respecto, tipos de clases que impliquen lectura colectiva y discusión sobre lo leído, para entender en conjunto el sentido de los textos, puede ser una muy buena estrategia, puesto que está demostrado que los profesores que realizan dichas actividades mejoran el puntaje en lenguaje de sus estudiantes (Lorena Ortega) así como que aulas más participativas poseen un efecto para el conocimiento cívico. Es en dichos espacios de participación donde puede sacarse el provecho al capital cultural de cada estudiante y fomentar el efecto par.
 
 En relación al nuevo plan de formación ciudadana, y considerando estos resultados es sensato esperar un efecto diferencial de la política en cada establecimiento según el nivel de comprensión lectora del colegio, lo cual está relacionado con el nivel socioeconómico. Quizás sea prudente en miras del objetivo de la política, prestar ayuda especializada a colegios que posean bajos niveles de comprensión lectora. También, dentro de los colegios prestar apoyo a los estudiantes con dificultades al respecto también puede ser una buena medida a aplicar en cursos anteriores al último ciclo de tercero cuarto, donde deberán aplicar dichas habilidades en la reflexión ciudadana y en la incorporación de conocimientos cívicos.
-
-
-En tercer lugar, plantear que el conocimiento cívico está relacionado con la comprensión lectora, levanta dudas sobre la validez del instrumento y su capacidad de comparar países y distintos grupos socioeconómicos. incorporar que hay estudiantes que sin conocimiento básico logran responder preguntas de evaluación (10.1386/ctl.11.1.9_1).
- 
-los estudiantes responden sin tener conocimiento básico llegan a altos puntajes por lenguaje (10.1080/00933104.2012.649467)
-
- Este punto, pone en tela de juicio la validez del instrumento, en tanto las diferencias en comprensión lectora podrían estar inflando las diferencias sociales en el conocimiento cívico.
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- ---------------- 
- 
- 
-   Tabla de puntajes y cortes. http://archivos.agenciaeducacion.cl/Estudio_Marco_Evaluacion_ICCS.pdf 
-            * Buscar tabla: Niveles de desempeño en ICCS
-            * Buscar tabla: Preguntas ICCS 2009 por dominios de contenido y dominios cognitivos
-            * buscar tems liberados del módulo general 1.
-  
- 
- http://archivos.agenciaeducacion.cl/Plan_nacional_evaluaciones.pdf
- 
- 
- 
- ------------------
- 
- 
 
 

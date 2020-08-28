@@ -1,10 +1,11 @@
 ---
-title: "tesis"
+title: "Analisis multinivel"
 author: "francisco meneses"
 date: "24-10-2019"
 output: 
   html_document:
     css: custom.css
+    theme: united
 ---
 
 ```{r setup, include=FALSE}
@@ -143,6 +144,11 @@ results_7 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_es
 
 
 int1<-plot_model(results_5, type = "int")
+
+sjPlot::plot_model(results_5, type = c("int"),                                                                title = "¿Como disminuir la desigualdad en el conocimiento cívico?",  
+                                                                    mdrt.values = "meansd") +  scale_color_discrete("Puntaje de conocimiento cívico", labels = c("- 1 DS", "Media", "+ 1 DS")) + theme(legend.position = "bottom")
+
+
 #int2<-plot_model(results_6, type = "int")
 intcentrada<-plot_model(results_7, type = "int")
 
@@ -167,7 +173,7 @@ screenreg(results_2)
 ```
 
 ```{r}
-results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante +  ip_padres + Educacion + p.leng + m_nse + m_ip_padres + (1 + p.leng| idschool), data = data, REML=F) 
+results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_estudiante + ip_padres + Educacion + p.leng + m_nse + (1 + p.leng| idschool), data = data, REML=F) 
 screenreg(results_3)
 
 
@@ -183,7 +189,7 @@ anova(results_2,results_3)
 
 
 ```{r}
-results_6 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_padres + ip_estudiante + Educacion + p.leng*m_nse + m_ip_padres + m_ip_estudiante + (1 + p.leng| idschool), data = data, REML=F) 
+results_6 = lmer(p.civ ~ 1 + Libros +  Ocupacion + ip_padres + ip_estudiante + Educacion + p.leng*m_nse +  (1 + p.leng| idschool), data = data, REML=F) 
 
 results_6
 
@@ -506,3 +512,50 @@ htmlreg(list(libros_lenguaje_nse_c,libros_civica_nse_c, libros_civica_nse_leng_c
 
 screenreg(list(libros_lenguaje_nse_c, libros_civica_nse_c,libros_civica_nse_leng_c))
 ```
+
+
+
+
+```{r results='asis'}
+results_1 = lmer(p.civ ~ 1 + Libros  + Ocupacion + Educacion + ip_padres + m_nse +  (1 | idschool), data = data, REML=F)
+
+results_2 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion  +  ip_padres  + m_nse  +  m_cult_part  + (1 | idschool), data = data, REML=F)
+
+results_3 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion  +  ip_padres + m_cult_part   + m_nse  + ip_estudiante +  (1 | idschool), data = data, REML=F)
+
+
+
+results_4 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion +  +  ip_padres  + m_nse + ip_estudiante  +  m_cult_part   + p.leng + (1 + p.leng | idschool), data = data, REML=F)
+
+results_5 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  +  m_cult_part  + m_nse*p.leng + (1 + p.leng| idschool), data = data, REML=F) 
+
+htmlreg(list(results_1, results_2,results_3, results_4, results_5), 
+        custom.coef.names = c("Intercepto", "Más de 100 libros en el hogar", "Estatus ocupacional de los padres", "Padres con educación universitaria o más", 
+                              "Interes político de los padres", "Media NSE de la escuela (M.NSE)","Cultura participativa de la escuela", "Interes político del estudiante", "Comprensión lectora (C.Lec)", "Interacción: C.Lec*M.NSE"), 
+        caption.above = T, 
+        star.symbol = "\\*", 
+        center = T, 
+        caption = "Análisis Multinivel",
+        custom.header = list("Modelos para explicar nivel de Conocimiento Civico" = 1:5),
+        custom.note = "$***p <$ 0.001, $**p <$ 0.01, $*p <$ 0.05; Las variables Libros, Educación e Interes político son dicotómicas",
+        custom.model.names = c("Modelo 1", "Modelo 2", "Modelo 3", "Modelo 4", "Modelo 5")) 
+        
+
+       
+```
+
+
+
+```{r}
+sjPlot::plot_model(results_5, type = c("int"),                                                                title = "¿Como disminuir la desigualdad en el conocimiento cívico?", axis.title = c("Nivel socioeconómico promedio de la escuela","Conocimiento cívico") ) +  scale_color_discrete("Comprension lectora", labels = c("Baja", "Alta")) 
+
+```
+
+
+
+
+
+
+
+
+
