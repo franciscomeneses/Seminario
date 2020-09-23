@@ -3,11 +3,11 @@ output_dir: "." # Esto es para que se compile en el rootdir
 navbar:
   title: "Seminario de grado, Francisco Meneses"
   right:
-    - text: "Analisis Multinivel"
+    - text: "Análisis Multinivel"
       href: "prod_analisis.html"
     - text: "Descargar Seminario"
       href: "Seminario_FranciscoMeneses.pdf"
-    - text: "Articulo en linea"
+    - text: "Artículo en línea"
       href: "paper.html"
     - text: "Presentación"
       href: "../Presentacion.html"

@@ -279,13 +279,13 @@ $(document).ready(function () {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="prod_analisis.html">Analisis Multinivel</a>
+  <a href="prod_analisis.html">Análisis Multinivel</a>
 </li>
 <li>
   <a href="Seminario_FranciscoMeneses.pdf">Descargar Seminario</a>
 </li>
 <li>
-  <a href="paper.html">Articulo en linea</a>
+  <a href="paper.html">Artículo en línea</a>
 </li>
 <li>
   <a href="../Presentacion.html">Presentación</a>
@@ -328,8 +328,13 @@ $(document).ready(function () {
 <pre class="r"><code>load(file = &quot;../input/data/proc/data.RData&quot;)</code></pre>
 <pre class="r"><code>library(ggplot2)
 library(ggplot2)
-library(hrbrthemes)
-#install.packages(&quot;hrbrthemes&quot;)
+library(hrbrthemes)</code></pre>
+<pre><code>## Warning: package &#39;hrbrthemes&#39; was built under R version 4.0.2</code></pre>
+<pre><code>## Registering Windows fonts with R</code></pre>
+<pre><code>## NOTE: Either Arial Narrow or Roboto Condensed fonts are required to use these themes.</code></pre>
+<pre><code>##       Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed and</code></pre>
+<pre><code>##       if Arial Narrow is not on your system, please see https://bit.ly/arialnarrow</code></pre>
+<pre class="r"><code>#install.packages(&quot;hrbrthemes&quot;)
 data$alto_nse&lt;-as.character(ifelse(data$nse&gt;=0,1,0))
 
 
@@ -448,8 +453,8 @@ results_4 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion +  +  ip_padres  + 
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
 ## control$checkConv, : unable to evaluate scaled gradient</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge: degenerate Hessian with
-## 1 negative eigenvalues</code></pre>
+## control$checkConv, : Model failed to converge: degenerate Hessian with 1
+## negative eigenvalues</code></pre>
 <pre class="r"><code>save(results_1, file = &quot;../output/images/results_1.Rdata&quot;)
 save(results_2, file = &quot;../output/images/results_2.Rdata&quot;)
 save(results_3, file = &quot;../output/images/results_3.Rdata&quot;)
@@ -469,8 +474,8 @@ load(file = &quot;../output/images/reghtml.Rdata&quot;)</code></pre>
 inta</code></pre>
 <p><img src="prod_analisis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <pre class="r"><code>results_7 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + m_nse*p.leng + (1 + p.leng| idschool), data = data, REML=F)</code></pre>
-<pre><code>## Warning: Some predictor variables are on very different scales:
-## consider rescaling</code></pre>
+<pre><code>## Warning: Some predictor variables are on very different scales: consider
+## rescaling</code></pre>
 <pre><code>## boundary (singular) fit: see ?isSingular</code></pre>
 <pre class="r"><code>results_8 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + m_nse*p.leng_centrado + (1 + p.leng_centrado| idschool), data = data, REML=F)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
@@ -527,8 +532,8 @@ save(results_8, file = &quot;../output/images/results_8.Rdata&quot;)</code></pre
 int2</code></pre>
 <p><img src="prod_analisis_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <pre class="r"><code>results_7 = lmer(p.civ ~ 1 + Libros +  Ocupacion + Educacion + ip_padres + ip_estudiante  + m_ip_padres + m_nse + Ocupacion*p.leng_centrado + (1 + p.leng_centrado| idschool), data = data, REML=F) </code></pre>
-<pre><code>## Warning: Some predictor variables are on very different scales:
-## consider rescaling</code></pre>
+<pre><code>## Warning: Some predictor variables are on very different scales: consider
+## rescaling</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
 ## control$checkConv, : Model failed to converge with max|grad| = 1.54494
 ## (tol = 0.002, component 1)</code></pre>
@@ -644,8 +649,8 @@ screenreg(results_2)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
 ## control$checkConv, : unable to evaluate scaled gradient</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge: degenerate Hessian with
-## 1 negative eigenvalues</code></pre>
+## control$checkConv, : Model failed to converge: degenerate Hessian with 1
+## negative eigenvalues</code></pre>
 <pre class="r"><code>results_6</code></pre>
 <pre><code>## Linear mixed model fit by maximum likelihood  [&#39;lmerMod&#39;]
 ## Formula: p.civ ~ 1 + Libros + Ocupacion + ip_padres + ip_estudiante +  
@@ -750,8 +755,9 @@ screenreg(list(results_1,results_12, results_2,results_3, results_6), type=&quot
 plot_model(results_6, type = &quot;int&quot;)</code></pre>
 <p><img src="prod_analisis_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>correlacion entre interes de de los padres y cualidades democraticas del colegio.</p>
-<pre class="r"><code>library(corrplot)
-basecor&lt;-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ, p.leng, nse)</code></pre>
+<pre class="r"><code>library(corrplot)</code></pre>
+<pre><code>## corrplot 0.84 loaded</code></pre>
+<pre class="r"><code>basecor&lt;-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ, p.leng, nse)</code></pre>
 <pre><code>## Adding missing grouping variables: `idschool`</code></pre>
 <pre class="r"><code>cor &lt;- cor(basecor)
 Correlaciones  &lt;-corrplot.mixed(cor)</code></pre>
@@ -1054,14 +1060,14 @@ hist(data$nse_c.pr)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
 ## control$checkConv, : unable to evaluate scaled gradient</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge: degenerate Hessian with
-## 1 negative eigenvalues</code></pre>
+## control$checkConv, : Model failed to converge: degenerate Hessian with 1
+## negative eigenvalues</code></pre>
 <pre class="r"><code>civica_nse_m = lmer(m_p.civ ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in optwrap(optimizer, devfun, getStart(start, rho$pp), lower =
 ## rho$lower, : convergence code -4 from nloptwrap</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge with max|grad| =
-## 0.0446721 (tol = 0.002, component 1)</code></pre>
+## control$checkConv, : Model failed to converge with max|grad| = 0.0446721
+## (tol = 0.002, component 1)</code></pre>
 <pre class="r"><code>civica_nse_leng_m = lmer(m_p.civ ~ 1 + m_nse + m_p.leng  + (1 | idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
 ## control$checkConv, : Model failed to converge with max|grad| = 0.60044
@@ -1138,8 +1144,8 @@ hist(data$m_nse.pr)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
 ## control$checkConv, : unable to evaluate scaled gradient</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge: degenerate Hessian with
-## 1 negative eigenvalues</code></pre>
+## control$checkConv, : Model failed to converge: degenerate Hessian with 1
+## negative eigenvalues</code></pre>
 <pre class="r"><code>int_nse = lmer(m_ip_estudiante.pr ~ 1 +  m_nse.pr  + (1 | idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in optwrap(optimizer, devfun, getStart(start, rho$pp), lower =
 ## rho$lower, : convergence code -4 from nloptwrap</code></pre>
@@ -1158,8 +1164,8 @@ hist(data$m_nse.pr)</code></pre>
 <pre><code>## Warning in optwrap(optimizer, devfun, getStart(start, rho$pp), lower =
 ## rho$lower, : convergence code -4 from nloptwrap</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge with max|grad| =
-## 0.0306717 (tol = 0.002, component 1)</code></pre>
+## control$checkConv, : Model failed to converge with max|grad| = 0.0306717
+## (tol = 0.002, component 1)</code></pre>
 <pre class="r"><code>civica_nse_intleng_m = lmer(m_p.civ.pr ~ 1 + m_nse.pr + m_ip_estudiante.pr + m_p.leng.pr + (1 | idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
 ## control$checkConv, : Model failed to converge with max|grad| = 1.09983
@@ -1206,14 +1212,14 @@ hist(data$m_nse.pr)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
 ## control$checkConv, : unable to evaluate scaled gradient</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge: degenerate Hessian with
-## 1 negative eigenvalues</code></pre>
+## control$checkConv, : Model failed to converge: degenerate Hessian with 1
+## negative eigenvalues</code></pre>
 <pre class="r"><code>civica_nse_m = lmer(m_p.civ ~ 1 +  m_nse  + (1 | idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in optwrap(optimizer, devfun, getStart(start, rho$pp), lower =
 ## rho$lower, : convergence code -4 from nloptwrap</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
-## control$checkConv, : Model failed to converge with max|grad| =
-## 0.0446721 (tol = 0.002, component 1)</code></pre>
+## control$checkConv, : Model failed to converge with max|grad| = 0.0446721
+## (tol = 0.002, component 1)</code></pre>
 <pre class="r"><code>civica_nse_leng_m = lmer(m_p.civ ~ 1 + m_nse + m_p.leng  + (1 | idschool), data = data, REML=F) </code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl =
 ## control$checkConv, : Model failed to converge with max|grad| = 0.60044
