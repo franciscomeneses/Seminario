@@ -5,8 +5,12 @@ navbar:
   right:
     - text: "Analisis Multinivel"
       href: "prod_analisis.html"
+    - text: "Descargar Seminario"
+      href: "Seminario_FranciscoMeneses.pdf"
     - text: "Articulo en linea"
       href: "paper.html"
+    - text: "Presentación"
+      href: "../Presentacion.html"
     - text: ""
       icon: fa-github fa-lg
       href: https://github.com/franciscomeneses/Seminario
