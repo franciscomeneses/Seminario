@@ -328,13 +328,8 @@ $(document).ready(function () {
 <pre class="r"><code>load(file = &quot;../input/data/proc/data.RData&quot;)</code></pre>
 <pre class="r"><code>library(ggplot2)
 library(ggplot2)
-library(hrbrthemes)</code></pre>
-<pre><code>## Warning: package &#39;hrbrthemes&#39; was built under R version 4.0.2</code></pre>
-<pre><code>## Registering Windows fonts with R</code></pre>
-<pre><code>## NOTE: Either Arial Narrow or Roboto Condensed fonts are required to use these themes.</code></pre>
-<pre><code>##       Please use hrbrthemes::import_roboto_condensed() to install Roboto Condensed and</code></pre>
-<pre><code>##       if Arial Narrow is not on your system, please see https://bit.ly/arialnarrow</code></pre>
-<pre class="r"><code>#install.packages(&quot;hrbrthemes&quot;)
+library(hrbrthemes)
+#install.packages(&quot;hrbrthemes&quot;)
 data$alto_nse&lt;-as.character(ifelse(data$nse&gt;=0,1,0))
 
 
@@ -755,9 +750,8 @@ screenreg(list(results_1,results_12, results_2,results_3, results_6), type=&quot
 plot_model(results_6, type = &quot;int&quot;)</code></pre>
 <p><img src="prod_analisis_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>correlacion entre interes de de los padres y cualidades democraticas del colegio.</p>
-<pre class="r"><code>library(corrplot)</code></pre>
-<pre><code>## corrplot 0.84 loaded</code></pre>
-<pre class="r"><code>basecor&lt;-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ, p.leng, nse)</code></pre>
+<pre class="r"><code>library(corrplot)
+basecor&lt;-select(data, m_ip_padres, m_cult_part, m_apert_disc, m_esp_part,m_nse, m_p.leng, p.civ, p.leng, nse)</code></pre>
 <pre><code>## Adding missing grouping variables: `idschool`</code></pre>
 <pre class="r"><code>cor &lt;- cor(basecor)
 Correlaciones  &lt;-corrplot.mixed(cor)</code></pre>
