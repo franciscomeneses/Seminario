@@ -84,7 +84,7 @@ Desde la investigación sociológica , se ha evidenciado que los conocimientos c
     - Indicador de socialización en temas politica
     - Indicador de socialización en habilidades del lenguaje
     
-* El lenguaje como explicación a la reproducción cultural(Torney Purta, 2015)
+* El lenguaje como explicación a la reproducción cultural [(Torney Purta, 2015)]()
 
 ### Pregunta de investigación
 
@@ -119,11 +119,10 @@ class: inverse, middle, center, slideInRight
     
     + Cognitivo
  
-* Modelo de recursos (Miranda et al., 2015)[]
+* Modelo de recursos [(Miranda et al., 2015)]()
 
-    + Actitudinal (Gimpel et al., 2003; Wasburn
-and Adkins Covert, 2017)
-    + Cognitiva  (Evans et al., 2015; Brady et al., 2015; Duarte et al., 2017; )[]
+    + Actitudinal [(Gimpel et al., 2003; Wasburn and Adkins, 2017)]()
+    + Cognitiva  [(Evans et al., 2015; Brady et al., 2015; Duarte et al., 2017; )]()
   
 
 ???
@@ -202,10 +201,13 @@ Estudiantes de 8vo
 para trabajar con muestras jerarquizadas de colegios
 
 Explicar que a mas puntaje de iccs denota manejo de habilidades más complejas.
+
 ---
 
 
-.center[![](input/images/pizaiccs.png)]
+
+.under[![](input/images/Pregunta-liberada1.png)]
+
 
 ---
 
@@ -215,8 +217,7 @@ class: inverse, middle, center, slideInRight
 
 ---
 
-.under[![](input/images/Pregunta-liberada1.png)]
-
+.center[![](input/images/pizaiccs.png)]
 
 ???
 
