@@ -31,28 +31,29 @@ rmarkdown::render('xaringan::moon_reader')
 About macros.js: permite escalar las imágenes como [:scale 50%](path to image), hay si que grabar ese archivo js en el directorio.
 .pull-left[<images/Conocimiento cívico.png>] 
 .pull-right[<images/Conocimiento cívico_graf.png>]
-
 layout: true
 class: animated, fadeIn
 --->
 
 # __El lenguaje como brecha de la formación ciudadana:__
-# El rol de la comprensión lectora sobre las habilidades para la ciudadanía y el conocimiento cívico.. 
+# El rol de la comprensión lectora sobre las habilidades para la ciudadanía y el conocimiento cívico 
 <br>
 <hr>
 ### Francisco Meneses Rivas, *Universidad de Chile*
 
-<br>
 
 .small[Fondecyt n°1181239 “Socialización política y experiencia escolar: el rol de la familia y la escuela”]
-.small["Meritocracia en la escuela (EDUMER): Fundamentos morales del mercado educativo y sus implicancias para la formación ciudadana en Chile"]
+.small[Fondecyt n°XXXXXXX "Meritocracia en la escuela (EDUMER): Fundamentos morales del mercado educativo y sus implicancias para la formación ciudadana en Chile"]
+
 ---
+
 class: inverse, middle, center, slideInRight
  
 # Introducción
 
 
 ---
+
 # Democracia en problemas
 
 > Disminución de la participación
@@ -63,50 +64,51 @@ class: inverse, middle, center, slideInRight
 
 
 
+.under[![](input/images/mapadesigualdadpolitica.png)]
+
+
 
 ???
 
 
 ---
 
-# Educación civica y conocimiento civico
+# Educación cívica y conocimiento cívico
 
 .pull-left[
 
 * La apuesta: Plan de formación ciudadana
 
 > "formar a los estudiantes para el ejercicio de una ciudadanía crítica, responsable y respetuosa" ([Mineduc, 2023](https://formacionciudadana.mineduc.cl/))
-
 .center[![:scale 60%](input/images/Ed.civ.png)]
 
 ]
 
 .pull-right[
-
-   * Conocimiento civico: Habilidades y conocimientos para la vida civica y ciudadana (Schulz et al. 2011)
-    
-   * Fomenta actitudes democraticas 
-   
-        + Tolerancia (Caro and Schulz 2012)
-        + Participación (Miranda, Castillo y Sandoval-Hernandez 2015)
-        + 
-]
+  
+   * Conocimiento cívico: Habilidades y conocimientos para la vida cívica y ciudadana [(Schulz et al. 2011)]()
+   * Fomenta actitudes y prácticas democráticas 
+        + Tolerancia [(Caro & Schulz 2012)]()
+        + Participación [(Miranda, Castillo & Sandoval-Hernandez 2015)]()
+        + Valoración de la democracia [(Schulz, 2010)]()
+      ]
 
 
 ???
 
 nace la necesidad de estudiarlo
+
 ---
 
-# ¿Que afecta al conocimiento civico? Teoria de la socialización
+# ¿Qué afecta al conocimiento cívico? Teoría de la socialización
 
 * Prácticas democráticas en la escuela [(Treviño, Béjares, Villalobos & Naranjo, 2016)](https://doi.org/10.1080/00220671.2016.1164114)
 
-  * Apertura a la discución en el aula
+  * Apertura a la discusión en el aula
 
-* Modelo de recursos[(Castillo, Miranda, Bonhomme, Cox & Bascopé 2014)](https://doi.org/10.1177/1746197914520650)
+* Modelo de recursos [(Castillo, Miranda, Bonhomme, Cox & Bascopé, 2014)](https://doi.org/10.1177/1746197914520650)
 
-> ¿Por que la desigualdad social repercute en el conocimiento civico?
+> ¿Por qué la desigualdad social repercute en el conocimiento cívico?
 
 ---
 
@@ -116,29 +118,30 @@ nace la necesidad de estudiarlo
 
 * Destacan el efecto de lo cultural académico educación y libros (Castillo)
 
-* Libros en el hogar y conocimiento cívico  [(Gregory y Miyazaki, 2016)](10.1080/00220671.2016.1255869)
+* Libros en el hogar y conocimiento cívico  [(Gregory & Miyazaki, 2016)](10.1080/00220671.2016.1255869)
     
-    + Puntaje de alfabetización en el hogar
-    + Libros en el hogar y rendimiento académico [(Evans, Kelley, & Sikora, 2014)](10.1093/sf/sou030)
-    + Entornos de alfabetización y comprension lectora [(Park ,2008)](https://doi.org/10.1080/13803610802576734)
+    + Puntaje de alfabetización del hogar
+    + Libros en el hogar y rendimiento académico [(Evans, Kelley & Sikora, 2014)](10.1093/sf/sou030)
+    + Entornos de alfabetización y comprension lectora [(Park, 2008)](https://doi.org/10.1080/13803610802576734)
     
-* Evaluo el efecto del entorno de la alfabetización, pero no de la alfabetización misma (Oportunidad)
+* Evaluó el efecto del entorno de la alfabetización, pero no de la alfabetización misma (Oportunidad)
     
 
 ---
 
 class: inverse, middle, center, slideInRight
  
-# ¿Influyen capaces las habilidades sobre comprensión lectora en el conocimiento civico de los estudiantes?
+# ¿Influyen las habilidades sobre comprensión lectora en el conocimiento cívico de los estudiantes?
 
 
 
 ---
-## Desigualdad social, ciudadanía y Lenguaje
+
+## Desigualdad social, ciudadanía y lenguaje
 
 * Clases sociales y lenguaje [(Bernstein, 1985)](https://doi.org/10.17227/01203916.5117.)
 
-* Desigualdad en las habilidades del lenguaje en Chile [(Espinoza y Rosas, 2019)](https://www.scielo.cl/scielo.php?pid=S0718-97292019000300023&script=sci_arttext)
+* Desigualdad en las habilidades del lenguaje en Chile [(Espinoza & Rosas, 2019)](https://www.scielo.cl/scielo.php?pid=S0718-97292019000300023&script=sci_arttext)
 
 
 
@@ -151,7 +154,7 @@ class: inverse, middle, center, slideInRight
  
 # ¿Puede la comprensión lectora explicar la relación entre nivel socieconómico y conocimiento cívico?
 
-### ¿Y es capas de moderar esta relación?
+### ¿Y es capaz de moderar esta relación?
 
 
 
@@ -159,43 +162,47 @@ class: inverse, middle, center, slideInRight
 
 # Hipótesis
     
-    1. La comprensión lectora se asocia con el c. cívico
+  1. La comprensión lectora se asocia con el c. cívico
+  
+  2. La comprensión lectora media la relación entre NSE y cívico
     
-    2. La comprensión lectora media la relación entre NSE y cívico
-    
-    3. La comprensión lectora modera el efecto entre NSE y cívico
+  3. La comprensión lectora modera el efecto entre NSE y cívico
 
 ---
+
 class: inverse, middle, center, slideInRight
 
 # Metodología
+
 ---
 
-# Metodología.  
+# Metodología  
 
 * Perspectiva cuantitativa 
 
-* base de datos ICCS-SIMCE (Estudiantes: 3140, Escuelas: 152)
+* Base de datos ICCS-SIMCE (Estudiantes: 3140, Escuelas: 152)
 
 * Regresiones multinivel
 
 * Mediaciones e interacciones
 
+* Variables centrales
+
 * Controles
 
     + Sexo
-    + caracteristicas democraticas de la escuela
-    + interes politico de padres y estudiantes
+    + Características democráticas de la escuela
+    + Interés político de padres y estudiantes
 
 ???
 
-para dimensionar cuanto de la relación se explica
+Para dimensionar cuánto de la relación se explica
 
 Estudiantes de 8vo
 
-para trabajar con muestras jerarquizadas de colegios
+Para trabajar con muestras jerarquizadas de colegios
 
-Explicar que a mas puntaje de iccs denota manejo de habilidades más complejas.
+Explicar que a más puntaje de iccs denota manejo de habilidades más complejas.
 
 ---
 
@@ -208,11 +215,11 @@ Explicar que a mas puntaje de iccs denota manejo de habilidades más complejas.
 
 class: inverse, middle, center, slideInRight
 
-# Resultados: Relación, Mediación e Interacción.
+# Resultados: Relación, Mediación e Interacción
 
 ---
 
-# Distribución del conocimiento civico
+# Distribución del conocimiento cívico
 
 .center[![90%](input/images/dist.png)]
 
@@ -226,7 +233,7 @@ class: inverse, middle, center, slideInRight
 
 ---
 
-# Asociación  comprensión lectora conocimiento civico
+# Asociación comprensión lectora conocimiento cívico
 
 .pull-left[
 
@@ -241,7 +248,7 @@ class: inverse, middle, center, slideInRight
 ]
 ---
 
-.center[![90%](input/images/diagrama.png)]
+.center[![80%](input/images/diagrama.png)]
 
 
 ---
@@ -285,7 +292,7 @@ class: inverse, middle, center, slideInRight
 
 ---
 
-# En sintesis 
+# En síntesis 
 
 * Existe desigualdad en el conocimiento cívico
 
@@ -293,29 +300,32 @@ class: inverse, middle, center, slideInRight
 
 * El lenguaje de los estudiantes afecta su capacidad de incorporar el conocimiento cívico
 
-* El lenguaje explica parcialmente la desigualdad del conocimiento civico y es capas de moderarla
+* El lenguaje explica parcialmente la desigualdad en el conocimiento cívico y es capaz de moderarla
 
-* Este modelo es muy adecuado para explicar diferencias individuales.
+* Este modelo es muy adecuado para explicar diferencias individuales
 
 ---
+
 # El eslabón perdido de la reproducción intergeneracional de la desigualdad política: el lenguaje
 
 * Esta investigación ayuda a profundizar la comprensión de la reproducción social de la desigualdad política, como [Brady et al. (2015)]() sugería necesario
 
-* Entrega evidencia a favor de las propuestas de [(Gregory y Miyazaki, 2016)](10.1080/00220671.2016.1255869), pues efectivamente un ambiente con alta alfabetización fomenta habilidades cognitivas que facilitan aprender el conocimiento cívico 
+* Entrega evidencia a favor de las propuestas de [Gregory & Miyazaki (2016)](10.1080/00220671.2016.1255869), pues efectivamente un ambiente con alta alfabetización fomenta habilidades cognitivas que facilitan aprender el conocimiento cívico 
 
 * Permite redimensionar el efecto de la desigualdad, pues, no es tanto el efecto del estatus sino de las habilidades
 
 ---
 
-# Aporte a la política publica
+# Aporte a la política pública
 
 
 * Destaca la importancia de fomentar habilidades básicas para la correcta incorporación del contenido de formación ciudadana 
 
+* ¿Contenido transversal o ramo particular? Lo relevante es practicar la interpretación de situaciones políticas. 
+
 * El riesgo de fomentar la educación cívica en un país con educación desigual 
 
-* Ha sido una buena apuesta el foco en lectura de vuelta de la pandemia
+* Ha sido una buena apuesta el foco en lectura luego de la pandemia
 
 
 ---
@@ -327,12 +337,11 @@ class: inverse, middle, center, slideInRight
 ---
 
 
-
 # Sobre introducción y antecedentes
 
-* lenguaje →política ([(Gregory y Miyazaki, 2016)](10.1080/00220671.2016.1255869))
+* Lenguaje → política [(Gregory & Miyazaki, 2016)](10.1080/00220671.2016.1255869)
 
-* relación libros en el hogar → lenguaje [(Evans, Kelley, & Sikora, 2014)](10.1093/sf/sou030)
+* Relación libros en el hogar → lenguaje [(Evans, Kelley & Sikora, 2014)](10.1093/sf/sou030)
 
 * Argumentación de la mediación
 
@@ -346,18 +355,16 @@ class: inverse, middle, center, slideInRight
 * La casi mediación...
 
 
-* ¿y la interacción?
+* ¿Y la interacción?
 
 
 * Consecuencias de dicotomizar y "el factor de nse"
 
-
-
 ---
 
-# Formato
-
-* Deberé trabajar arduamente en esto y quizás pedir ayuda
+# Conclusiones
 
 
+* Retomar el modelo 
 
+* Destacar las implicancias 
